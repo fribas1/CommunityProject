@@ -5,8 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>TRPR | Login</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-      
+    <meta name="viewport" content="width=device-width, initial-scale=1" />   
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -41,7 +40,8 @@
                 -moz-border-radius: 5px;
                 border-radius: 5px;
                 width: 150px;
-                border: 1.3px solid #848484; 
+                border: 1.3px solid #848484;
+                border-color: deepskyblue;
    
             }
         .footer #button{
@@ -132,7 +132,7 @@ height:100%;
             <asp:Image src="images/trpr.png" Alt="company-logo" ID="logo" runat="server" Height="150px" Width="220px"/><br /><br />
             <asp:TextBox ID="txtUser" placeholder="Username" runat="server" TabIndex="1" CssClass="txtbox"  style="text-align: center" ></asp:TextBox><br /><br />
             <asp:TextBox ID="txtPass" placeholder="Password" runat="server" TextMode="Password" TabIndex="1" CssClass="txtbox"  style="text-align: center"></asp:TextBox><br /><br />
-            <asp:Button ID="btnLogin" CssClass="btn btn-outline-info mb-3"  runat="server" Text="Login" OnClick="btnLogin_Click" style="text-align: center" Height="50px" Width="120px" /> 
+            <asp:Button ID="btnLogin" type="button" CssClass="btn btn-info" runat="server" Text="Login" OnClick="btnLogin_Click" style="text-align: center" Height="50px" Width="120px" /> 
             <br />
             <asp:Label ID="lblMessage" runat="server" CssClass="alert-danger"></asp:Label>
                 <br />
