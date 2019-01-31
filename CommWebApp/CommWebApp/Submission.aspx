@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="CommWebApp.Forms.Login" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Submission.aspx.cs" Inherits="CommWebApp.Submition" %>
 
 <!DOCTYPE html>
 
@@ -22,7 +22,7 @@
             max-width: 100%;
             height: 100%;
             background-size: cover;
-            background-image: url("images/backg.jpg");
+           background-image: url("images/submitbg.jpg");
             
         }
        
@@ -120,28 +120,60 @@ height:100%;
 	margin-top:70px;
 	margin-left:40px;
 }
+.right{
+    float:right;
+    padding-right:500px;
+   
+}
     </style>
 </head>
 <body>
-     <div class="card-header bg-transparent text-white mb-5">
-           <%: DateTime.Now.Date.ToLongDateString() %>
-    </div>
-        <div class="col-sm-2 offset-5 jumbotron">
-            <form class="text-center" id="form1" runat="server">
-                
-            <asp:Image src="images/trpr.png" Alt="company-logo" ID="logo" runat="server" Height="150px" Width="220px"/><br /><br />
-            <asp:TextBox ID="txtUser" placeholder="Username" runat="server" TabIndex="1" CssClass="txtbox"  style="text-align: center" ></asp:TextBox><br /><br />
-            <asp:TextBox ID="txtPass" placeholder="Password" runat="server" TextMode="Password" TabIndex="1" CssClass="txtbox"  style="text-align: center"></asp:TextBox><br /><br />
-            <asp:Button ID="btnLogin" type="button" CssClass="btn btn-info" runat="server" Text="Login" OnClick="btnLogin_Click" style="text-align: center" Height="50px" Width="120px" /> 
-            <br />
-            <asp:Label ID="lblMessage" runat="server" CssClass="alert-danger"></asp:Label>
-                <br />
-                <asp:Label ID="lblCreateAcc" runat="server" Text="<a href='CreateAccount.aspx'>Create an Account</a>"></asp:Label><br />
-                <asp:Label ID="lvlForgotPass" runat="server" Text="<a href='CreateAccount.aspx'>Forgot Password?</a>"></asp:Label>
-    </form>
-
+    <form id="form1" runat="server">
+       
+        <div class="container mt-4">
+            <div class="row">
+                <div class="col-lg-4">
+                    <h2>Therapeutic Recreation</h2>
+                </div>
             </div>
-   <div class="footer">
+        </div>
+        
+        <div class="container mt-3">
+            <h2>Article Submission</h2>
+            <div class="btn-group">
+                                <asp:Button ID="btnBrowse" type="button" CssClass="btn btn-info" runat="server" Text="browse..." style="text-align: center" Height="30px" Width="100px" /> 
+                            </div>
+        </div>
+                    <div class="right">                                                 
+                    <asp:Image ID="Image1" runat="server" Height="684px" Width="533px" BorderColor="#0099FF" BorderStyle="Ridge" BorderWidth="2px" />
+                    </div>
+       <div class="container">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <asp:Panel ID="panelFilters" runat="server">
+                            <br />
+                            <h3>Article Details</h3>
+
+                            <asp:Label CssClass="" ID="lblFirst" runat="server" Text="First Name:"></asp:Label>
+                            <asp:TextBox CssClass="form-control" ID="txtFirst" runat="server" Height="30px" Width="180px"></asp:TextBox><br />
+                            <asp:Label CssClass="" ID="lblLast" runat="server" Text="Last Name:"></asp:Label>
+                            <asp:TextBox CssClass="form-control mb-3" ID="txtLast" runat="server" Height="30px" Width="180px"></asp:TextBox>
+                            <asp:Label ID="lblCategory" runat="server" Text="Category:"></asp:Label>
+                            <asp:DropDownList CssClass="form-control" ID="ddlCategory" runat="server" AppendDataBoundItems="True" Height="30px" Width="180px">
+                                <asp:ListItem Selected="True" Value="0">All</asp:ListItem>
+                            </asp:DropDownList>
+                            <br />
+                            <div class="btn-group">
+                                <asp:Button ID="btnSubmit" type="button" CssClass="btn btn-info" runat="server" Text="Submit Article for Review" style="text-align: center" Height="50px" Width="220px" /> 
+                            </div>
+                    </div>
+                    </asp:Panel>
+            <br />
+       </div>
+           
+        </div>
+         
+     <div class="footer">
   <div id="button"></div>
 <div id="container">
 <div id="cont">
@@ -151,6 +183,9 @@ height:100%;
 </div>
 </div>
 </div>
+        <p>
+            &nbsp;</p>
+    </form>
 
-</body>
+     </body>
 </html>
