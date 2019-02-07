@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>TRPR | Login</title>
+    <title>TRPR | Submission</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />   
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -125,15 +125,83 @@ height:100%;
     padding-right:500px;
    
 }
+/* navbar */
+.navbar-default {
+    background-color: #F8F8F8;
+    border-color: #E7E7E7;
+}
+/* Title */
+.navbar-default .navbar-brand {
+    color: #0099D7;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    color: #5E5E5E;
+}
     </style>
+
 </head>
 <body>
+   <!--Navbar -->
+<nav class="mb-1 navbar navbar-default navbar-expand-lg ">
+  <a class="navbar-brand" href="#">Therapeudic Recreation</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
+    aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Submission</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Contact</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false" href="#">Review
+        </a>
+        <div class="dropdown-menu dropdown-default" aria-labelledby="navbarDropdownMenuLink-333">
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto nav-flex-icons">
+      <li class="nav-item">
+        <a class="nav-link waves-effect waves-light">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link waves-effect waves-light">
+          <i class="fab fa-google-plus-g"></i>
+        </a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          <i class="fas fa-user"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right dropdown-default" aria-labelledby="navbarDropdownMenuLink-333">
+          <a class="dropdown-item" href="#">Log Out</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+<!--/.Navbar -->
+
     <form id="form1" runat="server">
        
         <div class="container mt-4">
             <div class="row">
                 <div class="col-lg-4">
-                    <h2>Therapeutic Recreation</h2>
+                    
                 </div>
             </div>
         </div>
@@ -162,6 +230,9 @@ height:100%;
                             <asp:DropDownList CssClass="form-control" ID="ddlCategory" runat="server" AppendDataBoundItems="True" Height="30px" Width="180px">
                                 <asp:ListItem Selected="True" Value="0">All</asp:ListItem>
                             </asp:DropDownList>
+                            <br />
+                             <asp:Label ID="lblTags" runat="server" Text="Tags:"></asp:Label>
+                            <asp:TextBox ID="txtTags" runat="server" CssClass="form-control" Height="80px" Width="180px"></asp:TextBox>
                             <br />
                             <div class="btn-group">
                                 <asp:Button ID="btnSubmit" type="button" CssClass="btn btn-info" runat="server" Text="Submit Article for Review" style="text-align: center" Height="50px" Width="220px" /> 
