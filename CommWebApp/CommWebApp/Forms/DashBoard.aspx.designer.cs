@@ -22,13 +22,13 @@ namespace CommWebApp.Forms {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// DashBoardGV control.
+        /// btnLogout control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView DashBoardGV;
+        protected global::System.Web.UI.WebControls.Button btnLogout;
         
         /// <summary>
         /// txtTitleFilter control.
@@ -58,6 +58,15 @@ namespace CommWebApp.Forms {
         protected global::System.Web.UI.WebControls.Button btnFilter;
         
         /// <summary>
+        /// DashBoardGV control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView DashBoardGV;
+        
+        /// <summary>
         /// TableDS control.
         /// </summary>
         /// <remarks>
@@ -65,5 +74,14 @@ namespace CommWebApp.Forms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ObjectDataSource TableDS;
+        
+        /// <summary>
+        /// DSRoles control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource DSRoles;
     }
 }
