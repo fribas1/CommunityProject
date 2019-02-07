@@ -22,7 +22,7 @@
             max-width: 100%;
             height: 100%;
             background-size: cover;
-            background-image: url("images/backg.jpg");
+            background-image: url("/images/backg.jpg");
             
         }
        
@@ -129,7 +129,7 @@ height:100%;
         <div class="col-sm-2 offset-5 jumbotron">
             <form class="text-center" id="form1" runat="server">
                 
-            <asp:Image src="images/trpr.png" Alt="company-logo" ID="logo" runat="server" Height="150px" Width="220px"/><br /><br />
+            <asp:Image src="/images/trpr.png" Alt="company-logo" ID="logo" runat="server" Height="150px" Width="220px"/><br /><br />
             <asp:TextBox ID="txtUser" placeholder="Username" runat="server" TabIndex="1" CssClass="txtbox"  style="text-align: center" ></asp:TextBox><br /><br />
             <asp:TextBox ID="txtPass" placeholder="Password" runat="server" TextMode="Password" TabIndex="1" CssClass="txtbox"  style="text-align: center"></asp:TextBox><br /><br />
             <asp:Button ID="btnLogin" type="button" CssClass="btn btn-info" runat="server" Text="Login" OnClick="btnLogin_Click" style="text-align: center" Height="50px" Width="120px" /> 
