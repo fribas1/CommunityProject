@@ -5,7 +5,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-<!--#include file="/includes/bootstrap.html"--></head>
+    <!--#include file="/includes/bootstrap.html"-->
+</head>
 <body>
     <form id="form1" runat="server">
 
@@ -18,7 +19,7 @@
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item"><a class="nav-link" href="/Forms/DashBoard.aspx">Dashboard</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Incstructions</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Submistion</a></li>         
+                    <li class="nav-item"><a class="nav-link" href="#contact">Submistion</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
                 <asp:Button runat="server" ID="btnLogout" OnClick="btnLogout_Click" CssClass="btn btn-outline-danger my-2 my-sm-0" Text="Log Out"></asp:Button>
@@ -95,7 +96,16 @@
                     </Columns>
                     <HeaderStyle CssClass=" thead-light" />
                 </asp:GridView>
-                <br />
+                <asp:GridView CssClass="table table-bordered table-sm" ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="TableDS">
+                    <Columns>
+                        <asp:CommandField ShowSelectButton="True" />
+                        <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title" />
+                        <asp:BoundField DataField="CurrentStatusId" HeaderText="Current Status" SortExpression="CurrentStatusId" />
+                        <asp:BoundField DataField="CreatedOn" HeaderText="Created On" SortExpression="CreatedOn" />
+                    </Columns>
+                    <HeaderStyle CssClass=" thead-light" />
+
+                </asp:GridView>
                 <br />
             </div>
             <asp:ObjectDataSource ID="TableDS" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="TRPRLibrary.TRPR_databaseDataSetTableAdapters.PostTA"></asp:ObjectDataSource>
