@@ -271,6 +271,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Forms\DashBoard.aspx" />
     <Content Include="Forms\Login.aspx" />
+    <Content Include="Forms\RoleInstructions.aspx" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -483,6 +484,13 @@
     </Compile>
     <Compile Include="Forms\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\RoleInstructions.aspx.cs">
+      <DependentUpon>RoleInstructions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\RoleInstructions.aspx.designer.cs">
+      <DependentUpon>RoleInstructions.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
