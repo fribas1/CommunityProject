@@ -271,6 +271,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Forms\DashBoard.aspx" />
     <Content Include="Forms\Login.aspx" />
+    <Content Include="Forms\ReviewPage.aspx" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -282,6 +283,7 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Account\Web.config" />
     <Content Include="includes\bootstrap.html" />
+    <Content Include="includes\navBar.html" />
     <Content Include="obj\Debug\CommWebApp.csproj.CopyComplete" />
     <Content Include="obj\Debug\CommWebApp.csproj.CoreCompileInputs.cache" />
     <Content Include="obj\Debug\CommWebApp.csprojAssemblyReference.cache" />
@@ -483,6 +485,13 @@
     </Compile>
     <Compile Include="Forms\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ReviewPage.aspx.cs">
+      <DependentUpon>ReviewPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\ReviewPage.aspx.designer.cs">
+      <DependentUpon>ReviewPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
