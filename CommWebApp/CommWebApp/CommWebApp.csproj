@@ -270,6 +270,7 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Forms\DashBoard.aspx" />
+    <Content Include="Forms\Inscructions.aspx" />
     <Content Include="Forms\Login.aspx" />
     <Content Include="Forms\ReviewPage.aspx" />
     <Content Include="Global.asax" />
@@ -478,6 +479,13 @@
     </Compile>
     <Compile Include="Forms\DashBoard.aspx.designer.cs">
       <DependentUpon>DashBoard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Inscructions.aspx.cs">
+      <DependentUpon>Inscructions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Inscructions.aspx.designer.cs">
+      <DependentUpon>Inscructions.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
