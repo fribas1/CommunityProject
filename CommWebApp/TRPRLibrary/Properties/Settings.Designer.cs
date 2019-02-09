@@ -33,5 +33,15 @@ namespace TRPRLibrary.Properties {
                 return ((string)(this["TRPR_databaseConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=trpr.database.windows.net;Initial Catalog=TRPR_db;User ID=trprAdmin")]
+        public string TRPR_dbConnectionString {
+            get {
+                return ((string)(this["TRPR_dbConnectionString"]));
+            }
+        }
     }
 }
