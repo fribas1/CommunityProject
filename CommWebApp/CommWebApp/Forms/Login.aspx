@@ -126,7 +126,9 @@ height:100%;
      <div class="card-header bg-transparent text-white mb-5">
            <%: DateTime.Now.Date.ToLongDateString() %>
     </div>
-        <div class="col-sm-2 offset-5 jumbotron">
+    <div class="row">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4 jumbotron">
             <form class="text-center" id="form1" runat="server">
                 
             <asp:Image src="/images/trpr.png" Alt="company-logo" ID="logo" runat="server" Height="150px" Width="220px"/><br /><br />
@@ -141,6 +143,8 @@ height:100%;
     </form>
 
             </div>
+        <div class="col-lg-4"></div>
+        </div>
    <div class="footer">
   <div id="button"></div>
 <div id="container">

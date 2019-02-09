@@ -6,6 +6,19 @@
 <head runat="server">
     <title></title>
     <!--#include file="/includes/bootstrap.html"-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <style type="text/css">
+        .right {
+            float: right;
+            margin-right: 190px;
+            margin-top: 40px;
+        }
+    </style>
+
+
 </head>
 <body>
     <form id="form1" runat="server">
@@ -14,12 +27,12 @@
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="/Forms/DashBoard.aspx">
-                <img src="/images/trpr.png" width="100" height="45" alt="trpr-logo" /></a>
+                <img src="/images/trpr.png" width="96" height="54" alt="trpr-logo" /></a>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item"><a class="nav-link" href="/Forms/DashBoard.aspx">Dashboard</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Incstructions</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Submistion</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/Forms/InstructionPage.aspx">Incstructions</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/Forms/SubmitPage.aspx">Submistion</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
                 <asp:Button runat="server" ID="btnLogout" OnClick="btnLogout_Click" CssClass="btn btn-outline-danger my-2 my-sm-0" Text="Log Out"></asp:Button>
@@ -27,6 +40,26 @@
         </nav>
 
         <%--END OF NAV BAR--%>
+
+        <div class="col-lg-3 right">
+        <div class="cardright border border-secondary rounded p-1">
+            <article class="card-group-item">
+                <header class="card-header">
+                    <h6 class="title">Usefull Information </h6>
+                </header>
+                <div class="filter-content">
+                    <div class="list-group list-group-flush">
+                        <a href="#" class="list-group-item">Articles to Review <span class="float-right badge badge-light round">142</span> </a>
+                        <a href="#" class="list-group-item">New Articles<span class="float-right badge badge-light round">3</span>  </a>
+                        <a href="#" class="list-group-item">Some Info <span class="float-right badge badge-light round">32</span>  </a>
+                        <a href="#" class="list-group-item">Ready to Submit <span class="float-right badge badge-light round">12</span>  </a>
+                    </div>
+                    <!-- list-group .// -->
+                </div>
+            </article>
+            <!-- card-group-item.// -->
+        </div>
+            </div>
 
         <div class="container">
             <div class=" col-lg-5">
@@ -61,6 +94,8 @@
                 </table>
                 <br />
                 <asp:Button CssClass="btn btn-outline-info" ID="btnFilter" runat="server" Text="Apply" />
+                <asp:Button CssClass="btn" ID="btnA" runat="server" Text="Associate" OnClick="btnA_Click" />
+                <asp:Button CssClass="btn" ID="btnR" runat="server" Text="Review " OnClick="btnR_Click" Visible="False" />
                 <br />
 
             </div>

@@ -10,7 +10,7 @@
 namespace CommWebApp.Forms {
     
     
-    public partial class DashBoard {
+    public partial class SubmitPage {
         
         /// <summary>
         /// form1 control.
@@ -31,84 +31,102 @@ namespace CommWebApp.Forms {
         protected global::System.Web.UI.WebControls.Button btnLogout;
         
         /// <summary>
-        /// txtTitleFilter control.
+        /// btnBrowse control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTitleFilter;
+        protected global::System.Web.UI.WebControls.Button btnBrowse;
         
         /// <summary>
-        /// ddlFilterStatus control.
+        /// panelFilters control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlFilterStatus;
+        protected global::System.Web.UI.WebControls.Panel panelFilters;
         
         /// <summary>
-        /// btnFilter control.
+        /// lblFirst control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnFilter;
+        protected global::System.Web.UI.WebControls.Label lblFirst;
         
         /// <summary>
-        /// btnA control.
+        /// txtFirst control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnA;
+        protected global::System.Web.UI.WebControls.TextBox txtFirst;
         
         /// <summary>
-        /// btnR control.
+        /// lblLast control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnR;
+        protected global::System.Web.UI.WebControls.Label lblLast;
         
         /// <summary>
-        /// DashBoardGV control.
+        /// txtLast control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView DashBoardGV;
+        protected global::System.Web.UI.WebControls.TextBox txtLast;
         
         /// <summary>
-        /// GridView1 control.
+        /// lblCategory control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.Label lblCategory;
         
         /// <summary>
-        /// TableDS control.
+        /// ddlCategory control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource TableDS;
+        protected global::System.Web.UI.WebControls.DropDownList ddlCategory;
         
         /// <summary>
-        /// DSRoles control.
+        /// lblTags control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource DSRoles;
+        protected global::System.Web.UI.WebControls.Label lblTags;
+        
+        /// <summary>
+        /// txtTags control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtTags;
+        
+        /// <summary>
+        /// btnSubmit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSubmit;
     }
 }

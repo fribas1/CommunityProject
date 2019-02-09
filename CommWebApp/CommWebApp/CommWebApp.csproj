@@ -270,9 +270,10 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Forms\DashBoard.aspx" />
-    <Content Include="Forms\Inscructions.aspx" />
+    <Content Include="Forms\InstructionPage.aspx" />
     <Content Include="Forms\Login.aspx" />
     <Content Include="Forms\ReviewPage.aspx" />
+    <Content Include="Forms\SubmitPage.aspx" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -283,7 +284,9 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Account\Web.config" />
+    <Content Include="images\article.jpg" />
     <Content Include="includes\bootstrap.html" />
+    <Content Include="includes\footer.html" />
     <Content Include="includes\navBar.html" />
     <Content Include="obj\Debug\CommWebApp.csproj.CopyComplete" />
     <Content Include="obj\Debug\CommWebApp.csproj.CoreCompileInputs.cache" />
@@ -480,12 +483,12 @@
     <Compile Include="Forms\DashBoard.aspx.designer.cs">
       <DependentUpon>DashBoard.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Inscructions.aspx.cs">
-      <DependentUpon>Inscructions.aspx</DependentUpon>
+    <Compile Include="Forms\InstructionPage.aspx.cs">
+      <DependentUpon>InstructionPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Forms\Inscructions.aspx.designer.cs">
-      <DependentUpon>Inscructions.aspx</DependentUpon>
+    <Compile Include="Forms\InstructionPage.aspx.designer.cs">
+      <DependentUpon>InstructionPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -500,6 +503,13 @@
     </Compile>
     <Compile Include="Forms\ReviewPage.aspx.designer.cs">
       <DependentUpon>ReviewPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SubmitPage.aspx.cs">
+      <DependentUpon>SubmitPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\SubmitPage.aspx.designer.cs">
+      <DependentUpon>SubmitPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
