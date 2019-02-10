@@ -170,15 +170,20 @@
 
         <div class="container mt-4">
             <h2>Article Submission</h2>
-            <div class="btn-group">
-                <asp:Button ID="btnBrowse" type="button" CssClass="btn btn-info" runat="server" Text="browse..." Style="text-align: center" Height="30px" Width="100px" />
+            <div>
+                <asp:FileUpload ID="FileUpload1" runat="server" />
+                <asp:Button ID="btnUploadFile" CssClass="btn btn-info" runat="server" Text="Upload File" OnClick="btnUploadFile_Click" /><br />
+                <asp:Label ID="lblMessage" Font-Bold="True" runat="server" Text="Label" Visible="False"></asp:Label>
+                <asp:Panel ID="pnlViewer" runat="server" Visible="False">
+                    <iframe src ="/ViewerJS/#../Uploads/<%=fileName %>" width='389' height='550' allowfullscreen webkitallowfullscreen></iframe>
+                </asp:Panel>
             </div>
             <div class="row">
                 <div class="">
                     <asp:Panel ID="panelFilters" runat="server">
-                        <br />
                         <h3>Article Details</h3>
-
+                        <asp:Label CssClass="" ID="lblTitle" runat="server" Text="Title:"></asp:Label>
+                        <asp:TextBox CssClass="form-control" ID="txtTitle" runat="server" Height="30px" Width="180px"></asp:TextBox><br />
                         <asp:Label CssClass="" ID="lblFirst" runat="server" Text="First Name:"></asp:Label>
                         <asp:TextBox CssClass="form-control" ID="txtFirst" runat="server" Height="30px" Width="180px"></asp:TextBox><br />
                         <asp:Label CssClass="" ID="lblLast" runat="server" Text="Last Name:"></asp:Label>
@@ -194,9 +199,8 @@
                         <div class="btn-group">
                             <asp:Button ID="btnSubmit" type="button" CssClass="btn btn-info" runat="server" Text="Submit Article" Style="text-align: center" Height="50px" Width="180px" />
                         </div>
-                </div>
-
-                </asp:Panel>
+                    </asp:Panel>
+                </div>                    
            
                 <br />
             </div>

@@ -26,7 +26,7 @@ namespace CommWebApp.Forms
                 lblMessage.Text = "Please select a file to upload.";
                 lblMessage.ForeColor = System.Drawing.Color.Red;                
             }
-            else if (FileUpload1.PostedFile.ContentLength > 50000)
+            else if (FileUpload1.PostedFile.ContentLength > 50000000)
             {
                 lblMessage.Text = "The maximum size of 50 MB was exceeded.";
                 lblMessage.ForeColor = System.Drawing.Color.Red;
@@ -42,8 +42,9 @@ namespace CommWebApp.Forms
                 }
 
                 lblMessage.Text = FileUpload1.PostedFiles.Count + " file(s) uploaded successfully!";
-                lblMessage.ForeColor = System.Drawing.Color.Green;
+                lblMessage.ForeColor = System.Drawing.Color.Green;                
             }
+            this.lblMessage.Visible = true;
         }
     }
 }

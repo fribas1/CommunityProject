@@ -89,12 +89,10 @@
             <br />
             <textarea id="TextArea2" class="auto-style2" name="S2"></textarea>            
         </div>
-            </div>
-
+            <div>
                 <asp:FileUpload ID="FileUpload1" AllowMultiple="true" runat="server" />
-                <asp:Button ID="btnUploadFile" runat="server" Text="Upload File" OnClick="btnUploadFile_Click" />
-                <asp:Label ID="lblMessage" Font-Bold="true" runat="server" Text="Label"></asp:Label>
-
+                <asp:Button ID="btnUploadFile" runat="server" Text="Upload File" OnClick="btnUploadFile_Click" /><br />
+                <asp:Label ID="lblMessage" Font-Bold="True" runat="server" Text="Label" Visible="False"></asp:Label>
             </div>
     </form>
 </body>
