@@ -12,10 +12,22 @@ namespace CommWebApp.Forms
         protected void Page_Load(object sender, EventArgs e)
         {
             DashBoardGV.HeaderRow.TableSection = TableRowSection.TableHeader;
+            btnR.Visible = false;
         }
         protected void btnLogout_Click(object sender, EventArgs e)
         {
         }
 
+        protected void btnA_Click(object sender, EventArgs e)
+        {
+            DashBoardGV.Visible = false;
+            btnR.Visible = true;
+            btnA.Visible = false;
+        }
+
+        protected void btnR_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Forms/ReviewPage.aspx");
+        }
     }
 }

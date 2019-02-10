@@ -12,19 +12,47 @@
 
     <style type="text/css">
         .auto-style1 {
-            width: 377px;
-            height: 107px;
+            width: 400px;
+            height: 100px;
         }
 
         .auto-style2 {
-            width: 372px;
-            height: 115px;
+            width: 400px;
+            height: 100px;
+        }
+
+        .right {
+            float: right;
+            margin: 300px;
         }
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
-        <!--#include file="/includes/navBar.html"-->
+
+        <%--START OF NAV BAR --%>
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="/Forms/DashBoard.aspx">
+                <img src="/images/trpr.png" width="96" height="54" alt="trpr-logo" /></a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item"><a class="nav-link" href="/Forms/DashBoard.aspx">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/Forms/InstructionPage.aspx">Incstructions</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/Forms/SubmitPage.aspx">Submistion</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+                <asp:Button runat="server" ID="btnLogout" OnClick="btnLogout_Click" CssClass="btn btn-outline-danger my-2 my-sm-0" Text="Log Out"></asp:Button>
+            </div>
+        </nav>
+
+        <%--END OF NAV BAR--%>
+
+
+        <div class="right mt-4 border border-dark rounded p-1">
+            <img src="/images/article.jpg" alt="article picture" height="525" width="372" />
+        </div>
+
 
         <div class=" container">
             <div class="row">
