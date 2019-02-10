@@ -59,11 +59,15 @@
             <hr />
             <h4>Comments to the Author</h4>
             <br />
-            <textarea id="TextArea2" class="auto-style2" name="S2"></textarea>
-
-                </div>
-                </div>
+            <textarea id="TextArea2" class="auto-style2" name="S2"></textarea>            
         </div>
+            </div>
+
+                <asp:FileUpload ID="FileUpload1" AllowMultiple="true" runat="server" />
+                <asp:Button ID="btnUploadFile" runat="server" Text="Upload File" OnClick="btnUploadFile_Click" />
+                <asp:Label ID="lblMessage" Font-Bold="true" runat="server" Text="Label"></asp:Label>
+
+            </div>
     </form>
 </body>
 </html>

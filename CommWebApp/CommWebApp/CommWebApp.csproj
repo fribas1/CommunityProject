@@ -535,6 +535,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="obj\Debug\TempPE\" />
+    <Folder Include="Uploads\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
