@@ -39,11 +39,14 @@
                 -webkit-border-radius: 5px;
                 -moz-border-radius: 5px;
                 border-radius: 5px;
-                width: 150px;
+                width: 325px;
                 border: 1.3px solid #848484;
                 border-color: deepskyblue;
    
             }
+        .chkbox {
+            border-color: deepskyblue;
+        }
         .footer #button{
 	width:35px;
 	height:35px;
@@ -123,7 +126,64 @@ height:100%;
     </style>
 </head>
 <body>
-     <div class="card-header bg-transparent text-white mb-5">
+    <form runat="server">
+        <div class="row">
+            <div class="card-header bg-transparent text-white">
+            <%: DateTime.Now.Date.ToLongDateString() %>
+            </div>
+        </div>
+        <div class="row">        
+            <div class="col-sm-4 offset-4 jumbotron">
+                <section id="loginForm">
+                    <div class="form-horizontal">
+                        <asp:Image src="/images/trpr.png" Alt="company-logo" ID="logo" runat="server" Height="150px" Width="220px"/><br /><br />
+                        <asp:PlaceHolder runat="server" ID="ErrorMessage" Visible="false">
+                            <p class="text-danger">
+                                <asp:Literal runat="server" ID="FailureText" />
+                            </p>
+                        </asp:PlaceHolder>
+                        <div class="form-group">
+                            <asp:Label runat="server" AssociatedControlID="Email" CssClass="col-md-2 control-label">Email</asp:Label>
+                            <div class="col-md-10">
+                                <asp:TextBox runat="server" ID="Email" CssClass="txtbox form-control" TextMode="Email" />
+                                <asp:RequiredFieldValidator runat="server" ControlToValidate="Email"
+                                    CssClass="text-danger" ErrorMessage="The email field is required." />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <asp:Label runat="server" AssociatedControlID="Password" CssClass="col-md-2 control-label">Password</asp:Label>
+                            <div class="col-md-10">
+                                <asp:TextBox runat="server" ID="Password" TextMode="Password" CssClass="txtbox form-control" />
+                                <asp:RequiredFieldValidator runat="server" ControlToValidate="Password" CssClass="text-danger" ErrorMessage="The password field is required." />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <div class="checkbox">
+                                    <asp:CheckBox runat="server" ID="RememberMe" />
+                                    <asp:Label runat="server" AssociatedControlID="RememberMe">Remember me?</asp:Label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <asp:Button runat="server" Text="Log in" CssClass="btn btn-info" OnClick="btnLogin_Click" />
+                            </div>
+                        </div>
+                    </div>
+                    <p>
+                        <asp:HyperLink class="col-md-offset-2 col-md-10" runat="server" ID="RegisterHyperLink" ViewStateMode="Disabled">New to TRPR? Register now!</asp:HyperLink>
+                    </p>
+                    <p>
+                        <%-- Enable this once you have account confirmation enabled for password reset functionality
+                        <asp:HyperLink runat="server" ID="ForgotPasswordHyperLink" ViewStateMode="Disabled">Forgot your password?</asp:HyperLink>
+                        --%>
+                    </p>
+                </section>
+            </div>
+        </div>
+    </form>
+     <%--<div class="card-header bg-transparent text-white mb-5">
            <%: DateTime.Now.Date.ToLongDateString() %>
     </div>
     <div class="row">
@@ -142,9 +202,7 @@ height:100%;
                 <asp:Label ID="lvlForgotPass" runat="server" Text="<a href='CreateAccount.aspx'>Forgot Password?</a>"></asp:Label>
     </form>
 
-            </div>
-        <div class="col-lg-4"></div>
-        </div>
+            </div>--%>
    <div class="footer">
   <div id="button"></div>
 <div id="container">
