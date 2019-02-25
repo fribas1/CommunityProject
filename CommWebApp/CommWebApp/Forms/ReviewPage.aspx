@@ -82,6 +82,7 @@
                                         <hr class="mt-4" />
                     <h4 class="mt-4">Confidential comments to the Author</h4>
                     <textarea id="TextArea2" class="auto-style2 mb-5 form-control" name="S2"></textarea>
+                    <asp:Button Text="Submit" CssClass="btn btn-outline-success" runat="server" />
 
                 </div>
             </div>
