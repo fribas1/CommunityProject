@@ -12,7 +12,7 @@ namespace CommWebApp.Forms
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            RegisterHyperLink.NavigateUrl = "~/Account/Register";
+            RegisterHyperLink.NavigateUrl = "~/Forms/Registration";
             // Enable this once you have account confirmation enabled for password reset functionality
             //ForgotPasswordHyperLink.NavigateUrl = "Forgot";
             //OpenAuthLogin.ReturnUrl = Request.QueryString["ReturnUrl"];
