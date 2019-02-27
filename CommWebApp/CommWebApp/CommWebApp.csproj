@@ -379,6 +379,7 @@
     <Content Include="Forms\DashBoard.aspx" />
     <Content Include="Forms\InstructionPage.aspx" />
     <Content Include="Forms\Login.aspx" />
+    <Content Include="Forms\Registration.aspx" />
     <Content Include="Forms\ReviewPage.aspx" />
     <Content Include="Forms\SubmitPage.aspx" />
     <Content Include="Global.asax" />
@@ -666,6 +667,13 @@
     </Compile>
     <Compile Include="Forms\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Registration.aspx.cs">
+      <DependentUpon>Registration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Registration.aspx.designer.cs">
+      <DependentUpon>Registration.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\ReviewPage.aspx.cs">
       <DependentUpon>ReviewPage.aspx</DependentUpon>

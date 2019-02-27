@@ -33,16 +33,10 @@ namespace CommWebApp.Forms
             } else
             {                
                 string filepath = Server.MapPath("~/Uploads/");
-                lblMessage.Text = string.Empty;
+                FileUpload1.SaveAs(filepath + FileUpload1.FileName);
 
-                for (int i = 0; i < FileUpload1.PostedFiles.Count; i++)
-                {
-                    HttpPostedFile userPostedFile = FileUpload1.PostedFiles[i];                    
-                    userPostedFile.SaveAs(filepath + Path.GetFileName(userPostedFile.FileName));
-                }
-
-                lblMessage.Text = FileUpload1.PostedFiles.Count + " file(s) uploaded successfully!";
-                lblMessage.ForeColor = System.Drawing.Color.Green;                
+                lblMessage.Text = "File uploaded successfully!";
+                lblMessage.ForeColor = System.Drawing.Color.Green;
             }
             this.lblMessage.Visible = true;
         }
