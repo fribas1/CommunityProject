@@ -16,7 +16,6 @@
             font-family: Arial;
             max-width: 100%;
             height: 100%;
-            background-size: cover;
         }
 
 
@@ -153,10 +152,11 @@
             <p class="text-danger">
                 <asp:Literal runat="server" ID="ErrorMessage" />
             </p>
-            <h4>Create a new account</h4>
             <div class="row">
-                <div class="col-lg-3 ml-1">
-                    <hr  />
+                <div class=" offset-4 col-sm-3">
+                    <h4 class="mb-4">Create a new account</h4>
+
+                    <hr class="mb-4" />
                     <asp:ValidationSummary runat="server" CssClass="text-danger" ID="lblValidate" />
 
                     <asp:TextBox placeholder="First Name *" CssClass="form-control" runat="server" ID="FirstName" TextMode="SingleLine" />
@@ -182,13 +182,12 @@
                         CssClass="text-danger" Display="Dynamic" ErrorMessage="The confirm password field is required." />
                     <asp:CompareValidator runat="server" ControlToCompare="Password" ControlToValidate="ConfirmPassword"
                         CssClass="text-danger" Display="Dynamic" ErrorMessage="The password and confirmation password do not match." />
+
                     <asp:Button CssClass=" mt-4 btn btn-outline-primary" runat="server" OnClick="CreateUser_Click" Text="Register" />
+                    <asp:Button CssClass=" mt-4 btn btn-outline-info float-right" runat="server" Text="Go Back" />
 
                 </div>
             </div>
-
-            </div>
-        </div>
         </div>
 
         <div class="footer">
