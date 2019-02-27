@@ -21,8 +21,6 @@
             font-family: Arial;
             max-width: 100%;
             height: 100%;
-            background-size: cover;
-            background-image: url("/images/backg.jpg");
             
         }
        
@@ -35,15 +33,6 @@
             text-align: center;
             position: center;
         }
-        .txtbox {
-                -webkit-border-radius: 5px;
-                -moz-border-radius: 5px;
-                border-radius: 5px;
-                width: 325px;
-                border: 1.3px solid #848484;
-                border-color: deepskyblue;
-   
-            }
         .chkbox {
             border-color: deepskyblue;
         }
@@ -128,57 +117,36 @@ height:100%;
 <body>
     <form runat="server">
         <div class="row">
-            <div class="card-header bg-transparent text-white">
+            <div class="card-header bg-transparent ">
             <%: DateTime.Now.Date.ToLongDateString() %>
             </div>
         </div>
         <div class="row">        
-            <div class="col-sm-4 offset-4 jumbotron">
+            <div class="col-sm-4 offset-4 jumbotron border rounded text-center">
                 <section id="loginForm">
-                    <div class="form-horizontal">
-                        <asp:Image src="/images/trpr.png" Alt="company-logo" ID="logo" runat="server" Height="150px" Width="220px"/><br /><br />
+                        <asp:Image src="/images/trpr.png" Alt="company-logo" ID="logo" runat="server" Height="162" Width="288"/><br /><br />
                         <asp:PlaceHolder runat="server" ID="ErrorMessage" Visible="false">
                             <p class="text-danger">
                                 <asp:Literal runat="server" ID="FailureText" />
                             </p>
                         </asp:PlaceHolder>
-                        <div class="form-group">
-                            <asp:Label runat="server" AssociatedControlID="Email" CssClass="col-md-2 control-label">Email</asp:Label>
-                            <div class="col-md-10">
-                                <asp:TextBox runat="server" ID="Email" CssClass="txtbox form-control" TextMode="Email" />
+                    <div class="offset-3 col-lg-6">
+                                <asp:TextBox placeholder="Email" runat="server" ID="Email" CssClass=" form-control" TextMode="Email" />
                                 <asp:RequiredFieldValidator runat="server" ControlToValidate="Email"
-                                    CssClass="text-danger" ErrorMessage="The email field is required." />
-                            </div>
+                                    CssClass="text-danger" ErrorMessage="The email is required." />
+
+                                <asp:TextBox placeholder="Password" runat="server" ID="Password" TextMode="Password" CssClass=" form-control" />
+                                <asp:RequiredFieldValidator runat="server" ControlToValidate="Password" CssClass="text-danger" ErrorMessage="The password is required." />
                         </div>
-                        <div class="form-group">
-                            <asp:Label runat="server" AssociatedControlID="Password" CssClass="col-md-2 control-label">Password</asp:Label>
-                            <div class="col-md-10">
-                                <asp:TextBox runat="server" ID="Password" TextMode="Password" CssClass="txtbox form-control" />
-                                <asp:RequiredFieldValidator runat="server" ControlToValidate="Password" CssClass="text-danger" ErrorMessage="The password field is required." />
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-md-offset-2 col-md-10">
-                                <div class="checkbox">
                                     <asp:CheckBox runat="server" ID="RememberMe" />
                                     <asp:Label runat="server" AssociatedControlID="RememberMe">Remember me?</asp:Label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-md-offset-2 col-md-10">
-                                <asp:Button runat="server" Text="Log in" CssClass="btn btn-info" OnClick="btnLogin_Click" />
-                            </div>
-                        </div>
-                    </div>
-                    <p>
-                        <asp:HyperLink class="col-md-offset-2 col-md-10" runat="server" ID="RegisterHyperLink" ViewStateMode="Disabled">New to TRPR? Register now!</asp:HyperLink>
-                    </p>
-                    <p>
-                        <%-- Enable this once you have account confirmation enabled for password reset functionality
-                        <asp:HyperLink runat="server" ID="ForgotPasswordHyperLink" ViewStateMode="Disabled">Forgot your password?</asp:HyperLink>
-                        --%>
-                    </p>
+                    <br />
+                                <asp:Button runat="server" Text="Log in" CssClass="btn btn-outline-primary mt-2 mb-3" OnClick="btnLogin_Click" />
+                                        <br />
+                        <asp:HyperLink  runat="server" ID="RegisterHyperLink" ViewStateMode="Disabled">New to TRPR? Register now!</asp:HyperLink>
+                                        <br />
+                        <asp:hyperlink runat="server" id="forgotpasswordhyperlink" viewstatemode="disabled">forgot your password?</asp:hyperlink>
+                        
                 </section>
             </div>
         </div>
