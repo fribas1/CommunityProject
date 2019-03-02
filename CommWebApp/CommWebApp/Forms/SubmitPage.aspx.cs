@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data.SqlClient;
 
 namespace CommWebApp.Forms
 {
@@ -43,10 +44,47 @@ namespace CommWebApp.Forms
                 {
                     FileUpload1.SaveAs(filepath + FileUpload1.FileName);
 
-                    lblMessage.Text = "File uploaded successfully!";
-                    lblMessage.ForeColor = System.Drawing.Color.Green;
-                    
-                    pnlViewer.Visible = true;
+                    var connection = System.Configuration.ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+                    SqlConnection conn = new SqlConnection(connection);
+
+                    try
+                    {
+                        //SqlCommand cmd = new SqlCommand("INSERT INTO [File] (Name, Path, Size, Extension) "
+                        //                                + "VALUES (@Name, @Path, @Size, @Extension)", conn);
+
+                        SqlCommand cmd = conn.CreateCommand();
+                        cmd.CommandText = "INSERT INTO [File] (Name, Path, Size, Extension) "
+                                         + "VALUES (@Name, @Path, @Size, @Extension)";
+
+                        cmd.Parameters.AddWithValue("@Name", fileName);
+                        cmd.Parameters.AddWithValue("@Path", filepath);
+                        cmd.Parameters.AddWithValue("@Size", FileUpload1.PostedFile.ContentLength);
+                        cmd.Parameters.AddWithValue("@Extension", fileExtension);
+
+                        conn.Open();
+                        cmd.ExecuteNonQuery();                        
+
+                        //SqlCommand cmd2 = conn.CreateCommand();
+                        //cmd2.CommandText = "SELECT SCOPE_IDENTITY()";
+                        //var id = cmd.ExecuteScalar();
+
+                        //SqlCommand cmd3 = new SqlCommand("UPDATE [File] SET PostId = @id WHERE [Email] = @Email", conn);
+
+                        //cmd.Parameters.AddWithValue("@FirstName", FirstName.Text);
+                    }
+                    catch (Exception ex)
+                    {
+                        lblMessage.Text = ex.ToString();
+                    }
+                    finally
+                    {
+                        conn.Close();
+
+                        lblMessage.Text = "File uploaded successfully!";
+                        lblMessage.ForeColor = System.Drawing.Color.Green;
+
+                        pnlViewer.Visible = true;
+                    }                    
                 }
             }
             else
