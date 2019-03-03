@@ -9,6 +9,20 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        function ValidateCheckBoxList(sender, args) {
+            var checkBoxList = document.getElementById("<%=cblExpertise.ClientID %>");
+            var checkboxes = checkBoxList.getElementsByTagName("input");
+            var isValid = false;
+            for (var i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].checked) {
+                    isValid = true;
+                    break;
+                }
+            }
+            args.IsValid = isValid;
+        }
+    </script>
     <style type="text/css">
         body {
             margin: auto;
@@ -139,8 +153,6 @@
                     color: #5E5E5E;
                 }
     </style>
-
-
 </head>
 <body>
     <form id="form1" runat="server">
@@ -183,6 +195,12 @@
                     <asp:CompareValidator runat="server" ControlToCompare="Password" ControlToValidate="ConfirmPassword"
                         CssClass="text-danger" Display="Dynamic" ErrorMessage="The password and confirmation password do not match." />
 
+                    <br />
+                    <asp:Label CssClass="form-check-label" ID="lblExpertise" runat="server" Text="Expertise" AssociatedControlID="cblExpertise"></asp:Label>
+                    <asp:CheckBoxList CssClass="form-control form-check" ID="cblExpertise" runat="server" DataSourceID="dsExpertises" DataTextField="Name" DataValueField="Id" RepeatColumns="2"></asp:CheckBoxList>
+                    <asp:CustomValidator runat="server" ClientValidationFunction="ValidateCheckBoxList"
+                        CssClass="text-danger" Display="Dynamic" ErrorMessage="At least one expertise is required." />
+
                     <asp:Button CssClass=" mt-4 btn btn-outline-primary" runat="server" OnClick="CreateUser_Click" Text="Register" />
                     <asp:Button CssClass=" mt-4 btn btn-outline-info float-right" runat="server" Text="Go Back" />
 
@@ -203,6 +221,7 @@
         <p>
             &nbsp;
         </p>
+        <asp:SqlDataSource ID="dsExpertises" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT * FROM [Tag] ORDER BY [Name]"></asp:SqlDataSource>
     </form>
 </body>
 </html>
