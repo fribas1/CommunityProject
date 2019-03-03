@@ -143,7 +143,32 @@
                 </asp:GridView>
                 <br />
             </div>
-            <asp:ObjectDataSource ID="TableDS" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="TRPRLibrary.TRPR_databaseDataSetTableAdapters.PostTA"></asp:ObjectDataSource>
+            <asp:ObjectDataSource ID="TableDS" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="TRPRLibrary.TRPR_databaseDataSetTableAdapters.PostTA" DeleteMethod="Delete" InsertMethod="Insert" UpdateMethod="Update">
+                <DeleteParameters>
+                    <asp:Parameter Name="Original_Id" Type="Int32" />
+                    <asp:Parameter Name="Original_LastModifiedOn" Type="Object" />
+                </DeleteParameters>
+                <InsertParameters>
+                    <asp:Parameter Name="Title" Type="String" />
+                    <asp:Parameter Name="CurrentStatusId" Type="Int32" />
+                    <asp:Parameter Name="ReadyToPublish" Type="Boolean" />
+                    <asp:Parameter Name="CreatedOn" Type="DateTime" />
+                    <asp:Parameter Name="CreatedBy" Type="String" />
+                    <asp:Parameter Name="CurrentUserId" Type="String" />
+                    <asp:Parameter Name="LastModifiedBy" Type="String" />
+                </InsertParameters>
+                <UpdateParameters>
+                    <asp:Parameter Name="Title" Type="String" />
+                    <asp:Parameter Name="CurrentStatusId" Type="Int32" />
+                    <asp:Parameter Name="ReadyToPublish" Type="Boolean" />
+                    <asp:Parameter Name="CreatedOn" Type="DateTime" />
+                    <asp:Parameter Name="CreatedBy" Type="String" />
+                    <asp:Parameter Name="CurrentUserId" Type="String" />
+                    <asp:Parameter Name="LastModifiedBy" Type="String" />
+                    <asp:Parameter Name="Original_Id" Type="Int32" />
+                    <asp:Parameter Name="Original_LastModifiedOn" Type="Object" />
+                </UpdateParameters>
+            </asp:ObjectDataSource>
             <asp:ObjectDataSource ID="DSRoles" runat="server" DeleteMethod="Delete" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="TRPRLibrary.TRPR_databaseDataSetTableAdapters.TARoles" UpdateMethod="Update">
                 <DeleteParameters>
                     <asp:Parameter Name="Original_Id" Type="String" />
