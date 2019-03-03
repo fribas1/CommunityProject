@@ -9,6 +9,13 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        function UploadFile(fileUpload) {
+            if (fileUpload.value != '') {
+                document.getElementById("<%=btnUploadFile.ClientID %>").click();
+            }
+        }
+    </script>
     <style type="text/css">
         body {
             margin: auto;
@@ -163,70 +170,76 @@
 
         <%--END OF NAV BAR--%>
 
-        <div class=" container">
-            <div class="row">
+<div class=" container">
+    <div class="row">
         <div class="col-lg-6 container mt-4">
             <h2>Article Submission</h2>
+            <asp:Panel ID="pnlContent" runat="server">
                 <div class="col-lg-6 mt-3">
                     <div class="input-group mt-2 mb-2">
                         <div class="input-group-prepend">
-                            <asp:Button CssClass=" input-group-text" ID="btnUploadFile" Font-Bold="true" runat="server" Text="Upload" OnClick="btnUploadFile_Click" /><br />
+                            <asp:Button CssClass=" input-group-text" ID="btnUploadFile" Font-Bold="true" runat="server" Text="Upload" OnClick="UploadFile" Style="display: none" /><br />
                         </div>
                         <div class="custom-file">
                             <asp:FileUpload CssClass="custom-file-input" ID="FileUpload1" runat="server" />
-                            <asp:Label CssClass="custom-file-label" ID="lblFilePath" Font-Bold="True" runat="server" Text="..." Visible="True"></asp:Label>
+                            <asp:Label CssClass="custom-file-label" ID="lblFileName" runat="server" Text="No file selected" Visible="True"></asp:Label>
                         </div>
                     </div>
-                    <asp:Label ID="lblMessage" runat="server" Text="" Visible="False"></asp:Label>
+                    <asp:Label ID="lblMessage" runat="server" CssClass="text-danger" Visible="False"></asp:Label>
                     <br />
                 </div>
                 <h3 class="mt-3">Article Details</h3>
                 <div class="ml-3 mt-3">
-                    <asp:Label CssClass="" ID="lblTitle" runat="server" Text="Title:"></asp:Label>
-                    <asp:TextBox CssClass="form-control" ID="txtTitle" runat="server" Height="30px" Width="180px"></asp:TextBox><br />
-                    <asp:Label CssClass="" ID="lblFirst" runat="server" Text="First Name:"></asp:Label>
-                    <asp:TextBox CssClass="form-control" ID="txtFirst" runat="server" Height="30px" Width="180px"></asp:TextBox><br />
-                    <asp:Label CssClass="" ID="lblLast" runat="server" Text="Last Name:"></asp:Label>
-                    <asp:TextBox CssClass="form-control mb-3" ID="txtLast" runat="server" Height="30px" Width="180px"></asp:TextBox>
-                    <asp:Label ID="lblCategory" runat="server" Text="Category:"></asp:Label>
-                    <asp:DropDownList CssClass="form-control" ID="ddlCategory" runat="server" AppendDataBoundItems="True" Height="30px" Width="180px">
-                        <asp:ListItem Selected="True" Value="0">All</asp:ListItem>
-                    </asp:DropDownList>
+                    <asp:Label ID="lblTitle" runat="server" Text="Title:" AssociatedControlID="txtTitle"></asp:Label>
+                    <asp:TextBox CssClass="form-control" ID="txtTitle" runat="server" Height="30px" Width="180px" AssociatedControlID="txtTitle"></asp:TextBox>                   
+                    <asp:Label ID="lblTitleValid" runat="server" CssClass="text-danger" Visible="False"></asp:Label><br /> 
+
+                    <asp:Label ID="lblContent" runat="server" Text="Content:" AssociatedControlID="txtContent"></asp:Label>
+                    <asp:TextBox ID="txtContent" CssClass="form-control" runat="server" Width="180px" TextMode="MultiLine"></asp:TextBox><br />
+
+                    <asp:Label ID="lblTags" runat="server" Text="Tags:" AssociatedControlID="cblTags"></asp:Label>                                            
+                        <asp:CheckBoxList ID="cblTags" runat="server" DataSourceID="dsTags" DataTextField="Name" DataValueField="Id" RepeatColumns="2"></asp:CheckBoxList>                    
+                    <asp:Label ID="lblError" runat="server" CssClass="text-danger" Visible="False"></asp:Label>
                     <br />
-                    <asp:Label ID="lblTags" runat="server" Text="Tags:"></asp:Label>
-                    <asp:TextBox ID="txtTags" runat="server" CssClass="form-control" Height="80px" Width="180px"></asp:TextBox>
-                    <br />
+                    
                     <div class="btn-group">
-                        <asp:Button ID="btnSubmit" type="button" CssClass="btn btn-outline-success" runat="server" Text="Submit Article" Style="text-align: center" Height="50px" Width="180px" />
+                        <asp:Button ID="btnSubmit" type="button" CssClass="btn btn-outline-success" runat="server" Text="Submit Article" Style="text-align: center" Height="50px" Width="180px" OnClick="btnSubmit_Click" />
                     </div>
                 </div>
-
                 <br />
-
-        </div>
-                    <div class="mt-4 border border-dark rounded p-1 bg-white col-lg-6">
-            <asp:Panel ID="pnlViewer" runat="server" Visible="False">
-                <iframe src="/ViewerJS/#../Uploads/<%=fileName %>" width='389' height='550' allowfullscreen webkitallowfullscreen></iframe>
+            </asp:Panel>
+            <asp:Panel ID="pnlSuccess" runat="server" Visible="False">
+                <h3>Your article has been successfully created.</h3>
+                <asp:LinkButton ID="btnBack" runat="server" Text="Click here to return" OnClick="btnBack_Click" />
             </asp:Panel>
         </div>
-                </div>
-            </div>
-
-        
-            <div class="footer">
-            <div id="button"></div>
-            <div id="container">
-                <div id="cont">
-                    <div class="footer_center">
-                        <h3>Footer Text Will Go Here When Available</h3>
-                    </div>
-                </div>
+        <div class="mt-4 border border-dark rounded p-1 bg-white col-lg-6">
+            <asp:Panel ID="pnlViewer" runat="server" Visible="False">
+                <iframe src="/ViewerJS/#../Uploads/<%=fileName %>" width='566' height='800' allowfullscreen webkitallowfullscreen></iframe>
+            </asp:Panel>
+        </div>                
+    </div>
+</div>
+             
+<div class="footer">
+    <div id="button"></div>
+    <div id="container">
+        <div id="cont">
+            <div class="footer_center">
+                <h3>Footer Text Will Go Here When Available</h3>
             </div>
         </div>
-        <p>
-            &nbsp;
-        </p>
+    </div>
+</div>
+<p>
+    &nbsp;
+</p>
 
-    </form>
+<asp:SqlDataSource ID="dsTags" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT * FROM [Tag] ORDER BY [Name]"></asp:SqlDataSource>
+<asp:HiddenField ID="hdFileName" runat="server"></asp:HiddenField>
+<asp:HiddenField ID="hdFilePath" runat="server"></asp:HiddenField>
+<asp:HiddenField ID="hdFileExtension" runat="server"></asp:HiddenField>
+<asp:HiddenField ID="hdFileSize" runat="server"></asp:HiddenField>
+</form>
 </body>
 </html>
