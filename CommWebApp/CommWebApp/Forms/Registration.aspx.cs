@@ -7,11 +7,16 @@ using Microsoft.AspNet.Identity.Owin;
 using Owin;
 using CommWebApp.Models;
 using System.Data.SqlClient;
+using System.Collections.Generic;
+using System.Web.UI.WebControls;
 
 namespace CommWebApp.Forms
 {
     public partial class Registration : System.Web.UI.Page
     {
+        List<ListItem> selectedTags = new List<ListItem>();
+        public string userId;
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -19,7 +24,8 @@ namespace CommWebApp.Forms
 
         protected void btnLogout_Click(object sender, EventArgs e)
         {
-
+            Context.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            Response.Redirect("~/Forms/Login");
         }
 
         protected void CreateUser_Click(object sender, EventArgs e)
@@ -31,36 +37,123 @@ namespace CommWebApp.Forms
             IdentityResult result = manager.Create(user, Password.Text);
             if (result.Succeeded)
             {
-                var connection = System.Configuration.ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-                SqlConnection conn = new SqlConnection(connection);
-                
-                try
-                {
-                    SqlCommand cmd = new SqlCommand("UPDATE [AspNetUsers] SET "
-                                                    + "[FirstName] = @FirstName, "
-                                                    + "[LastName] = @LastName "
-                                                    + "WHERE [Email] = @Email", conn);
+                foreach (ListItem item in cblExpertise.Items)
+                    if (item.Selected) selectedTags.Add(item);
 
-                    cmd.Parameters.AddWithValue("@FirstName", FirstName.Text);                   
-                    cmd.Parameters.AddWithValue("@LastName", LastName.Text);
-                    cmd.Parameters.AddWithValue("@Email", Email.Text);
+                userId = GetNewUserId(Email.Text);
 
-                    conn.Open();
-                    cmd.ExecuteNonQuery();
-                    conn.Close();
+                UpdateUser(FirstName.Text, LastName.Text, Email.Text);
+                InsertExpertise(userId);
 
-                    signInManager.SignIn(user, isPersistent: false, rememberBrowser: false);
-                    IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
-                }
-                catch (Exception ex)
-                {
-                    ErrorMessage.Text = ex.ToString();
-                }                                
+                signInManager.SignIn(user, isPersistent: false, rememberBrowser: false);
+                IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
             }
             else
             {
                 ErrorMessage.Text = result.Errors.FirstOrDefault();
             }
+        }
+
+        protected void UpdateUser(string first, string last, string email)
+        {
+            var connection = System.Configuration.ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            SqlConnection conn = new SqlConnection(connection);
+
+            try
+            {
+                SqlCommand cmd = new SqlCommand("UPDATE [AspNetUsers] SET "
+                                                + "[FirstName] = @FirstName, "
+                                                + "[LastName] = @LastName "
+                                                + "WHERE [Email] = @Email", conn);
+
+                cmd.Parameters.AddWithValue("@FirstName", first);
+                cmd.Parameters.AddWithValue("@LastName", last);
+                cmd.Parameters.AddWithValue("@Email", email);
+
+                conn.Open();
+                cmd.ExecuteNonQuery();                               
+            }
+            catch (Exception ex)
+            {
+                ErrorMessage.Text = ex.ToString();
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        protected void InsertExpertise(string id)
+        {
+            var connection = System.Configuration.ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            SqlConnection conn = new SqlConnection(connection);
+
+            try
+            {
+                SqlCommand cmd = conn.CreateCommand();
+
+                if (selectedTags.Count > 1)
+                {
+                    cmd.CommandText = "";
+                    for (int i = 0; i < selectedTags.Count; i++)
+                    {
+                        cmd.CommandText += "INSERT INTO [Expertise] (UserId, TagId) "
+                                        + "VALUES (@UserId, " + Convert.ToInt32(selectedTags[i].Value)
+                                        + ") ";
+                    }
+                }
+                else
+                {
+                    cmd.CommandText = "INSERT INTO [Expertise] (UserId, TagId) "
+                                     + "VALUES (@UserId, @TagId)";
+
+                    string tagId = selectedTags[0].Value;
+
+                    cmd.Parameters.AddWithValue("@TagId", Convert.ToInt32(tagId));
+                }
+
+                cmd.Parameters.AddWithValue("@UserId", id);
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                ErrorMessage.Text = ex.ToString();
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        protected string GetNewUserId(string email)
+        {
+            var connection = System.Configuration.ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            SqlConnection conn = new SqlConnection(connection);
+
+            string id = "";
+
+            try
+            {
+                SqlCommand cmd = new SqlCommand("SELECT Id FROM [AspNetUsers] "
+                                                + "WHERE [Email] = @Email", conn);
+
+                cmd.Parameters.AddWithValue("@Email", email);
+
+                conn.Open();
+                id = cmd.ExecuteScalar().ToString();
+            }
+            catch (Exception ex)
+            {
+                ErrorMessage.Text = ex.ToString();
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return id;
         }
     }
 }
