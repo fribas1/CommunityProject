@@ -18,6 +18,7 @@ namespace CommWebApp.Forms
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!User.Identity.IsAuthenticated) Response.Redirect("~/Forms/Login");
             //if (IsPostBack) return;
             FileUpload1.Attributes["onchange"] = "UploadFile(this)";
         }
@@ -37,6 +38,7 @@ namespace CommWebApp.Forms
             {
                 lblTitleValid.Text = "The title field is required.";
                 lblTitleValid.Visible = true;
+                txtTitle.Focus();
             }                
             else if ((txtTitle.Text.Length != 0) && (selectedTags.Count == 0))
             {
@@ -47,6 +49,7 @@ namespace CommWebApp.Forms
             {
                 lblTitleValid.Text = "The title field is required.";
                 lblError.Text = "At least one tag is required.";
+                txtTitle.Focus();
 
                 lblTitleValid.Visible = true;
                 lblError.Visible = true;
