@@ -37,6 +37,7 @@ namespace CommWebApp.Forms
             {
                 lblTitleValid.Text = "The title field is required.";
                 lblTitleValid.Visible = true;
+                txtTitle.Focus();
             }                
             else if ((txtTitle.Text.Length != 0) && (selectedTags.Count == 0))
             {
@@ -47,6 +48,7 @@ namespace CommWebApp.Forms
             {
                 lblTitleValid.Text = "The title field is required.";
                 lblError.Text = "At least one tag is required.";
+                txtTitle.Focus();
 
                 lblTitleValid.Visible = true;
                 lblError.Visible = true;
