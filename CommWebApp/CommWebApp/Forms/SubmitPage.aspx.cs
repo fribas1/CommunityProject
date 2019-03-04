@@ -18,6 +18,7 @@ namespace CommWebApp.Forms
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!User.Identity.IsAuthenticated) Response.Redirect("~/Forms/Login");
             //if (IsPostBack) return;
             FileUpload1.Attributes["onchange"] = "UploadFile(this)";
         }
