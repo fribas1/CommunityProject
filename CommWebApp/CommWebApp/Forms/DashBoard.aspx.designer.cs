@@ -85,13 +85,22 @@ namespace CommWebApp.Forms {
         protected global::System.Web.UI.WebControls.GridView DashBoardGV;
         
         /// <summary>
-        /// GridView1 control.
+        /// AssociateGV control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.GridView AssociateGV;
+        
+        /// <summary>
+        /// txtTest control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtTest;
         
         /// <summary>
         /// postDS control.
@@ -101,5 +110,23 @@ namespace CommWebApp.Forms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource postDS;
+        
+        /// <summary>
+        /// allUsersDS control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource allUsersDS;
+        
+        /// <summary>
+        /// addAssociateDS control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource addAssociateDS;
     }
 }
