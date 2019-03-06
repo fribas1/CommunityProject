@@ -102,48 +102,56 @@
 
             <div>
                 <br />
-                <asp:GridView CssClass="table table-bordered table-sm" ID="DashBoardGV" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="TableDS">
+                <asp:GridView CssClass="table table-bordered table-sm" ID="DashBoardGV" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="postDS">
                     <Columns>
-                        <asp:CommandField ShowSelectButton="True" />
                         <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title" />
-                        <asp:BoundField DataField="CurrentStatusId" HeaderText="Current Status" SortExpression="CurrentStatusId" />
-                        <asp:CheckBoxField DataField="ReadyToPublish" HeaderText="Ready To Publish" SortExpression="ReadyToPublish" />
-                        <asp:BoundField DataField="CreatedOn" HeaderText="Created On" SortExpression="CreatedOn" DataFormatString="{0:d}" />
-                        <asp:TemplateField HeaderText="Associate Editor 1">
-                            <EditItemTemplate>
-                                <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-                            </EditItemTemplate>
+                        <asp:BoundField DataField="Current Status" HeaderText="Current Status" SortExpression="Current Status" />
+                        <asp:BoundField DataField="CreatedOn" HeaderText="CreatedOn" SortExpression="CreatedOn" />
+                        <asp:TemplateField ShowHeader="False">
                             <ItemTemplate>
-                                <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="DSRoles" DataTextField="Name" DataValueField="Id">
-                                </asp:DropDownList>
+                                <asp:Button ID="btnAssociate" runat="server" CausesValidation="false" CommandName="" OnClick="btnAssociate_Click" Text="Associate" />
                             </ItemTemplate>
                         </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Associate Editor 2 ">
-                            <EditItemTemplate>
-                                <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
-                            </EditItemTemplate>
-                            <ItemTemplate>
-                                <asp:DropDownList ID="DropDownList2" runat="server" AutoPostBack="True" DataSourceID="DSRoles" DataTextField="Name" DataValueField="Id">
-                                    <asp:ListItem Selected="True" Value="0">Select</asp:ListItem>
-                                </asp:DropDownList>
-                            </ItemTemplate>
-                        </asp:TemplateField>
+                        <asp:BoundField DataField="UserId" HeaderText="UserId" SortExpression="UserId" />
+                        <asp:BoundField DataField="RoleId" HeaderText="RoleId" SortExpression="RoleId" />
+                        <asp:BoundField DataField="PostId" HeaderText="PostId" SortExpression="PostId" />
+                        <asp:ButtonField ButtonType="Button" CommandName="Select" Text="Button" />
                     </Columns>
                     <HeaderStyle CssClass=" thead-light" />
                 </asp:GridView>
-                <asp:GridView CssClass="table table-bordered table-sm" ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="TableDS">
+                <asp:GridView CssClass="table table-bordered table-sm" ID="AssociateGV" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False">
                     <Columns>
-                        <asp:CommandField ShowSelectButton="True" />
-                        <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title" />
-                        <asp:BoundField DataField="CurrentStatusId" HeaderText="Current Status" SortExpression="CurrentStatusId" />
-                        <asp:BoundField DataField="CreatedOn" HeaderText="Created On" SortExpression="CreatedOn" />
+                        <asp:TemplateField HeaderText="Associate Editor 1">
+                            <ItemTemplate>
+                                <asp:DropDownList ID="ddlAssEdit1" runat="server" DataSourceID="allUsersDS" DataTextField="Users" DataValueField="Id">
+                                </asp:DropDownList>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Associate Editor 2">
+                            <ItemTemplate>
+                                <asp:DropDownList ID="ddlAssEdit2" runat="server" DataSourceID="allUsersDS" DataTextField="Users" DataValueField="Id">
+                                </asp:DropDownList>
+                            </ItemTemplate>
+                        </asp:TemplateField>
                     </Columns>
                     <HeaderStyle CssClass=" thead-light" />
 
                 </asp:GridView>
+                <asp:TextBox ID="txtTest" runat="server"></asp:TextBox>
                 <br />
             </div>
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="postDS" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT Post.Id, Post.Title, Post.CurrentStatusId, Post.CreatedOn, Post.CreatedBy, Post.LastModifiedOn, Post.LastModifiedBy, AspNetUserRoles.UserId, AspNetUserRoles.RoleId, AspNetUserRoles.PostId, AspNetUsers.FirstName, AspNetUsers.LastName, AspNetUsers.UserName, Post.PublishedOn, Status.Name AS [Current Status] FROM Post INNER JOIN AspNetUserRoles ON Post.Id = AspNetUserRoles.PostId INNER JOIN AspNetUsers ON AspNetUserRoles.UserId = AspNetUsers.Id INNER JOIN Status ON Post.CurrentStatusId = Status.Id WHERE (AspNetUserRoles.UserId = { fn IFNULL( @user , AspNetUserRoles.UserId) })">
+                <SelectParameters>
+                    <asp:QueryStringParameter Name="user" QueryStringField="currentUserId" />
+                </SelectParameters>
+            </asp:SqlDataSource>
+            <asp:SqlDataSource ID="allUsersDS" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT { fn CONCAT(FirstName + ' ', LastName) } AS Users, Id FROM AspNetUsers"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="addAssociateDS" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" InsertCommand="INSERT INTO AspNetUserRoles(UserId, RoleId, PostId) VALUES (@selectUser, N'2', @post)" SelectCommand="SELECT AspNetUserRoles.* FROM AspNetUserRoles">
+                <InsertParameters>
+                    <asp:Parameter Name="selectUser" />
+                    <asp:Parameter Name="post" />
+                </InsertParameters>
+            </asp:SqlDataSource>
         </div>
     </form>
 </body>
