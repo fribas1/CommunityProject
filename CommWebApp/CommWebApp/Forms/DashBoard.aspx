@@ -102,48 +102,30 @@
 
             <div>
                 <br />
-                <asp:GridView CssClass="table table-bordered table-sm" ID="DashBoardGV" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="TableDS">
+                <asp:GridView CssClass="table table-bordered table-sm" ID="DashBoardGV" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="postDS">
                     <Columns>
-                        <asp:CommandField ShowSelectButton="True" />
+                        <asp:BoundField DataField="Id" HeaderText="Id" SortExpression="Id" InsertVisible="False" ReadOnly="True" />
                         <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title" />
-                        <asp:BoundField DataField="CurrentStatusId" HeaderText="Current Status" SortExpression="CurrentStatusId" />
-                        <asp:CheckBoxField DataField="ReadyToPublish" HeaderText="Ready To Publish" SortExpression="ReadyToPublish" />
-                        <asp:BoundField DataField="CreatedOn" HeaderText="Created On" SortExpression="CreatedOn" DataFormatString="{0:d}" />
-                        <asp:TemplateField HeaderText="Associate Editor 1">
-                            <EditItemTemplate>
-                                <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-                            </EditItemTemplate>
-                            <ItemTemplate>
-                                <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="DSRoles" DataTextField="Name" DataValueField="Id">
-                                </asp:DropDownList>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Associate Editor 2 ">
-                            <EditItemTemplate>
-                                <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
-                            </EditItemTemplate>
-                            <ItemTemplate>
-                                <asp:DropDownList ID="DropDownList2" runat="server" AutoPostBack="True" DataSourceID="DSRoles" DataTextField="Name" DataValueField="Id">
-                                    <asp:ListItem Selected="True" Value="0">Select</asp:ListItem>
-                                </asp:DropDownList>
-                            </ItemTemplate>
-                        </asp:TemplateField>
+                        <asp:BoundField DataField="CurrentStatusId" HeaderText="CurrentStatusId" SortExpression="CurrentStatusId" />
+                        <asp:BoundField DataField="CreatedOn" HeaderText="CreatedOn" SortExpression="CreatedOn" />
+                        <asp:BoundField DataField="CreatedBy" HeaderText="CreatedBy" SortExpression="CreatedBy" />
+                        <asp:BoundField DataField="LastModifiedBy" HeaderText="LastModifiedBy" SortExpression="LastModifiedBy" />
+                        <asp:BoundField DataField="UserId" HeaderText="UserId" SortExpression="UserId" />
+                        <asp:BoundField DataField="RoleId" HeaderText="RoleId" SortExpression="RoleId" />
+                        <asp:BoundField DataField="PostId" HeaderText="PostId" SortExpression="PostId" />
+                        <asp:BoundField DataField="FirstName" HeaderText="FirstName" SortExpression="FirstName" />
+                        <asp:BoundField DataField="LastName" HeaderText="LastName" SortExpression="LastName" />
+                        <asp:BoundField DataField="UserName" HeaderText="UserName" SortExpression="UserName" />
                     </Columns>
                     <HeaderStyle CssClass=" thead-light" />
                 </asp:GridView>
-                <asp:GridView CssClass="table table-bordered table-sm" ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="TableDS">
-                    <Columns>
-                        <asp:CommandField ShowSelectButton="True" />
-                        <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title" />
-                        <asp:BoundField DataField="CurrentStatusId" HeaderText="Current Status" SortExpression="CurrentStatusId" />
-                        <asp:BoundField DataField="CreatedOn" HeaderText="Created On" SortExpression="CreatedOn" />
-                    </Columns>
+                <asp:GridView CssClass="table table-bordered table-sm" ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False">
                     <HeaderStyle CssClass=" thead-light" />
 
                 </asp:GridView>
                 <br />
             </div>
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="postDS" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT Post.Id, Post.Title, Post.CurrentStatusId, Post.CreatedOn, Post.CreatedBy, Post.LastModifiedOn, Post.LastModifiedBy, AspNetUserRoles.UserId, AspNetUserRoles.RoleId, AspNetUserRoles.PostId, AspNetUsers.FirstName, AspNetUsers.LastName, AspNetUsers.UserName FROM Post INNER JOIN AspNetUserRoles ON Post.Id = AspNetUserRoles.PostId INNER JOIN AspNetUsers ON AspNetUserRoles.UserId = AspNetUsers.Id"></asp:SqlDataSource>
         </div>
     </form>
 </body>
