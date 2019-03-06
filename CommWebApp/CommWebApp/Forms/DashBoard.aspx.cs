@@ -45,7 +45,6 @@ namespace CommWebApp.Forms
             GridViewRow row = DashBoardGV.SelectedRow;
             int postID = Convert.ToInt32(row.Cells[6].Text);
             txtTest.Text = postID.ToString();
-
         }
     }
 }

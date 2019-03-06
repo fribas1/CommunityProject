@@ -109,7 +109,7 @@
                         <asp:BoundField DataField="CreatedOn" HeaderText="CreatedOn" SortExpression="CreatedOn" />
                         <asp:TemplateField ShowHeader="False">
                             <ItemTemplate>
-                                <asp:Button ID="btnAssociate" runat="server" CausesValidation="false" CommandName="" OnClick="btnAssociate_Click" Text="Associate" />
+                                <asp:Button ID="btnAssociate" runat="server" CausesValidation="false" CommandName="Select" OnClick="btnAssociate_Click" Text="Associate" />
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:BoundField DataField="UserId" HeaderText="UserId" SortExpression="UserId" />
