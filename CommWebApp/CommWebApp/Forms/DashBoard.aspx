@@ -16,6 +16,9 @@
             margin-right: 190px;
             margin-top: 40px;
         }
+            .auto-style1 {
+                height: 26px;
+            }
     </style>
 
 
@@ -107,40 +110,57 @@
                         <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title" />
                         <asp:BoundField DataField="Current Status" HeaderText="Current Status" SortExpression="Current Status" />
                         <asp:BoundField DataField="CreatedOn" HeaderText="CreatedOn" SortExpression="CreatedOn" />
-                        <asp:BoundField DataField="UserId" HeaderText="UserId" SortExpression="UserId" />
+                        <asp:BoundField DataField="UserId" HeaderText="UserId" SortExpression="UserId" Visible="False" />
                         <asp:BoundField DataField="RoleId" HeaderText="RoleId" SortExpression="RoleId" />
                         <asp:BoundField DataField="PostId" HeaderText="PostId" SortExpression="PostId" />
                         <asp:ButtonField ButtonType="Button" CommandName="Select" Text="Associate" />
                     </Columns>
                     <HeaderStyle CssClass=" thead-light" />
                 </asp:GridView>
-                <asp:GridView CssClass="table table-bordered table-sm" ID="AssociateGV" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False">
-                    <Columns>
-                        <asp:TemplateField HeaderText="Associate Editor 1">
-                            <ItemTemplate>
-                                <asp:DropDownList ID="ddlAssEdit1" runat="server" DataSourceID="allUsersDS" DataTextField="Users" DataValueField="Id">
+                <br />
+                <asp:Panel ID="panelAssociate" runat="server" Visible="False">
+                    <table style="width:100%;">
+                        <tr>
+                            <td class="auto-style1">Associate Editor 1</td>
+                            <td class="auto-style1">Associate Editor 2</td>
+                            <td class="auto-style1"></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <asp:DropDownList ID="ddlAssEdit1" runat="server" AppendDataBoundItems="True" DataSourceID="allUsersDS" DataTextField="Users" DataValueField="Id">
+                                    <asp:ListItem Value="-1">Select one..</asp:ListItem>
                                 </asp:DropDownList>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Associate Editor 2">
-                            <ItemTemplate>
-                                <asp:DropDownList ID="ddlAssEdit2" runat="server" DataSourceID="allUsersDS" DataTextField="Users" DataValueField="Id">
+                            </td>
+                            <td>
+                                <asp:DropDownList ID="ddlAssEdit2" runat="server" AppendDataBoundItems="True" DataSourceID="allUsersDS" DataTextField="Users" DataValueField="Id">
+                                    <asp:ListItem Value="-1">Select one..</asp:ListItem>
                                 </asp:DropDownList>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                    </Columns>
-                    <HeaderStyle CssClass=" thead-light" />
-
-                </asp:GridView>
-                <asp:TextBox ID="txtTest" runat="server"></asp:TextBox>
+                            </td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <asp:Button ID="btnSave" runat="server" OnClick="btnSave_Click" Text="Save" />
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <asp:Button ID="btnBackDash" runat="server" OnClick="btnBackDash_Click" Text="Back" />
+                            </td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                    </table>
+                </asp:Panel>
+                <asp:Label ID="lblMessage" runat="server" ForeColor="Red"></asp:Label>
+                <br />
                 <br />
             </div>
-            <asp:SqlDataSource ID="postDS" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT Post.Id, Post.Title, Post.CurrentStatusId, Post.CreatedOn, Post.CreatedBy, Post.LastModifiedOn, Post.LastModifiedBy, AspNetUserRoles.UserId, AspNetUserRoles.RoleId, AspNetUserRoles.PostId, AspNetUsers.FirstName, AspNetUsers.LastName, AspNetUsers.UserName, Post.PublishedOn, Status.Name AS [Current Status] FROM Post INNER JOIN AspNetUserRoles ON Post.Id = AspNetUserRoles.PostId INNER JOIN AspNetUsers ON AspNetUserRoles.UserId = AspNetUsers.Id INNER JOIN Status ON Post.CurrentStatusId = Status.Id WHERE (AspNetUserRoles.UserId = { fn IFNULL( @user , AspNetUserRoles.UserId) })">
-                <SelectParameters>
-                    <asp:QueryStringParameter Name="user" QueryStringField="currentUserId" />
-                </SelectParameters>
+            <asp:SqlDataSource ID="postDS" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT Post.Id, Post.Title, Post.CurrentStatusId, Post.CreatedOn, Post.CreatedBy, Post.LastModifiedOn, Post.LastModifiedBy, AspNetUserRoles.UserId, AspNetUserRoles.RoleId, AspNetUserRoles.PostId, Post.PublishedOn, Status.Name AS [Current Status] FROM Post INNER JOIN AspNetUserRoles ON Post.Id = AspNetUserRoles.PostId INNER JOIN Status ON Post.CurrentStatusId = Status.Id WHERE (Post.CurrentStatusId = 2)">
             </asp:SqlDataSource>
-            <asp:SqlDataSource ID="allUsersDS" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT { fn CONCAT(FirstName + ' ', LastName) } AS Users, Id FROM AspNetUsers"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="allUsersDS" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT DISTINCT { fn CONCAT(AspNetUsers.FirstName + ' ', AspNetUsers.LastName) } AS Users, AspNetUsers.Id, AspNetRoles.Id AS RolesID FROM AspNetUsers INNER JOIN AspNetUserRoles ON AspNetUsers.Id = AspNetUserRoles.UserId INNER JOIN AspNetRoles ON AspNetUserRoles.RoleId = AspNetRoles.Id WHERE (AspNetRoles.Id = N'2')"></asp:SqlDataSource>
             <asp:SqlDataSource ID="addAssociateDS" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" InsertCommand="INSERT INTO AspNetUserRoles(UserId, RoleId, PostId) VALUES (@selectUser, N'2', @post)" SelectCommand="SELECT AspNetUserRoles.* FROM AspNetUserRoles">
                 <InsertParameters>
                     <asp:Parameter Name="selectUser" />
