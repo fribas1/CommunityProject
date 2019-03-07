@@ -59,6 +59,7 @@ namespace CommWebApp.Forms
                 InsertPost();
                 InsertFile(hdFileName.Value, hdFilePath.Value, hdFileSize.Value, hdFileExtension.Value, postId);
                 InsertPostTag(postId);
+                InsertUserRole(User.Identity.GetUserId(), postId);
 
                 pnlContent.Visible = false;
                 pnlViewer.Visible = false;
@@ -254,6 +255,34 @@ namespace CommWebApp.Forms
             catch (Exception ex)
             {
                 lblError.Text = ex.ToString();
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        protected void InsertUserRole(string user, string post)
+        {
+            var connection = System.Configuration.ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            SqlConnection conn = new SqlConnection(connection);
+
+            try
+            {
+                SqlCommand cmd = conn.CreateCommand();
+                cmd.CommandText = "INSERT INTO [AspNetUserRoles] (UserId, RoleId, PostId) "
+                                  + "VALUES (@UserId, @RoleId, @PostId)";
+
+                cmd.Parameters.AddWithValue("@UserId", user);
+                cmd.Parameters.AddWithValue("@RoleId", "3"); //Role Id #3 = Author
+                cmd.Parameters.AddWithValue("@PostId", Convert.ToInt32(post));
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                lblMessage.Text = ex.ToString();
             }
             finally
             {
