@@ -26,6 +26,8 @@ namespace CommWebApp.Forms
         }
         protected void btnLogout_Click(object sender, EventArgs e)
         {
+            Context.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            Response.Redirect("~/Forms/Login");
         }
 
         protected void btnA_Click(object sender, EventArgs e)
