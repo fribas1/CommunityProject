@@ -102,20 +102,15 @@
 
             <div>
                 <br />
-                <asp:GridView CssClass="table table-bordered table-sm" ID="DashBoardGV" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="postDS">
+                <asp:GridView CssClass="table table-bordered table-sm" ID="DashBoardGV" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="postDS" OnSelectedIndexChanged="DashBoardGV_SelectedIndexChanged">
                     <Columns>
                         <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title" />
                         <asp:BoundField DataField="Current Status" HeaderText="Current Status" SortExpression="Current Status" />
                         <asp:BoundField DataField="CreatedOn" HeaderText="CreatedOn" SortExpression="CreatedOn" />
-                        <asp:TemplateField ShowHeader="False">
-                            <ItemTemplate>
-                                <asp:Button ID="btnAssociate" runat="server" CausesValidation="false" CommandName="Select" OnClick="btnAssociate_Click" Text="Associate" />
-                            </ItemTemplate>
-                        </asp:TemplateField>
                         <asp:BoundField DataField="UserId" HeaderText="UserId" SortExpression="UserId" />
                         <asp:BoundField DataField="RoleId" HeaderText="RoleId" SortExpression="RoleId" />
                         <asp:BoundField DataField="PostId" HeaderText="PostId" SortExpression="PostId" />
-                        <asp:ButtonField ButtonType="Button" CommandName="Select" Text="Button" />
+                        <asp:ButtonField ButtonType="Button" CommandName="Select" Text="Associate" />
                     </Columns>
                     <HeaderStyle CssClass=" thead-light" />
                 </asp:GridView>

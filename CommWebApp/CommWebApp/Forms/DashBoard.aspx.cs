@@ -13,6 +13,7 @@ namespace CommWebApp.Forms
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!User.Identity.IsAuthenticated) Response.Redirect("~/Forms/Login");
             // Passing current user id to a QueryString to filter DashBoard
             if (Request.QueryString.Count == 0)
             {
@@ -38,13 +39,14 @@ namespace CommWebApp.Forms
             Response.Redirect("/Forms/ReviewPage.aspx");
         }
 
-        protected void btnAssociate_Click(object sender, EventArgs e)
+        protected void DashBoardGV_SelectedIndexChanged(object sender, EventArgs e)
         {
             DashBoardGV.Visible = false;
             AssociateGV.Visible = true;
-            GridViewRow row = DashBoardGV.SelectedRow;
-            int postID = Convert.ToInt32(row.Cells[6].Text);
+            int index = DashBoardGV.SelectedRow.RowIndex;
+            string postID = DashBoardGV.SelectedRow.Cells[1].ToString();
             txtTest.Text = postID.ToString();
+            // Convert.ToInt32(row.Cells[6].Text);
         }
     }
 }
