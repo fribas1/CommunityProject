@@ -46,7 +46,7 @@ namespace CommWebApp.Forms
                 InsertExpertise(userId);
 
                 signInManager.SignIn(user, isPersistent: false, rememberBrowser: false);
-                IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
+                IdentityHelper.RedirectToReturnUrl("~/Forms/DashBoard", Response);
             }
             else
             {
