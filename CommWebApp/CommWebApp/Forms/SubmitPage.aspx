@@ -220,7 +220,7 @@
                 </div>
                 <div class="mt-4 border border-dark rounded p-1 bg-white col-lg-6">
                     <asp:Panel ID="pnlViewer" runat="server" Visible="False">
-                        <iframe src="/ViewerJS/#../Uploads/<%=fileName %>" width='566' height='800' allowfullscreen webkitallowfullscreen></iframe>
+                        <iframe src="/ViewerJS/#../Uploads/<%=blobURL %>" width='566' height='800' allowfullscreen webkitallowfullscreen></iframe>
                     </asp:Panel>
                 </div>
             </div>
