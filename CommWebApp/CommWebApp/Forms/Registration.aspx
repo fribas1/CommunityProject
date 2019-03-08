@@ -201,8 +201,11 @@
                     <asp:CustomValidator runat="server" ClientValidationFunction="ValidateCheckBoxList"
                         CssClass="text-danger" Display="Dynamic" ErrorMessage="At least one expertise is required." />
 
+                    <asp:CheckBox CssClass="form-check" runat="server" ID="chkConsider" />
+                    <asp:Label CssClass="form-check-label" runat="server" AssociatedControlID="chkConsider">Consider me as an Associate Editor</asp:Label>
+
                     <asp:Button CssClass=" mt-4 btn btn-outline-primary" runat="server" OnClick="CreateUser_Click" Text="Register" />
-                    <asp:Button CssClass=" mt-4 btn btn-outline-info float-right" runat="server" Text="Go Back" />
+                    <asp:Button CssClass=" mt-4 btn btn-outline-info float-right" runat="server" Text="Go Back" ID="btnBack" OnClick="btnBack_Click" />
 
                 </div>
             </div>

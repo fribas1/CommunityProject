@@ -128,34 +128,8 @@ namespace CommWebApp.Forms
                 lblMessage.Text = "The maximum size of 50 MB was exceeded.";
             }
             else
-            {
-                try
-                {
-                    var connAzure = ConfigurationManager.ConnectionStrings["AzureStorageConn"].ConnectionString;
-
-                    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(connAzure);
-
-                    CloudBlobClient client = storageAccount.CreateCloudBlobClient();
-
-                    CloudBlobContainer container = client.GetContainerReference("uploads");
-
-                    container.CreateIfNotExists();
-
-                    CloudBlockBlob blob = container.GetBlockBlobReference(FileUpload1.FileName);
-
-                    using (var fs = File.Open(FileUpload1.FileName, FileMode.Open, FileAccess.Read, FileShare.None))
-                    {
-                        blob.UploadFromStream(fs);
-                    }
-
-                    blobURL = blob.Uri.AbsoluteUri.ToString();
-                }
-                catch (Exception ex)
-                {
-                    Response.Write("<script>alert('" + ex.Message.ToString() + "');</script>");
-                }
-
-                //FileUpload1.SaveAs(filePath + FileUpload1.FileName);
+            {                
+                FileUpload1.SaveAs(filePath + FileUpload1.FileName);
 
                 hdFileName.Value = fileName;
                 hdFilePath.Value = filePath;
