@@ -43,7 +43,7 @@ namespace CommWebApp.Forms
                 userId = GetNewUserId(Email.Text);
 
                 UpdateUser(FirstName.Text, LastName.Text, Email.Text);
-                InsertExpertise(userId);
+                InsertExpertise(userId);                                
 
                 signInManager.SignIn(user, isPersistent: false, rememberBrowser: false);
                 IdentityHelper.RedirectToReturnUrl("~/Forms/DashBoard", Response);
@@ -61,10 +61,16 @@ namespace CommWebApp.Forms
 
             try
             {
-                SqlCommand cmd = new SqlCommand("UPDATE [AspNetUsers] SET "
-                                                + "[FirstName] = @FirstName, "
-                                                + "[LastName] = @LastName "
-                                                + "WHERE [Email] = @Email", conn);
+                SqlCommand cmd = conn.CreateCommand();
+
+                cmd.CommandText = "UPDATE [AspNetUsers] SET "
+                                    + "[FirstName] = @FirstName, "
+                                    + "[LastName] = @LastName";                                    
+
+                if (chkConsider.Checked)
+                    cmd.CommandText += ", [ConsiderAsAssociate] = 1";
+                
+                cmd.CommandText += " WHERE[Email] = @Email";
 
                 cmd.Parameters.AddWithValue("@FirstName", first);
                 cmd.Parameters.AddWithValue("@LastName", last);
@@ -154,6 +160,11 @@ namespace CommWebApp.Forms
             }
 
             return id;
+        }
+
+        protected void btnBack_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Forms/Login");
         }
     }
 }

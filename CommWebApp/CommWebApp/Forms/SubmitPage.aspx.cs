@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -7,12 +8,15 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using Microsoft.AspNet.Identity;
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Auth;
+using Microsoft.WindowsAzure.Storage.Blob;
 
 namespace CommWebApp.Forms
 {
     public partial class SubmitPage : System.Web.UI.Page
     {
-        public string fileName, filePath, fileExtension, postId, fileId;
+        public string fileName, filePath, fileExtension, postId, fileId, blobURL;
         public int fileSize;
         List<ListItem> selectedTags = new List<ListItem>();        
 
@@ -124,7 +128,7 @@ namespace CommWebApp.Forms
                 lblMessage.Text = "The maximum size of 50 MB was exceeded.";
             }
             else
-            {
+            {                
                 FileUpload1.SaveAs(filePath + FileUpload1.FileName);
 
                 hdFileName.Value = fileName;
@@ -187,9 +191,9 @@ namespace CommWebApp.Forms
 
         protected void InsertFile(string name, string path, string size, string extension, string id)
         {
-            var connection = System.Configuration.ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-            SqlConnection conn = new SqlConnection(connection);
-            
+            var connection = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            SqlConnection conn = new SqlConnection(connection);            
+
             try
             {
                 //SqlCommand cmd = new SqlCommand("INSERT INTO [File] (Name, Path, Size, Extension) "
