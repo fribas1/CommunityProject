@@ -115,7 +115,7 @@ namespace CommWebApp.Forms
         public void UploadFile(object sender, EventArgs e)
         {
             const string CONTAINER = "teste";
-            filePath = Server.MapPath("~/Uploads/");
+            filePath = Request.PhysicalApplicationPath+"/Uploads/";
             fileName = FileUpload1.PostedFile.FileName;
             fileSize = FileUpload1.PostedFile.ContentLength;
             fileExtension = Path.GetExtension(FileUpload1.FileName);
