@@ -40,6 +40,42 @@ namespace CommWebApp.Forms {
         protected global::System.Web.UI.WebControls.Panel pnlContent;
         
         /// <summary>
+        /// btnUploadFront control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnUploadFront;
+        
+        /// <summary>
+        /// FileUploadFront control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload FileUploadFront;
+        
+        /// <summary>
+        /// lblFrontName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFrontName;
+        
+        /// <summary>
+        /// lblMessageFront control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMessageFront;
+        
+        /// <summary>
         /// btnUploadFile control.
         /// </summary>
         /// <remarks>
@@ -49,13 +85,13 @@ namespace CommWebApp.Forms {
         protected global::System.Web.UI.WebControls.Button btnUploadFile;
         
         /// <summary>
-        /// FileUpload1 control.
+        /// FileUploadArticle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
+        protected global::System.Web.UI.WebControls.FileUpload FileUploadArticle;
         
         /// <summary>
         /// lblFileName control.
@@ -175,13 +211,22 @@ namespace CommWebApp.Forms {
         protected global::System.Web.UI.WebControls.LinkButton btnBack;
         
         /// <summary>
-        /// pnlViewer control.
+        /// pnlFrontViewer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlViewer;
+        protected global::System.Web.UI.WebControls.Panel pnlFrontViewer;
+        
+        /// <summary>
+        /// pnlArticleViewer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlArticleViewer;
         
         /// <summary>
         /// dsTags control.
