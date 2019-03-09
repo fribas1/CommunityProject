@@ -191,7 +191,7 @@
                                 </div>
                             </div>
                             <asp:Label ID="lblMessage" runat="server" CssClass="text-danger" Visible="False"></asp:Label>
-                            <br />
+                            <br />                            
                         </div>
                         <h3 class="mt-3">Article Details</h3>
                         <div class="ml-3 mt-3">
@@ -220,7 +220,7 @@
                 </div>
                 <div class="mt-4 border border-dark rounded p-1 bg-white col-lg-6">
                     <asp:Panel ID="pnlViewer" runat="server" Visible="False">
-                        <iframe src="/ViewerJS/#../Uploads/<%=blobURL %>" width='566' height='800' allowfullscreen webkitallowfullscreen></iframe>
+                        <iframe src="/ViewerJS/#../Uploads/<%=fileName %>" width='566' height='800' allowfullscreen webkitallowfullscreen></iframe>
                     </asp:Panel>
                 </div>
             </div>
