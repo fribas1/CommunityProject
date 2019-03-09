@@ -16,15 +16,17 @@ namespace CommWebApp.Forms
 {
     public partial class SubmitPage : System.Web.UI.Page
     {
-        public string fileName, filePath, fileExtension, postId, fileId, blobURL;
+        public string fileName, filePath, fileExtension, postId, fileId, frontName;
         public int fileSize;
+        public bool flag;
         List<ListItem> selectedTags = new List<ListItem>();        
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!User.Identity.IsAuthenticated) Response.Redirect("~/Forms/Login");
-            //if (IsPostBack) return;
-            FileUpload1.Attributes["onchange"] = "UploadFile(this)";
+            //if (IsPostBack)
+            if (!User.Identity.IsAuthenticated) Response.Redirect("~/Forms/Login");            
+            FileUploadArticle.Attributes["onchange"] = "UploadFile(this)";
+            FileUploadFront.Attributes["onchange"] = "UploadFront(this)";
         }
 
         protected void btnLogout_Click(object sender, EventArgs e)
@@ -66,7 +68,8 @@ namespace CommWebApp.Forms
                 InsertUserRole(User.Identity.GetUserId(), postId);
 
                 pnlContent.Visible = false;
-                pnlViewer.Visible = false;
+                pnlArticleViewer.Visible = false;
+                pnlFrontViewer.Visible = false;
                 pnlSuccess.Visible = true;
             }
         }
@@ -112,13 +115,62 @@ namespace CommWebApp.Forms
         //    this.lblMessage.Visible = true;
         //}
 
+        protected void UploadFront(object sender, EventArgs e)
+        {
+            lblMessage.Text = "";
+            const string CONTAINER = "frontpage";
+            filePath = Request.PhysicalApplicationPath + "Uploads//";
+            frontName = FileUploadFront.PostedFile.FileName;
+            fileSize = FileUploadFront.PostedFile.ContentLength;
+            fileExtension = Path.GetExtension(FileUploadFront.FileName);
+
+            if (fileExtension.ToLower() != ".pdf")
+            {
+                lblMessageFront.Text = "Only files with .pdf extension are allowed.";
+                lblMessageFront.CssClass = "text-danger";
+            }
+            else if (fileSize > 26214400)
+            {
+                lblMessageFront.Text = "The maximum size of 25 MB was exceeded.";
+                lblMessageFront.CssClass = "text-danger";
+            }
+            else
+            {
+                FileUploadFront.SaveAs(filePath + FileUploadFront.FileName);
+
+                BlobStorageHelper.CheckContainer(CONTAINER);
+
+                BlobStorageHelper.UploadBlockBlob(CONTAINER, frontName, filePath + frontName);
+
+                hdFileName.Value = fileName;
+                hdFilePath.Value = filePath;
+                hdFileSize.Value = fileSize.ToString();
+                hdFileExtension.Value = fileExtension;
+
+                lblMessageFront.Text = "File uploaded successfully!";
+                lblMessageFront.CssClass = "text-success";
+
+                pnlArticleViewer.Visible = false;
+                pnlFrontViewer.Visible = true;
+            }
+
+            if (frontName.Length <= 15)
+                lblFrontName.Text = frontName;
+            else
+                lblFrontName.Text = frontName.Substring(0, 10) + "[...]" + fileExtension;
+
+            ClientScript.RegisterStartupScript(this.GetType(), "HideLabel", "<script type=\"text/javascript\">setTimeout(\"document.getElementById('" + lblMessageFront.ClientID + "').style.display='none'\",5000)</script>");
+            lblMessageFront.Visible = true;
+        }
+
         public void UploadFile(object sender, EventArgs e)
         {
-            const string CONTAINER = "teste";
-            filePath = Request.PhysicalApplicationPath+"/Uploads/";
-            fileName = FileUpload1.PostedFile.FileName;
-            fileSize = FileUpload1.PostedFile.ContentLength;
-            fileExtension = Path.GetExtension(FileUpload1.FileName);
+            lblMessageFront.Text = "";
+            const string CONTAINER = "articles";
+            filePath = Request.PhysicalApplicationPath+"Uploads//";
+            fileName = FileUploadArticle.PostedFile.FileName;
+            fileSize = FileUploadArticle.PostedFile.ContentLength;
+            fileExtension = Path.GetExtension(FileUploadArticle.FileName);
 
             if (fileExtension.ToLower() != ".pdf")
             {
@@ -132,7 +184,7 @@ namespace CommWebApp.Forms
             }
             else
             {
-                FileUpload1.SaveAs(filePath + FileUpload1.FileName);
+                FileUploadArticle.SaveAs(filePath + FileUploadArticle.FileName);
 
                 BlobStorageHelper.CheckContainer(CONTAINER);
 
@@ -144,9 +196,10 @@ namespace CommWebApp.Forms
                 hdFileExtension.Value = fileExtension;
 
                 lblMessage.Text = "File uploaded successfully!";                
-                lblMessage.CssClass = "text-success";                
+                lblMessage.CssClass = "text-success";
 
-                pnlViewer.Visible = true;
+                pnlFrontViewer.Visible = false;
+                pnlArticleViewer.Visible = true;
             }
 
             if(fileName.Length <= 15)
@@ -154,6 +207,7 @@ namespace CommWebApp.Forms
             else
                 lblFileName.Text = fileName.Substring(0, 10) + "[...]" + fileExtension;
 
+            ClientScript.RegisterStartupScript(this.GetType(), "HideLabel", "<script type=\"text/javascript\">setTimeout(\"document.getElementById('" + lblMessage.ClientID + "').style.display='none'\",5000)</script>");
             lblMessage.Visible = true;
         }
 
