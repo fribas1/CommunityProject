@@ -112,6 +112,25 @@ height:100%;
 	margin-top:70px;
 	margin-left:40px;
 }
+        #btnLogIn {
+            border-color: mediumpurple;
+            color: mediumpurple;
+        }
+        #btnLogIn:hover {
+            background-color: mediumpurple;
+            color:white;
+        }
+        #formLogin {
+            background-color: #f8f9f9 ;
+        }
+        #RegisterHyperLink {
+            border-color:purple;
+            color:purple;
+        }
+            #RegisterHyperLink:hover {
+                background-color:purple;
+                color:white;
+            }
     </style>
 </head>
 <body>
@@ -122,15 +141,15 @@ height:100%;
             </div>
         </div>
         <div class="row">        
-            <div class="col-sm-4 offset-4 jumbotron border rounded text-center">
+            <div id="formLogin" class="col-sm-2 offset-sm-5 card text-center p-4">
                 <section id="loginForm">
-                        <asp:Image src="/images/trpr.png" Alt="company-logo" ID="logo" runat="server" Height="162" Width="288"/><br /><br />
+                        <asp:Image src="/images/trpr.png" Alt="company-logo" ID="logo" runat="server" Height="121" Width="216"/><br /><br />
                         <asp:PlaceHolder runat="server" ID="ErrorMessage" Visible="false">
                             <p class="text-danger">
                                 <asp:Literal runat="server" ID="FailureText" />
                             </p>
                         </asp:PlaceHolder>
-                    <div class="offset-3 col-lg-6">
+                    <div class="">
                                 <asp:TextBox placeholder="Email" runat="server" ID="Email" CssClass=" form-control" TextMode="Email" />
                                 <asp:RequiredFieldValidator runat="server" ControlToValidate="Email"
                                     CssClass="text-danger" ErrorMessage="The email is required." />
@@ -138,18 +157,20 @@ height:100%;
                                 <asp:TextBox placeholder="Password" runat="server" ID="Password" TextMode="Password" CssClass=" form-control" />
                                 <asp:RequiredFieldValidator runat="server" ControlToValidate="Password" CssClass="text-danger" ErrorMessage="The password is required." />
                         </div>
+                                            <asp:hyperlink runat="server" id="forgotpasswordhyperlink">forgot your password?</asp:hyperlink> <br />
+
                                     <asp:CheckBox runat="server" ID="RememberMe" />
-                                    <asp:Label runat="server" AssociatedControlID="RememberMe">Remember me?</asp:Label>
+                                    <asp:Label CssClass="mt-2" runat="server" AssociatedControlID="RememberMe">Remember me?</asp:Label>
                     <br />
-                                <asp:Button runat="server" Text="Log in" CssClass="btn btn-outline-primary mt-2 mb-3" OnClick="btnLogin_Click" />
+                                <asp:Button runat="server" Width="100" Text="Log in" CssClass="btn btn-outline-primary mt-2 mb-3" OnClick="btnLogin_Click" ID="btnLogIn" />
                                         <br />
-                        <asp:HyperLink  runat="server" ID="RegisterHyperLink" ViewStateMode="Disabled">New to TRPR? Register now!</asp:HyperLink>
+                        <asp:HyperLink CssClass="btn btn-outline-info" Width ="100"  runat="server" ID="RegisterHyperLink" ViewStateMode="Disabled">Sign Up</asp:HyperLink>
                                         <br />
-                        <asp:hyperlink runat="server" id="forgotpasswordhyperlink" viewstatemode="disabled">forgot your password?</asp:hyperlink>
                         
                 </section>
             </div>
         </div>
+            
     </form>
      <%--<div class="card-header bg-transparent text-white mb-5">
            <%: DateTime.Now.Date.ToLongDateString() %>

@@ -182,7 +182,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="About.aspx" />
     <Content Include="Account\AddPhoneNumber.aspx" />
     <Content Include="Account\Confirm.aspx" />
     <Content Include="Account\Forgot.aspx" />
@@ -198,57 +197,6 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
-    <Content Include="bootstrap\css\addons\datatables-select.css" />
-    <Content Include="bootstrap\css\addons\datatables-select.min.css" />
-    <Content Include="bootstrap\css\addons\datatables.css" />
-    <Content Include="bootstrap\css\addons\datatables.min.css" />
-    <Content Include="bootstrap\css\addons\directives.css" />
-    <Content Include="bootstrap\css\addons\directives.min.css" />
-    <Content Include="bootstrap\css\bootstrap.css" />
-    <Content Include="bootstrap\css\bootstrap.min.css" />
-    <Content Include="bootstrap\css\mdb.css" />
-    <Content Include="bootstrap\css\mdb.lite.css" />
-    <Content Include="bootstrap\css\mdb.lite.min.css" />
-    <Content Include="bootstrap\css\mdb.min.css" />
-    <Content Include="bootstrap\css\modules\animations-extended.css" />
-    <Content Include="bootstrap\css\modules\animations-extended.min.css" />
-    <Content Include="bootstrap\css\style.css" />
-    <Content Include="bootstrap\css\style.min.css" />
-    <Content Include="bootstrap\img\lightbox\default-skin.png" />
-    <Content Include="bootstrap\img\lightbox\default-skin.svg" />
-    <Content Include="bootstrap\img\lightbox\preloader.gif" />
-    <Content Include="bootstrap\img\overlays\01.png" />
-    <Content Include="bootstrap\img\overlays\02.png" />
-    <Content Include="bootstrap\img\overlays\03.png" />
-    <Content Include="bootstrap\img\overlays\04.png" />
-    <Content Include="bootstrap\img\overlays\05.png" />
-    <Content Include="bootstrap\img\overlays\06.png" />
-    <Content Include="bootstrap\img\overlays\07.png" />
-    <Content Include="bootstrap\img\overlays\08.png" />
-    <Content Include="bootstrap\img\overlays\09.png" />
-    <Content Include="bootstrap\img\svg\arrow_left.svg" />
-    <Content Include="bootstrap\img\svg\arrow_right.svg" />
-    <Content Include="bootstrap\js\addons\datatables-select.js" />
-    <Content Include="bootstrap\js\addons\datatables-select.min.js" />
-    <Content Include="bootstrap\js\addons\datatables.js" />
-    <Content Include="bootstrap\js\addons\datatables.min.js" />
-    <Content Include="bootstrap\js\bootstrap.js" />
-    <Content Include="bootstrap\js\bootstrap.min.js" />
-    <Content Include="bootstrap\js\jquery-3.3.1.min.js" />
-    <Content Include="bootstrap\js\mdb.js" />
-    <Content Include="bootstrap\js\mdb.min.js" />
-    <Content Include="bootstrap\js\modules\chart.js" />
-    <Content Include="bootstrap\js\modules\default-file-input.js" />
-    <Content Include="bootstrap\js\modules\enhanced-modals.js" />
-    <Content Include="bootstrap\js\modules\forms-free.js" />
-    <Content Include="bootstrap\js\modules\jquery.easing.js" />
-    <Content Include="bootstrap\js\modules\scrolling-navbar.js" />
-    <Content Include="bootstrap\js\modules\velocity.js" />
-    <Content Include="bootstrap\js\modules\velocity.min.js" />
-    <Content Include="bootstrap\js\modules\waves.js" />
-    <Content Include="bootstrap\js\modules\wow.js" />
-    <Content Include="bootstrap\js\popper.min.js" />
-    <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -295,7 +243,6 @@
     <Content Include="Content\themes\base\tabs.css" />
     <Content Include="Content\themes\base\theme.css" />
     <Content Include="Content\themes\base\tooltip.css" />
-    <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Forms\DashBoard.aspx" />
@@ -318,65 +265,6 @@
     <Content Include="includes\bootstrap.html" />
     <Content Include="includes\footer.html" />
     <Content Include="includes\navBar.html" />
-    <Content Include="bootstrap\font\roboto\Roboto-Bold.eot" />
-    <Content Include="bootstrap\font\roboto\Roboto-Bold.ttf" />
-    <Content Include="bootstrap\font\roboto\Roboto-Bold.woff" />
-    <Content Include="bootstrap\font\roboto\Roboto-Bold.woff2" />
-    <Content Include="bootstrap\font\roboto\Roboto-Light.eot" />
-    <Content Include="bootstrap\font\roboto\Roboto-Light.ttf" />
-    <Content Include="bootstrap\font\roboto\Roboto-Light.woff" />
-    <Content Include="bootstrap\font\roboto\Roboto-Light.woff2" />
-    <Content Include="bootstrap\font\roboto\Roboto-Medium.eot" />
-    <Content Include="bootstrap\font\roboto\Roboto-Medium.ttf" />
-    <Content Include="bootstrap\font\roboto\Roboto-Medium.woff" />
-    <Content Include="bootstrap\font\roboto\Roboto-Medium.woff2" />
-    <Content Include="bootstrap\font\roboto\Roboto-Regular.eot" />
-    <Content Include="bootstrap\font\roboto\Roboto-Regular.ttf" />
-    <Content Include="bootstrap\font\roboto\Roboto-Regular.woff" />
-    <Content Include="bootstrap\font\roboto\Roboto-Regular.woff2" />
-    <Content Include="bootstrap\font\roboto\Roboto-Thin.eot" />
-    <Content Include="bootstrap\font\roboto\Roboto-Thin.ttf" />
-    <Content Include="bootstrap\font\roboto\Roboto-Thin.woff" />
-    <Content Include="bootstrap\font\roboto\Roboto-Thin.woff2" />
-    <Content Include="bootstrap\scss\addons\_datatables-select.scss" />
-    <Content Include="bootstrap\scss\addons\_datatables.scss" />
-    <Content Include="bootstrap\scss\addons\_directives.scss" />
-    <Content Include="bootstrap\scss\core\bootstrap\_functions.scss" />
-    <Content Include="bootstrap\scss\core\bootstrap\_variables.scss" />
-    <Content Include="bootstrap\scss\core\_colors.scss" />
-    <Content Include="bootstrap\scss\core\_global.scss" />
-    <Content Include="bootstrap\scss\core\_helpers.scss" />
-    <Content Include="bootstrap\scss\core\_masks.scss" />
-    <Content Include="bootstrap\scss\core\_mixins.scss" />
-    <Content Include="bootstrap\scss\core\_typography.scss" />
-    <Content Include="bootstrap\scss\core\_variables.scss" />
-    <Content Include="bootstrap\scss\core\_waves.scss" />
-    <Content Include="bootstrap\scss\free\modules\animations-extended\animations-extended.scss" />
-    <Content Include="bootstrap\scss\free\modules\animations-extended\_module.scss" />
-    <Content Include="bootstrap\scss\free\_animations-basic.scss" />
-    <Content Include="bootstrap\scss\free\_badges.scss" />
-    <Content Include="bootstrap\scss\free\_buttons.scss" />
-    <Content Include="bootstrap\scss\free\_cards.scss" />
-    <Content Include="bootstrap\scss\free\_carousels.scss" />
-    <Content Include="bootstrap\scss\free\_depreciated.scss" />
-    <Content Include="bootstrap\scss\free\_dropdowns.scss" />
-    <Content Include="bootstrap\scss\free\_footers.scss" />
-    <Content Include="bootstrap\scss\free\_forms.scss" />
-    <Content Include="bootstrap\scss\free\_input-group.scss" />
-    <Content Include="bootstrap\scss\free\_list-group.scss" />
-    <Content Include="bootstrap\scss\free\_loader.scss" />
-    <Content Include="bootstrap\scss\free\_modals.scss" />
-    <Content Include="bootstrap\scss\free\_msc.scss" />
-    <Content Include="bootstrap\scss\free\_navbars.scss" />
-    <Content Include="bootstrap\scss\free\_pagination.scss" />
-    <Content Include="bootstrap\scss\free\_steppers.scss" />
-    <Content Include="bootstrap\scss\free\_switch.scss" />
-    <Content Include="bootstrap\scss\free\_tables.scss" />
-    <Content Include="bootstrap\scss\mdb.lite.scss" />
-    <Content Include="bootstrap\scss\mdb.scss" />
-    <Content Include="bootstrap\scss\_custom-skin.scss" />
-    <Content Include="bootstrap\scss\_custom-styles.scss" />
-    <Content Include="bootstrap\scss\_custom-variables.scss" />
     <None Include="Properties\PublishProfiles\trpr - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\TRPRApp - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\trprtestblob - Web Deploy.pubxml" />
@@ -529,31 +417,10 @@
       <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="About.aspx.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="About.aspx.designer.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-    </Compile>
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="BlobStorageHelper.cs" />
-    <Compile Include="Contact.aspx.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Contact.aspx.designer.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Forms\DashBoard.aspx.cs">
       <DependentUpon>DashBoard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
