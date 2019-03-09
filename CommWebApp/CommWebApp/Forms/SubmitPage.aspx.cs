@@ -114,6 +114,7 @@ namespace CommWebApp.Forms
 
         public void UploadFile(object sender, EventArgs e)
         {
+            const string CONTAINER = "teste";
             filePath = Server.MapPath("~/Uploads/");
             fileName = FileUpload1.PostedFile.FileName;
             fileSize = FileUpload1.PostedFile.ContentLength;
@@ -122,14 +123,20 @@ namespace CommWebApp.Forms
             if (fileExtension.ToLower() != ".pdf")
             {
                 lblMessage.Text = "Only files with .pdf extension are allowed.";
+                lblMessage.CssClass = "text-danger";
             }
-            else if (fileSize > 50000000)
+            else if (fileSize > 26214400)
             {
-                lblMessage.Text = "The maximum size of 50 MB was exceeded.";
+                lblMessage.Text = "The maximum size of 25 MB was exceeded.";
+                lblMessage.CssClass = "text-danger";
             }
             else
-            {                
+            {
                 FileUpload1.SaveAs(filePath + FileUpload1.FileName);
+
+                BlobStorageHelper.CheckContainer(CONTAINER);
+
+                BlobStorageHelper.UploadBlockBlob(CONTAINER, fileName, filePath + fileName);
 
                 hdFileName.Value = fileName;
                 hdFilePath.Value = filePath;
