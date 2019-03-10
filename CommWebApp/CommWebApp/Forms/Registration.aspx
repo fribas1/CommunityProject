@@ -152,6 +152,29 @@
                 .navbar-default .navbar-brand:focus {
                     color: #5E5E5E;
                 }
+        #cblExpertise label {
+            margin-left:5px;
+            margin-right:10px;
+        }
+        .btn-outline-info {
+            border-color: mediumpurple;
+            color: mediumpurple;
+        }
+        .btn-outline-info:hover {
+            background-color: mediumpurple;
+            color:white;
+            border-color:mediumpurple;
+        }
+        .btn-outline-primary {
+            border-color: purple;
+            color: purple;
+        }
+        .btn-outline-primary:hover {
+            background-color: purple;
+            color:white;
+            border-color:purple;
+        }
+
     </style>
 </head>
 <body>
@@ -165,11 +188,10 @@
                 <asp:Literal runat="server" ID="ErrorMessage" />
             </p>
             <div class="row">
-                <div class=" offset-4 col-sm-3">
-                    <h4 class="mb-4">Create a new account</h4>
+                <div class=" offset-md-3 col-md-6 col-lg-4 offset-lg-4">
+                    <h4 class="mb-4 text-center">Create a new Account</h4>
 
                     <hr class="mb-4" />
-                    <asp:ValidationSummary runat="server" CssClass="text-danger" ID="lblValidate" />
 
                     <asp:TextBox placeholder="First Name *" CssClass="form-control" runat="server" ID="FirstName" TextMode="SingleLine" />
                     <asp:RequiredFieldValidator runat="server" ControlToValidate="FirstName"
@@ -196,16 +218,19 @@
                         CssClass="text-danger" Display="Dynamic" ErrorMessage="The password and confirmation password do not match." />
 
                     <br />
+
                     <asp:Label CssClass="form-check-label" ID="lblExpertise" runat="server" Text="Expertise" AssociatedControlID="cblExpertise"></asp:Label>
-                    <asp:CheckBoxList CssClass="form-control form-check" ID="cblExpertise" runat="server" DataSourceID="dsExpertises" DataTextField="Name" DataValueField="Id" RepeatColumns="2"></asp:CheckBoxList>
+                    <hr />
+                    <asp:CheckBoxList CssClass="ml-3" ID="cblExpertise" runat="server" DataSourceID="dsExpertises" DataTextField="Name" DataValueField="Id" RepeatColumns="2"></asp:CheckBoxList>
                     <asp:CustomValidator runat="server" ClientValidationFunction="ValidateCheckBoxList"
                         CssClass="text-danger" Display="Dynamic" ErrorMessage="At least one expertise is required." />
+                    <hr />
 
-                    <asp:CheckBox CssClass="form-check" runat="server" ID="chkConsider" />
-                    <asp:Label CssClass="form-check-label" runat="server" AssociatedControlID="chkConsider">Consider me as an Associate Editor</asp:Label>
-
-                    <asp:Button CssClass=" mt-4 btn btn-outline-primary" runat="server" OnClick="CreateUser_Click" Text="Register" />
-                    <asp:Button CssClass=" mt-4 btn btn-outline-info float-right" runat="server" Text="Go Back" ID="btnBack" OnClick="btnBack_Click" />
+                    <asp:CheckBox CssClass="ml-3" runat="server" ID="chkConsider" />
+                    <asp:Label CssClass="form-check-label" runat="server" AssociatedControlID="chkConsider">Check to be an Associate Editor</asp:Label>
+                    <br />
+                    <asp:Button CssClass="mt-3 btn btn-outline-primary float-left" runat="server" OnClick="CreateUser_Click" Text="Register" />
+                    <asp:Button CssClass="mt-3 btn btn-outline-info float-right" runat="server" Text="Go Back" ID="btnBack" OnClick="btnBack_Click" />
 
                 </div>
             </div>
