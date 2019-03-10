@@ -115,32 +115,14 @@
                         <asp:BoundField DataField="UserId" HeaderText="UserId" SortExpression="UserId" Visible="False" />
                         <asp:BoundField DataField="RoleId" HeaderText="RoleId" SortExpression="RoleId" />
                         <asp:BoundField DataField="PostId" HeaderText="PostId" SortExpression="PostId" />
-                        <asp:TemplateField ShowHeader="False">
-                            <ItemTemplate>
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" value="Associate" onclick="DashBoardGV_SelectedIndexChanged">
-                                    Associates</button>
-                            </ItemTemplate>
-                            <ControlStyle CssClass="btn" />
-                        </asp:TemplateField>
+                        <asp:ButtonField Text="Button" />
                     </Columns>
                     <HeaderStyle CssClass=" thead-light" />
                 </asp:GridView>
                 <br />
 
 
-                <div class="modal" id="myModal">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-
-                            <!-- Modal Header -->
-                            <div class="modal-header">
-                                <h4 class="modal-title">Modal Heading</h4>
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            </div>
-
-                            <!-- Modal body -->
-                            <div class="modal-body">
-                                <asp:Panel ID="panelAssociate" runat="server" Width="464px">
+                                <asp:Panel ID="panelAssociate" Visible="false" runat="server" Width="464px">
                                     <table class="w-100">
                                         <tr>
                                             <td class="auto-style1">Associate Editor 1</td>
@@ -171,16 +153,6 @@
                                         </tr>
                                     </table>
                                 </asp:Panel>
-                            </div>
-
-                            <!-- Modal footer -->
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
 
 
                 <br />
