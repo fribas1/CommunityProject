@@ -193,7 +193,7 @@
 
         <div class=" container">
             <div class="row">
-                <div class="col-lg-6 container mt-4">
+                <div class="col-lg-6 container mt-4 ml-0 mr-0 float-left">
                     <h2>Journal Submission</h2>
                     <asp:Panel ID="pnlContent" runat="server">
                         <div class="col-lg-6 mt-3">
@@ -261,7 +261,7 @@
                         <asp:LinkButton ID="btnBack" runat="server" Text="Click here to return" OnClick="btnBack_Click" />
                     </asp:Panel>
                 </div>
-                <div id="tabs" class="mt-5 col-lg-6 border-0">
+                <div id="tabs" class="mt-5 col-lg-6 border-0 float-right">
                     <ul>
                         <li><a href="#tabs-1">Front Page</a></li>
                         <li><a href="#tabs-2">Article Content</a></li>
