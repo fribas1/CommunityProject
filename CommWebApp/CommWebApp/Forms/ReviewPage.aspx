@@ -52,18 +52,15 @@
         <%--END OF NAV BAR--%>
 
 
-        <div class="right mt-4 border border-dark rounded p-1">
-            <img src="/images/article.jpg" alt="article picture" height="525" width="372" />
-        </div>
 
 
         <div class=" container">
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-6">
                     <h2 class="mt-4">Review [Encrupted_Name]</h2>
                     <br />
                     <br />
-                                        <h4>Would you be willing to review a revision of this manuscript?</h4>
+                    <h4>Would you be willing to review a revision of this manuscript?</h4>
                     <div class="form-check col-lg-10 ml-2 mt-2">
                         <label class="form-check-label">
                             <input type="radio" class="form-check-input" name="recommendation">Yes
@@ -100,9 +97,17 @@
                     <hr />
                     <h4>Comments to the Author</h4>
                     <br />
-                    <textarea id="TextArea2" class="auto-style2 mb-4" name="S2"></textarea>
+                    <textarea id="TextArea2" class="auto-style2" name="S2"></textarea>
+                    <br />
+                    <asp:Button CssClass="btn btn-outline-success mt-4 mb-4" Width="80" Text="Submit" runat="server" />
+                    <asp:Button CssClass="btn btn-outline-info m-4" Width="80" Text="Save" runat="server" />
                 </div>
+                <div class=" col-lg-6 float-right rounded p-1">
+                    <img src="/images/article.jpg" alt="article picture" height="525" width="372" />
                 </div>
+
+
+            </div>
         </div>
     </form>
 </body>
