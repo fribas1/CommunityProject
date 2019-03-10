@@ -146,7 +146,7 @@
                                             <td class="auto-style3">
                                                 &nbsp;</td>
                                             <td>
-                                                <asp:DropDownList ID="ddlAssEdit3" runat="server" AppendDataBoundItems="True" CssClass="form-control" DataSourceID="allUsersDS" DataTextField="Users" DataValueField="Id">
+                                                <asp:DropDownList ID="ddlAssEdit2" runat="server" AppendDataBoundItems="True" CssClass="form-control" DataSourceID="allUsersDS" DataTextField="Users" DataValueField="Id">
                                                     <asp:ListItem Value="-1">Select one..</asp:ListItem>
                                                 </asp:DropDownList>
                                             </td>
