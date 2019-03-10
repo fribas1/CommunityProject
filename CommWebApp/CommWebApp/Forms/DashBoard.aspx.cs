@@ -43,12 +43,12 @@ namespace CommWebApp.Forms
         }
 
         protected void DashBoardGV_SelectedIndexChanged(object sender, EventArgs e)
-        {            
-            GridViewRow row = DashBoardGV.SelectedRow;
-            int postID = Convert.ToInt32(row.Cells[5].Text);
-            int roleID = Convert.ToInt32(row.Cells[4].Text);
+        {
+            int index = DashBoardGV.SelectedRow.RowIndex;
+            int postID = Convert.ToInt32(DashBoardGV.DataKeys[index][0]);
             ViewState["_postID"] = postID;
-            ViewState["_roleID"] = roleID;
+            DashBoardGV.Visible = false;
+            panelAssociate.Visible = true;
         }
 
         protected void btnSave_Click(object sender, EventArgs e)
@@ -57,12 +57,14 @@ namespace CommWebApp.Forms
             InsertAssEdit2();
             UpdatePost();
             lblMessage.Text = "Associate Editors were added successfully.";
+            DashBoardGV.DataBind();
+            DashBoardGV.Visible = true;
+            panelAssociate.Visible = false;
         }
 
         protected void InsertAssEdit1()
         {
             int postID = Convert.ToInt32(ViewState["_postID"]);
-            int roleID = Convert.ToInt32(ViewState["_roleID"]);
 
             var connection = System.Configuration.ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
             SqlConnection conn = new SqlConnection(connection);
@@ -93,7 +95,6 @@ namespace CommWebApp.Forms
         protected void InsertAssEdit2()
         {
             int postID = Convert.ToInt32(ViewState["_postID"]);
-            int roleID = Convert.ToInt32(ViewState["_roleID"]);
 
             var connection = System.Configuration.ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
             SqlConnection conn = new SqlConnection(connection);
