@@ -43,9 +43,7 @@ namespace CommWebApp.Forms
         }
 
         protected void DashBoardGV_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            DashBoardGV.Visible = false;
-            panelAssociate.Visible = true;
+        {            
             GridViewRow row = DashBoardGV.SelectedRow;
             int postID = Convert.ToInt32(row.Cells[5].Text);
             int roleID = Convert.ToInt32(row.Cells[4].Text);
@@ -151,9 +149,5 @@ namespace CommWebApp.Forms
             }
         }
 
-        protected void btnBackDash_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("/Forms/DashBoard.aspx");
-        }
     }
 }

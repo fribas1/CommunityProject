@@ -13,8 +13,6 @@
             font-family: Arial;
             max-width: 100%;
             height: 100%;
-            background-size: cover;
-            background-image: url("/images/bginst.jpg");
         }
 
 
