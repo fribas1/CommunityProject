@@ -23,6 +23,14 @@
             }
         }
     </script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+    $( function() {
+        $( "#tabs" ).tabs();
+    } );
+  </script>
     <style type="text/css">
         body {
             margin: auto;
@@ -240,16 +248,18 @@
                         <asp:LinkButton ID="btnBack" runat="server" Text="Click here to return" OnClick="btnBack_Click" />
                     </asp:Panel>
                 </div>
-                <div class="mt-4 border border-dark rounded p-1 bg-white col-lg-6">
-                    <asp:Panel ID="pnlFrontViewer" runat="server" Visible="False">
-                        <iframe src="/ViewerJS/#../Uploads/<%=frontName %>" width='566' height='800' allowfullscreen webkitallowfullscreen></iframe>
-                    </asp:Panel>
-                </div>
-                <div class="mt-4 border border-dark rounded p-1 bg-white col-lg-6">
-                    <asp:Panel ID="pnlArticleViewer" runat="server" Visible="False">
-                        <iframe src="/ViewerJS/#../Uploads/<%=fileName %>" width='566' height='800' allowfullscreen webkitallowfullscreen></iframe>
-                    </asp:Panel>
-                </div>
+                <div id="tabs" class="mt-5 col-lg-6">
+                    <ul>
+                        <li><a href="#tabs-1">Front Page</a></li>
+                        <li><a href="#tabs-2">Article Content</a></li>                    
+                    </ul>
+                    <div id="tabs-1">                            
+                        <iframe src="/ViewerJS/#../Uploads/<%=hdFrontName.Value %>" width='525' height='680' allowfullscreen webkitallowfullscreen></iframe>                        
+                    </div>
+                    <div id="tabs-2">                        
+                        <iframe src="/ViewerJS/#../Uploads/<%=hdFileName.Value %>" width='525' height='680' allowfullscreen webkitallowfullscreen></iframe>                        
+                    </div>
+                </div>               
             </div>
         </div>
 
@@ -269,6 +279,7 @@
 
         <asp:SqlDataSource ID="dsTags" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT * FROM [Tag] ORDER BY [Name]"></asp:SqlDataSource>
         <asp:HiddenField ID="hdFileName" runat="server"></asp:HiddenField>
+        <asp:HiddenField ID="hdFrontName" runat="server" />
         <asp:HiddenField ID="hdFilePath" runat="server"></asp:HiddenField>
         <asp:HiddenField ID="hdFileExtension" runat="server"></asp:HiddenField>
         <asp:HiddenField ID="hdFileSize" runat="server"></asp:HiddenField>
