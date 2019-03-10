@@ -41,6 +41,7 @@ namespace CommWebApp.Forms
             int postID = Convert.ToInt32(DashBoardGV.DataKeys[index][0]);
             ViewState["_postID"] = postID;
             DashBoardGV.Visible = false;
+            lblMessage.Visible = false;
             panelAssociate.Visible = true;
         }
 
@@ -50,6 +51,7 @@ namespace CommWebApp.Forms
             InsertAssEdit2();
             UpdatePost();
             lblMessage.Text = "Associate Editors were added successfully.";
+            lblMessage.Visible = true;
             DashBoardGV.DataBind();
             DashBoardGV.Visible = true;
             panelAssociate.Visible = false;

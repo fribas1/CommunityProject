@@ -125,6 +125,9 @@
                         <asp:BoundField DataField="PostId" HeaderText="PostId" SortExpression="PostId" Visible="False" />
                         <asp:ButtonField ButtonType="Button" CommandName="Select" Text="Assign" />
                     </Columns>
+                    <EmptyDataTemplate>
+                        There are no records that fit your search query, try changing Search Criterias
+                    </EmptyDataTemplate>
                     <HeaderStyle CssClass=" thead-light" />
                 </asp:GridView>
                 <br />

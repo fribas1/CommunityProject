@@ -52,8 +52,6 @@
         <%--END OF NAV BAR--%>
 
 
-
-
         <div class=" container">
             <div class="row">
                 <div class="col-lg-6">
