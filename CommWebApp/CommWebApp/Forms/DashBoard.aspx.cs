@@ -22,7 +22,6 @@ namespace CommWebApp.Forms
                 Response.Redirect("/Forms/DashBoard.aspx?currentUserId=" + currentUserId);
             }
 
-            btnR.Visible = false;
         }
         protected void btnLogout_Click(object sender, EventArgs e)
         {
@@ -30,12 +29,6 @@ namespace CommWebApp.Forms
             Response.Redirect("~/Forms/Login");
         }
 
-        protected void btnA_Click(object sender, EventArgs e)
-        {
-            DashBoardGV.Visible = false;
-            btnR.Visible = true;
-            btnA.Visible = false;
-        }
 
         protected void btnR_Click(object sender, EventArgs e)
         {
