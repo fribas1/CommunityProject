@@ -90,12 +90,12 @@
                     <hr />
                     <h4>Confidential comments to the Editor</h4>
                     <br />
-                    <textarea id="TextArea1" class="auto-style1" name="S1"></textarea><br />
+                    <textarea id="TextArea1" class="auto-style1 form-control" name="S1"></textarea><br />
                     <br />
                     <hr />
                     <h4>Comments to the Author</h4>
                     <br />
-                    <textarea id="TextArea2" class="auto-style2" name="S2"></textarea>
+                    <textarea id="TextArea2" class="auto-style2 form-control" name="S2"></textarea>
                     <br />
                     <asp:Button CssClass="btn btn-outline-success mt-4 mb-4" Width="80" Text="Submit" runat="server" />
                     <asp:Button CssClass="btn btn-outline-info m-4" Width="80" Text="Save" runat="server" />
