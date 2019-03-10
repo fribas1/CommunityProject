@@ -211,24 +211,6 @@ namespace CommWebApp.Forms {
         protected global::System.Web.UI.WebControls.LinkButton btnBack;
         
         /// <summary>
-        /// pnlFrontViewer control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlFrontViewer;
-        
-        /// <summary>
-        /// pnlArticleViewer control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlArticleViewer;
-        
-        /// <summary>
         /// dsTags control.
         /// </summary>
         /// <remarks>
@@ -245,6 +227,15 @@ namespace CommWebApp.Forms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hdFileName;
+        
+        /// <summary>
+        /// hdFrontName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdFrontName;
         
         /// <summary>
         /// hdFilePath control.

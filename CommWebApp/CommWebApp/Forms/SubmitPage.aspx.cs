@@ -18,12 +18,11 @@ namespace CommWebApp.Forms
     {
         public string fileName, filePath, fileExtension, postId, fileId, frontName;
         public int fileSize;
-        public bool flag;
         List<ListItem> selectedTags = new List<ListItem>();        
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (IsPostBack)
+            if (IsPostBack) return;
             if (!User.Identity.IsAuthenticated) Response.Redirect("~/Forms/Login");            
             FileUploadArticle.Attributes["onchange"] = "UploadFile(this)";
             FileUploadFront.Attributes["onchange"] = "UploadFront(this)";
@@ -63,14 +62,13 @@ namespace CommWebApp.Forms
             else
             {
                 InsertPost();
-                InsertFile(hdFileName.Value, hdFilePath.Value, hdFileSize.Value, hdFileExtension.Value, postId);
+                //InsertFile(hdFileName.Value, hdFilePath.Value, hdFileSize.Value, hdFileExtension.Value, postId);
                 InsertPostTag(postId);
                 InsertUserRole(User.Identity.GetUserId(), postId);
 
-                pnlContent.Visible = false;
-                pnlArticleViewer.Visible = false;
-                pnlFrontViewer.Visible = false;
+                pnlContent.Visible = false;                
                 pnlSuccess.Visible = true;
+                
             }
         }
 
@@ -119,7 +117,7 @@ namespace CommWebApp.Forms
         {
             lblMessage.Text = "";
             const string CONTAINER = "frontpage";
-            filePath = Request.PhysicalApplicationPath + "Uploads//";
+            filePath = Request.PhysicalApplicationPath + "Uploads/";
             frontName = FileUploadFront.PostedFile.FileName;
             fileSize = FileUploadFront.PostedFile.ContentLength;
             fileExtension = Path.GetExtension(FileUploadFront.FileName);
@@ -142,16 +140,14 @@ namespace CommWebApp.Forms
 
                 BlobStorageHelper.UploadBlockBlob(CONTAINER, frontName, filePath + frontName);
 
-                hdFileName.Value = fileName;
-                hdFilePath.Value = filePath;
-                hdFileSize.Value = fileSize.ToString();
-                hdFileExtension.Value = fileExtension;
+                hdFrontName.Value = frontName;
+                //hdFileName.Value = fileName;
+                //hdFilePath.Value = filePath;
+                //hdFileSize.Value = fileSize.ToString();
+                //hdFileExtension.Value = fileExtension;
 
                 lblMessageFront.Text = "File uploaded successfully!";
                 lblMessageFront.CssClass = "text-success";
-
-                pnlArticleViewer.Visible = false;
-                pnlFrontViewer.Visible = true;
             }
 
             if (frontName.Length <= 15)
@@ -197,9 +193,6 @@ namespace CommWebApp.Forms
 
                 lblMessage.Text = "File uploaded successfully!";                
                 lblMessage.CssClass = "text-success";
-
-                pnlFrontViewer.Visible = false;
-                pnlArticleViewer.Visible = true;
             }
 
             if(fileName.Length <= 15)

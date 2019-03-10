@@ -23,6 +23,14 @@
             }
         }
     </script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+    $( function() {
+        $( "#tabs" ).tabs();
+    } );
+  </script>
     <style type="text/css">
         body {
             margin: auto;
@@ -184,12 +192,12 @@
 
         <div class=" container">
             <div class="row">
-                <div class="col-lg-4 mt-4">
+                <div class="col-lg-6 container mt-4">
                     <h2>Journal Submission</h2>
                     <asp:Panel ID="pnlContent" runat="server">
-                        <div class="mt-3">
+                        <div class="col-lg-6 mt-3">
                             <h4>Front Page</h4>
-                            <div class=" col-lg-8 input-group mt-2 mb-2">                                
+                            <div class="input-group mt-2 mb-2">                                
                                 <div class="input-group-prepend">
                                     <asp:Button CssClass=" input-group-text" ID="btnUploadFront" Font-Bold="true" runat="server" Text="Upload" OnClick="UploadFront" Style="display: none" /><br />
                                 </div>
@@ -199,10 +207,10 @@
                                 </div>
                             </div>
                             <asp:Label ID="lblMessageFront" runat="server" CssClass="text-danger" Visible="False"></asp:Label>
+                            <br />                            
                         </div>
-                        <br />
-                        <h4>Article Content</h4>
-                        <div class="mt-2 col-lg-8">
+                        <div class="col-lg-6 mt-3">
+                            <h4>Article Content</h4>
                             <div class="input-group mt-2 mb-2">                                
                                 <div class="input-group-prepend">
                                     <asp:Button CssClass=" input-group-text" ID="btnUploadFile" Font-Bold="true" runat="server" Text="Upload" OnClick="UploadFile" Style="display: none" /><br />
@@ -216,13 +224,13 @@
                             <br />                            
                         </div>
                         <h3 class="mt-3">Article Details</h3>
-                        <div class="mt-3 col-lg-10">
+                        <div class="ml-3 mt-3">
                             <asp:Label ID="lblTitle" runat="server" Text="Title:" AssociatedControlID="txtTitle"></asp:Label>
-                            <asp:TextBox CssClass="form-control" ID="txtTitle" runat="server" Height="30px"  AssociatedControlID="txtTitle"></asp:TextBox>
+                            <asp:TextBox CssClass="form-control" ID="txtTitle" runat="server" Height="30px" Width="180px" AssociatedControlID="txtTitle"></asp:TextBox>
                             <asp:Label ID="lblTitleValid" runat="server" CssClass="text-danger" Visible="False"></asp:Label><br />
 
                             <asp:Label ID="lblContent" runat="server" Text="Content:" AssociatedControlID="txtContent"></asp:Label>
-                            <asp:TextBox ID="txtContent" CssClass="form-control" runat="server"  TextMode="MultiLine"></asp:TextBox><br />
+                            <asp:TextBox ID="txtContent" CssClass="form-control" runat="server" Width="180px" TextMode="MultiLine"></asp:TextBox><br />
 
                             <asp:Label ID="lblTags" runat="server" Text="Tags:" AssociatedControlID="cblTags"></asp:Label>
                                 <asp:CheckBoxList CssClass="checkbox mt-2" ID="cblTags" runat="server" DataSourceID="dsTags" DataTextField="Name" DataValueField="Id" RepeatColumns="2"></asp:CheckBoxList>
@@ -230,7 +238,7 @@
                             <br />
 
                             <div class="btn-group">
-                                <asp:Button ID="btnSubmit" type="button" CssClass="btn btn-outline-success" runat="server" Text="Submit Article" Style="text-align: center" Height="50px" Width="200px" OnClick="btnSubmit_Click" />
+                                <asp:Button ID="btnSubmit" type="button" CssClass="btn btn-outline-success" runat="server" Text="Submit Article" Style="text-align: center" Height="50px" Width="180px" OnClick="btnSubmit_Click" />
                             </div>
                         </div>
                         <br />
@@ -240,16 +248,18 @@
                         <asp:LinkButton ID="btnBack" runat="server" Text="Click here to return" OnClick="btnBack_Click" />
                     </asp:Panel>
                 </div>
-                <div class="mt-4 border border-dark rounded p-1 bg-white col-lg-4">
-                    <asp:Panel ID="pnlFrontViewer" runat="server" Visible="False">
-                        <iframe src="/ViewerJS/#../Uploads/<%=frontName %>" width='566' height='800' allowfullscreen webkitallowfullscreen></iframe>
-                    </asp:Panel>
-                </div>
-                <div class="mt-4 border border-dark rounded p-1 bg-white col-lg-4">
-                    <asp:Panel ID="pnlArticleViewer" runat="server" Visible="False">
-                        <iframe src="/ViewerJS/#../Uploads/<%=fileName %>" width='566' height='800' allowfullscreen webkitallowfullscreen></iframe>
-                    </asp:Panel>
-                </div>
+                <div id="tabs" class="mt-5 col-lg-6">
+                    <ul>
+                        <li><a href="#tabs-1">Front Page</a></li>
+                        <li><a href="#tabs-2">Article Content</a></li>                    
+                    </ul>
+                    <div id="tabs-1">                            
+                        <iframe src="/ViewerJS/#../Uploads/<%=hdFrontName.Value %>" width='525' height='680' allowfullscreen webkitallowfullscreen></iframe>                        
+                    </div>
+                    <div id="tabs-2">                        
+                        <iframe src="/ViewerJS/#../Uploads/<%=hdFileName.Value %>" width='525' height='680' allowfullscreen webkitallowfullscreen></iframe>                        
+                    </div>
+                </div>               
             </div>
         </div>
 
@@ -269,6 +279,7 @@
 
         <asp:SqlDataSource ID="dsTags" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT * FROM [Tag] ORDER BY [Name]"></asp:SqlDataSource>
         <asp:HiddenField ID="hdFileName" runat="server"></asp:HiddenField>
+        <asp:HiddenField ID="hdFrontName" runat="server" />
         <asp:HiddenField ID="hdFilePath" runat="server"></asp:HiddenField>
         <asp:HiddenField ID="hdFileExtension" runat="server"></asp:HiddenField>
         <asp:HiddenField ID="hdFileSize" runat="server"></asp:HiddenField>
