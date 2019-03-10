@@ -94,7 +94,7 @@
                 position: relative;
                 top: 0;
                 left: 0;
-                background: #3A3A3A;
+                background: #f2f2f2;
             }
 
             .footer #cont {
