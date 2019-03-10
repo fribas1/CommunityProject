@@ -49,15 +49,15 @@
             <div class="col-lg-4 float-right">
                 <div class="cardright border border-secondary rounded p-1">
                     <article class="card-group-item">
-                        <header class="card-header">
+<%--                        <header class="card-header">
                             <h6 class="title">Useful Information </h6>
-                        </header>
+                        </header>--%>
                         <div class="filter-content">
                             <div class="list-group list-group-flush">
-                                <a href="#" class="list-group-item">Articles to Review <span class="float-right badge badge-light round">142</span> </a>
-                                <a href="#" class="list-group-item">New Articles<span class="float-right badge badge-light round">3</span>  </a>
-                                <a href="#" class="list-group-item">Some Info <span class="float-right badge badge-light round">32</span>  </a>
-                                <a href="#" class="list-group-item">Ready to Submit <span class="float-right badge badge-light round">12</span>  </a>
+                                <a href="#" class="list-group-item">New submissions<span class="float-right badge badge-light round">142</span> </a>
+                                <a href="#" class="list-group-item">Articles in review<span class="float-right badge badge-light round">3</span>  </a>
+                                <a href="#" class="list-group-item">Proof pages complete<span class="float-right badge badge-light round">32</span>  </a>
+                                <a href="#" class="list-group-item">Ready for final publication <span class="float-right badge badge-light round">12</span>  </a>
                             </div>
                             <!-- list-group .// -->
                         </div>
@@ -106,6 +106,7 @@
 
             <div>
                 <br />
+                                <asp:Label ID="lblMessage" runat="server" ForeColor="Green" ></asp:Label>
                 <asp:GridView CssClass="table table-bordered table-sm text-center" ID="DashBoardGV" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="postDS" OnSelectedIndexChanged="DashBoardGV_SelectedIndexChanged">
                     <Columns>
                         <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title" />
@@ -117,7 +118,7 @@
                         <asp:TemplateField ShowHeader="False">
                             <ItemTemplate>
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" value="Associate" onclick="DashBoardGV_SelectedIndexChanged">
-  Assign Ass</button>
+                                    Associates</button>
                             </ItemTemplate>
                             <ControlStyle CssClass="btn" />
                         </asp:TemplateField>
@@ -126,8 +127,6 @@
                 </asp:GridView>
                 <br />
 
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-  Open modal</button>
 
                 <div class="modal" id="myModal">
                     <div class="modal-dialog">
@@ -184,12 +183,6 @@
                 </div>
 
 
-
-
-
-
-
-                <asp:Label ID="lblMessage" runat="server" ForeColor="Red"></asp:Label>
                 <br />
                 <br />
             </div>

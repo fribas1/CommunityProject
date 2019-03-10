@@ -43,8 +43,7 @@ namespace CommWebApp.Forms
         }
 
         protected void DashBoardGV_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
+        {            
             GridViewRow row = DashBoardGV.SelectedRow;
             int postID = Convert.ToInt32(row.Cells[5].Text);
             int roleID = Convert.ToInt32(row.Cells[4].Text);
