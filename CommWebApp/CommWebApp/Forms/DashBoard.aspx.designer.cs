@@ -49,6 +49,24 @@ namespace CommWebApp.Forms {
         protected global::System.Web.UI.WebControls.DropDownList ddlFilterStatus;
         
         /// <summary>
+        /// txtDateStart control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDateStart;
+        
+        /// <summary>
+        /// txtDateEnd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDateEnd;
+        
+        /// <summary>
         /// btnFilter control.
         /// </summary>
         /// <remarks>
@@ -155,5 +173,14 @@ namespace CommWebApp.Forms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource addAssociateDS;
+        
+        /// <summary>
+        /// dsStatusDDL control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource dsStatusDDL;
     }
 }

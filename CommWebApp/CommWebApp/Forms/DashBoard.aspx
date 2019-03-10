@@ -49,7 +49,7 @@
             <div class="col-lg-4 float-right">
                 <div class="cardright border border-secondary rounded p-1">
                     <article class="card-group-item">
-<%--                        <header class="card-header">
+                        <%--                        <header class="card-header">
                             <h6 class="title">Useful Information </h6>
                         </header>--%>
                         <div class="filter-content">
@@ -80,19 +80,20 @@
                     <tr>
                         <td>Current Status:</td>
                         <td>
-                            <asp:DropDownList CssClass="form-control" ID="ddlFilterStatus" runat="server">
+                            <asp:DropDownList CssClass="form-control" ID="ddlFilterStatus" runat="server" AppendDataBoundItems="True" AutoPostBack="True" DataSourceID="dsStatusDDL" DataTextField="Name" DataValueField="Id">
+                                <asp:ListItem Value="2">Select..</asp:ListItem>
                             </asp:DropDownList>
                         </td>
                         <td>&nbsp;</td>
                     </tr>
                     <tr>
-                        <td>Date: From
-                                <br />
+                        <td>Date between:<br />
                             <br />
-                            To</td>
+                            and</td>
                         <td>
-                            <input type="date" name="date" class="form-control" value="" />
-                            <input type="date" name="date0" class="form-control mt-2" value="" /></td>
+                            <asp:TextBox CssClass="form-control" ID="txtDateStart" runat="server" TextMode="Date"></asp:TextBox>
+                        &nbsp;<asp:TextBox CssClass="form-control" ID="txtDateEnd" runat="server" TextMode="Date"></asp:TextBox>
+                        </td>
                         <td>&nbsp;</td>
                     </tr>
                 </table>
@@ -113,9 +114,9 @@
                         <asp:BoundField DataField="Current Status" HeaderText="Current Status" SortExpression="Current Status" />
                         <asp:BoundField DataField="CreatedOn" HeaderText="CreatedOn" SortExpression="CreatedOn" />
                         <asp:BoundField DataField="UserId" HeaderText="UserId" SortExpression="UserId" Visible="False" />
-                        <asp:BoundField DataField="RoleId" HeaderText="RoleId" SortExpression="RoleId" />
-                        <asp:BoundField DataField="PostId" HeaderText="PostId" SortExpression="PostId" />
-                        <asp:ButtonField Text="Button" />
+                        <asp:BoundField DataField="RoleId" HeaderText="RoleId" SortExpression="RoleId" Visible="False" />
+                        <asp:BoundField DataField="PostId" HeaderText="PostId" SortExpression="PostId" Visible="False" />
+                        <asp:ButtonField ButtonType="Button" CommandName="Select" Text="Assign" />
                     </Columns>
                     <HeaderStyle CssClass=" thead-light" />
                 </asp:GridView>
@@ -158,7 +159,14 @@
                 <br />
                 <br />
             </div>
-            <asp:SqlDataSource ID="postDS" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT Post.Id, Post.Title, Post.CurrentStatusId, Post.CreatedOn, Post.CreatedBy, Post.LastModifiedOn, Post.LastModifiedBy, AspNetUserRoles.UserId, AspNetUserRoles.RoleId, AspNetUserRoles.PostId, Post.PublishedOn, Status.Name AS [Current Status] FROM Post INNER JOIN AspNetUserRoles ON Post.Id = AspNetUserRoles.PostId INNER JOIN Status ON Post.CurrentStatusId = Status.Id WHERE (Post.CurrentStatusId = 2)"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="postDS" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT Post.Id, Post.Title, Post.CurrentStatusId, Post.CreatedOn, Post.CreatedBy, Post.LastModifiedOn, Post.LastModifiedBy, AspNetUserRoles.UserId, AspNetUserRoles.RoleId, AspNetUserRoles.PostId, Post.PublishedOn, Status.Name AS [Current Status] FROM Post INNER JOIN AspNetUserRoles ON Post.Id = AspNetUserRoles.PostId INNER JOIN Status ON Post.CurrentStatusId = Status.Id WHERE (Post.CurrentStatusId = @status) AND (Post.Title LIKE '%' + @title + '%') AND (Post.CreatedOn BETWEEN @start AND @end )">
+                <SelectParameters>
+                    <asp:ControlParameter ControlID="ddlFilterStatus" DefaultValue="2" Name="status" PropertyName="SelectedValue" />
+                    <asp:ControlParameter ControlID="txtTitleFilter" ConvertEmptyStringToNull="False" DefaultValue="" Name="title" PropertyName="Text" />
+                    <asp:ControlParameter ControlID="txtDateStart" DefaultValue="01/01/0001" Name="start" PropertyName="Text" />
+                    <asp:ControlParameter ControlID="txtDateEnd" DefaultValue="12/30/3000" Name="end" PropertyName="Text" />
+                </SelectParameters>
+            </asp:SqlDataSource>
             <asp:SqlDataSource ID="allUsersDS" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT DISTINCT { fn CONCAT(AspNetUsers.FirstName + ' ', AspNetUsers.LastName) } AS Users, AspNetUsers.Id, AspNetRoles.Id AS RolesID FROM AspNetUsers INNER JOIN AspNetUserRoles ON AspNetUsers.Id = AspNetUserRoles.UserId INNER JOIN AspNetRoles ON AspNetUserRoles.RoleId = AspNetRoles.Id WHERE (AspNetRoles.Id = N'2')"></asp:SqlDataSource>
             <asp:SqlDataSource ID="addAssociateDS" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" InsertCommand="INSERT INTO AspNetUserRoles(UserId, RoleId, PostId) VALUES (@selectUser, N'2', @post)" SelectCommand="SELECT AspNetUserRoles.* FROM AspNetUserRoles">
                 <InsertParameters>
@@ -166,6 +174,7 @@
                     <asp:Parameter Name="post" />
                 </InsertParameters>
             </asp:SqlDataSource>
+            <asp:SqlDataSource ID="dsStatusDDL" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT Id, Name FROM Status"></asp:SqlDataSource>
         </div>
     </form>
 </body>
