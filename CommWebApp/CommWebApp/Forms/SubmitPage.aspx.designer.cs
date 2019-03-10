@@ -211,6 +211,15 @@ namespace CommWebApp.Forms {
         protected global::System.Web.UI.WebControls.LinkButton btnBack;
         
         /// <summary>
+        /// tabs control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl tabs;
+        
+        /// <summary>
         /// dsTags control.
         /// </summary>
         /// <remarks>

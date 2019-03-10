@@ -248,7 +248,7 @@
                         <asp:LinkButton ID="btnBack" runat="server" Text="Click here to return" OnClick="btnBack_Click" />
                     </asp:Panel>
                 </div>
-                <div id="tabs" class="mt-5 col-lg-6">
+                <div id="tabs" class="mt-5 col-lg-6" runat="server" visible="false">
                     <ul>
                         <li><a href="#tabs-1">Front Page</a></li>
                         <li><a href="#tabs-2">Article Content</a></li>
