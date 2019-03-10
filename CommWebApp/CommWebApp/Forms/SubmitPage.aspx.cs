@@ -25,7 +25,7 @@ namespace CommWebApp.Forms
             if (IsPostBack) return;
             if (!User.Identity.IsAuthenticated) Response.Redirect("~/Forms/Login");            
             FileUploadArticle.Attributes["onchange"] = "UploadFile(this)";
-            FileUploadFront.Attributes["onchange"] = "UploadFront(this)";
+            FileUploadFront.Attributes["onchange"] = "UploadFront(this)";            
         }
 
         protected void btnLogout_Click(object sender, EventArgs e)
@@ -62,13 +62,13 @@ namespace CommWebApp.Forms
             else
             {
                 InsertPost();
-                //InsertFile(hdFileName.Value, hdFilePath.Value, hdFileSize.Value, hdFileExtension.Value, postId);
+                //InsertFile(hdFileName.Value, hdFilePath.Value, hdFileSize.Value, hdFileExtension.Value, postId); //Will not use this for now
                 InsertPostTag(postId);
                 InsertUserRole(User.Identity.GetUserId(), postId);
 
-                pnlContent.Visible = false;                
-                pnlSuccess.Visible = true;
-                
+                pnlContent.Visible = false;
+                tabs.Visible = false;
+                pnlSuccess.Visible = true;                
             }
         }
 
@@ -150,13 +150,14 @@ namespace CommWebApp.Forms
                 lblMessageFront.CssClass = "text-success";
             }
 
-            //if (frontName.Length <= 15)
-            //    lblFrontName.Text = frontName;
-            //else
-            //    lblFrontName.Text = frontName.Substring(0, 10) + "[...]" + fileExtension;
+            if (frontName.Length <= 15)
+                lblFrontName.Text = frontName;
+            else
+                lblFrontName.Text = frontName.Substring(0, 10) + "[...]" + fileExtension;
 
             ClientScript.RegisterStartupScript(this.GetType(), "HideLabel", "<script type=\"text/javascript\">setTimeout(\"document.getElementById('" + lblMessageFront.ClientID + "').style.display='none'\",5000)</script>");
             lblMessageFront.Visible = true;
+            tabs.Visible = true;
         }
 
         public void UploadFile(object sender, EventArgs e)
@@ -195,13 +196,14 @@ namespace CommWebApp.Forms
                 lblMessage.CssClass = "text-success";
             }
 
-            //if(fileName.Length <= 15)
-            //    lblFileName.Text = fileName;
-            //else
-            //    lblFileName.Text = fileName.Substring(0, 10) + "[...]" + fileExtension;
+            if (fileName.Length <= 15)
+                lblFileName.Text = fileName;
+            else
+                lblFileName.Text = fileName.Substring(0, 10) + "[...]" + fileExtension;
 
             ClientScript.RegisterStartupScript(this.GetType(), "HideLabel", "<script type=\"text/javascript\">setTimeout(\"document.getElementById('" + lblMessage.ClientID + "').style.display='none'\",5000)</script>");
             lblMessage.Visible = true;
+            tabs.Visible = true;
         }
 
         protected void InsertPost()
