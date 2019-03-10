@@ -76,24 +76,6 @@ namespace CommWebApp.Forms {
         protected global::System.Web.UI.WebControls.Button btnFilter;
         
         /// <summary>
-        /// btnA control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnA;
-        
-        /// <summary>
-        /// btnR control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnR;
-        
-        /// <summary>
         /// lblMessage control.
         /// </summary>
         /// <remarks>
@@ -130,13 +112,13 @@ namespace CommWebApp.Forms {
         protected global::System.Web.UI.WebControls.DropDownList ddlAssEdit1;
         
         /// <summary>
-        /// ddlAssEdit2 control.
+        /// ddlAssEdit3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlAssEdit2;
+        protected global::System.Web.UI.WebControls.DropDownList ddlAssEdit3;
         
         /// <summary>
         /// btnSave control.

@@ -224,6 +224,18 @@
                             <asp:Label ID="lblMessage" runat="server" CssClass="text-danger" Visible="False"></asp:Label>
                             <br />
                         </div>
+                        <h3 class="mt-3 mb-3">Author Details</h3>
+                        <div class="col-lg-8">
+                            <asp:Label Text="First Name" runat="server" />
+                        <asp:TextBox  CssClass="form-control" runat="server" />
+                            <br />
+                            <asp:Label Text="Last Name" runat="server" />
+                        <asp:TextBox  CssClass="form-control" runat="server" />
+                            <br />
+                            <asp:Label Text="Co-Authors:" runat="server" />
+                            <p>Please provide First name and Last name of any Co-Authors followed by comma sign (,)</p>
+                            <asp:TextBox ID="TextBox1" CssClass="form-control" runat="server"  TextMode="MultiLine"></asp:TextBox><br />
+                            </div>
                         <h3 class="mt-3">Article Details</h3>
                         <div class=" mt-3  col-lg-8">
                             <asp:Label ID="lblTitle" runat="server" Text="Title:" AssociatedControlID="txtTitle"></asp:Label>
@@ -249,7 +261,7 @@
                         <asp:LinkButton ID="btnBack" runat="server" Text="Click here to return" OnClick="btnBack_Click" />
                     </asp:Panel>
                 </div>
-                <div id="tabs" class="mt-5 col-lg-6">
+                <div id="tabs" class="mt-5 col-lg-6 border-0">
                     <ul>
                         <li><a href="#tabs-1">Front Page</a></li>
                         <li><a href="#tabs-2">Article Content</a></li>

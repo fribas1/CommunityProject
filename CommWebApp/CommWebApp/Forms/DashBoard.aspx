@@ -20,6 +20,13 @@
         .auto-style1 {
             height: 26px;
         }
+        .auto-style2 {
+            height: 26px;
+            width: 20px;
+        }
+        .auto-style3 {
+            width: 20px;
+        }
     </style>
 
 
@@ -47,7 +54,7 @@
         <%--END OF NAV BAR--%>
         <div class="container">
 
-            <div class="col-lg-4 float-right">
+            <div class="col-lg-4 float-right mt-5">
                 <div class="cardright border border-secondary rounded p-1">
                     <article class="card-group-item">
                         <%--                        <header class="card-header">
@@ -100,8 +107,6 @@
                 </table>
                 <br />
                 <asp:Button CssClass="btn btn-outline-info" ID="btnFilter" runat="server" Text="Apply" />
-                <asp:Button CssClass="btn" ID="btnA" runat="server" Text="Associate" OnClick="btnA_Click" />
-                <asp:Button CssClass="btn" ID="btnR" runat="server" Text="Review " OnClick="btnR_Click" Visible="False" />
                 <br />
 
             </div>
@@ -109,7 +114,8 @@
             <div>
                 <br />
                                 <asp:Label ID="lblMessage" runat="server" ForeColor="Green" ></asp:Label>
-                <asp:GridView CssClass="table table-bordered table-sm text-center" ID="DashBoardGV" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="postDS" OnSelectedIndexChanged="DashBoardGV_SelectedIndexChanged">
+                <br />
+                <asp:GridView CssClass="table table-bordered table-sm" ID="DashBoardGV" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="postDS" OnSelectedIndexChanged="DashBoardGV_SelectedIndexChanged">
                     <Columns>
                         <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title" />
                         <asp:BoundField DataField="Current Status" HeaderText="Current Status" SortExpression="Current Status" />
@@ -128,29 +134,34 @@
                                     <table class="w-100">
                                         <tr>
                                             <td class="auto-style1">Associate Editor 1</td>
+                                            <td class="auto-style2">&nbsp;</td>
                                             <td class="auto-style1">Associate Editor 2</td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <asp:DropDownList ID="ddlAssEdit1" runat="server" AppendDataBoundItems="True" DataSourceID="allUsersDS" DataTextField="Users" DataValueField="Id">
+                                                <asp:DropDownList CssClass="form-control" ID="ddlAssEdit1" runat="server" AppendDataBoundItems="True" DataSourceID="allUsersDS" DataTextField="Users" DataValueField="Id">
                                                     <asp:ListItem Value="-1">Select one..</asp:ListItem>
                                                 </asp:DropDownList>
                                             </td>
+                                            <td class="auto-style3">
+                                                &nbsp;</td>
                                             <td>
-                                                <asp:DropDownList ID="ddlAssEdit2" runat="server" AppendDataBoundItems="True" DataSourceID="allUsersDS" DataTextField="Users" DataValueField="Id">
+                                                <asp:DropDownList ID="ddlAssEdit3" runat="server" AppendDataBoundItems="True" CssClass="form-control" DataSourceID="allUsersDS" DataTextField="Users" DataValueField="Id">
                                                     <asp:ListItem Value="-1">Select one..</asp:ListItem>
                                                 </asp:DropDownList>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>&nbsp;</td>
+                                            <td class="auto-style3">&nbsp;</td>
                                             <td>&nbsp;</td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <asp:Button ID="btnSave" runat="server" OnClick="btnSave_Click" Text="Save" />
+                                                <asp:Button CssClass="btn btn-outline-success" ID="btnSave" runat="server" OnClick="btnSave_Click" Text="Save" />
                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                             </td>
+                                            <td class="auto-style3">&nbsp;</td>
                                             <td>&nbsp;</td>
                                         </tr>
                                     </table>
