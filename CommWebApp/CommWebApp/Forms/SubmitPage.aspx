@@ -242,7 +242,7 @@
                             <asp:TextBox CssClass="form-control" ID="txtTitle" runat="server" Height="30px"  AssociatedControlID="txtTitle"></asp:TextBox>
                             <asp:Label ID="lblTitleValid" runat="server" CssClass="text-danger" Visible="False"></asp:Label><br />
 
-                            <asp:Label ID="lblContent" runat="server" Text="Content:" AssociatedControlID="txtContent"></asp:Label>
+                            <asp:Label ID="lblContent" runat="server" Text="Abstract:" AssociatedControlID="txtContent"></asp:Label>
                             <asp:TextBox ID="txtContent" CssClass="form-control" runat="server"  TextMode="MultiLine"></asp:TextBox><br />
 
                             <asp:Label ID="lblTags" runat="server" Text="Tags:" AssociatedControlID="cblTags"></asp:Label>

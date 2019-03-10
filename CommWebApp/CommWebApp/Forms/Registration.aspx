@@ -227,7 +227,7 @@
                     <hr />
 
                     <asp:CheckBox CssClass="ml-3" runat="server" ID="chkConsider" />
-                    <asp:Label CssClass="form-check-label" runat="server" AssociatedControlID="chkConsider">Check to be an Associate Editor</asp:Label>
+                    <asp:Label CssClass="form-check-label" runat="server" AssociatedControlID="chkConsider">Check to be eligible as an Associate Editor</asp:Label>
                     <br />
                     <asp:Button CssClass="mt-3 btn btn-outline-primary float-left" runat="server" OnClick="CreateUser_Click" Text="Register" />
                     <asp:Button CssClass="mt-3 btn btn-outline-info float-right" runat="server" Text="Go Back" ID="btnBack" OnClick="btnBack_Click" />
