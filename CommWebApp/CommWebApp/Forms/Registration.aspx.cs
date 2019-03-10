@@ -19,7 +19,7 @@ namespace CommWebApp.Forms
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (IsPostBack) return;
         }
 
         protected void btnLogout_Click(object sender, EventArgs e)
