@@ -30,7 +30,7 @@
     $( function() {
         $( "#tabs" ).tabs();
     } );
-  </script>
+    </script>
     <style type="text/css">
         body {
             margin: auto;
@@ -197,7 +197,7 @@
                     <asp:Panel ID="pnlContent" runat="server">
                         <div class="col-lg-6 mt-3">
                             <h4>Front Page</h4>
-                            <div class="input-group mt-2 mb-2">                                
+                            <div class="input-group mt-2 mb-2">
                                 <div class="input-group-prepend">
                                     <asp:Button CssClass=" input-group-text" ID="btnUploadFront" Font-Bold="true" runat="server" Text="Upload" OnClick="UploadFront" Style="display: none" /><br />
                                 </div>
@@ -207,11 +207,11 @@
                                 </div>
                             </div>
                             <asp:Label ID="lblMessageFront" runat="server" CssClass="text-danger" Visible="False"></asp:Label>
-                            <br />                            
+                            <br />
                         </div>
                         <div class="col-lg-6 mt-3">
                             <h4>Article Content</h4>
-                            <div class="input-group mt-2 mb-2">                                
+                            <div class="input-group mt-2 mb-2">
                                 <div class="input-group-prepend">
                                     <asp:Button CssClass=" input-group-text" ID="btnUploadFile" Font-Bold="true" runat="server" Text="Upload" OnClick="UploadFile" Style="display: none" /><br />
                                 </div>
@@ -221,19 +221,19 @@
                                 </div>
                             </div>
                             <asp:Label ID="lblMessage" runat="server" CssClass="text-danger" Visible="False"></asp:Label>
-                            <br />                            
+                            <br />
                         </div>
                         <h3 class="mt-3">Article Details</h3>
-                        <div class="ml-3 mt-3">
+                        <div class=" mt-3  col-lg-8">
                             <asp:Label ID="lblTitle" runat="server" Text="Title:" AssociatedControlID="txtTitle"></asp:Label>
-                            <asp:TextBox CssClass="form-control" ID="txtTitle" runat="server" Height="30px" Width="180px" AssociatedControlID="txtTitle"></asp:TextBox>
+                            <asp:TextBox CssClass="form-control" ID="txtTitle" runat="server" Height="30px"  AssociatedControlID="txtTitle"></asp:TextBox>
                             <asp:Label ID="lblTitleValid" runat="server" CssClass="text-danger" Visible="False"></asp:Label><br />
 
                             <asp:Label ID="lblContent" runat="server" Text="Content:" AssociatedControlID="txtContent"></asp:Label>
-                            <asp:TextBox ID="txtContent" CssClass="form-control" runat="server" Width="180px" TextMode="MultiLine"></asp:TextBox><br />
+                            <asp:TextBox ID="txtContent" CssClass="form-control" runat="server"  TextMode="MultiLine"></asp:TextBox><br />
 
                             <asp:Label ID="lblTags" runat="server" Text="Tags:" AssociatedControlID="cblTags"></asp:Label>
-                                <asp:CheckBoxList CssClass="checkbox mt-2" ID="cblTags" runat="server" DataSourceID="dsTags" DataTextField="Name" DataValueField="Id" RepeatColumns="2"></asp:CheckBoxList>
+                            <asp:CheckBoxList CssClass="checkbox mt-2" ID="cblTags" runat="server" DataSourceID="dsTags" DataTextField="Name" DataValueField="Id" RepeatColumns="2"></asp:CheckBoxList>
                             <asp:Label ID="lblError" runat="server" CssClass="text-danger" Visible="False"></asp:Label>
                             <br />
 
@@ -251,15 +251,15 @@
                 <div id="tabs" class="mt-5 col-lg-6">
                     <ul>
                         <li><a href="#tabs-1">Front Page</a></li>
-                        <li><a href="#tabs-2">Article Content</a></li>                    
+                        <li><a href="#tabs-2">Article Content</a></li>
                     </ul>
-                    <div id="tabs-1">                            
-                        <iframe src="/ViewerJS/#../Uploads/<%=hdFrontName.Value %>" width='525' height='680' allowfullscreen webkitallowfullscreen></iframe>                        
+                    <div id="tabs-1">
+                        <iframe src="/ViewerJS/#../Uploads/<%=hdFrontName.Value %>" width='525' height='680' allowfullscreen webkitallowfullscreen></iframe>
                     </div>
-                    <div id="tabs-2">                        
-                        <iframe src="/ViewerJS/#../Uploads/<%=hdFileName.Value %>" width='525' height='680' allowfullscreen webkitallowfullscreen></iframe>                        
+                    <div id="tabs-2">
+                        <iframe src="/ViewerJS/#../Uploads/<%=hdFileName.Value %>" width='525' height='680' allowfullscreen webkitallowfullscreen></iframe>
                     </div>
-                </div>               
+                </div>
             </div>
         </div>
 

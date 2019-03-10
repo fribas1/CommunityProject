@@ -153,7 +153,7 @@
             </div>
         </div>
         <div class="row">
-            <div id="formLogin" class=" col-sm-8 offset-sm-2 card text-center p-3 col-md-6 offset-md-3 col-lg-2 offset-lg-5">
+            <div id="formLogin" class=" col-sm-8 offset-sm-2 card text-center col-md-6 offset-md-3 col-lg-2 offset-lg-5 p-4">
                 <section id="loginForm">
                     <asp:Image src="/images/trpr.png" Alt="company-logo" ID="logo" runat="server" Height="121" Width="216" /><br />
                     <br />
@@ -162,7 +162,7 @@
                             <asp:Literal runat="server" ID="FailureText" />
                         </p>
                     </asp:PlaceHolder>
-                        <asp:TextBox placeholder="Email" runat="server" ID="Email" CssClass=" form-control" TextMode="Email" />
+                        <asp:TextBox placeholder="Email" runat="server" ID="Email" CssClass="form-control mt-3" TextMode="Email" />
                         <asp:RequiredFieldValidator runat="server" ControlToValidate="Email"
                             CssClass="text-danger" ErrorMessage="The email is required." />
 
