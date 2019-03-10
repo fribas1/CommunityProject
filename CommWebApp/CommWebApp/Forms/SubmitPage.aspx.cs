@@ -150,10 +150,10 @@ namespace CommWebApp.Forms
                 lblMessageFront.CssClass = "text-success";
             }
 
-            if (frontName.Length <= 15)
-                lblFrontName.Text = frontName;
-            else
-                lblFrontName.Text = frontName.Substring(0, 10) + "[...]" + fileExtension;
+            //if (frontName.Length <= 15)
+            //    lblFrontName.Text = frontName;
+            //else
+            //    lblFrontName.Text = frontName.Substring(0, 10) + "[...]" + fileExtension;
 
             ClientScript.RegisterStartupScript(this.GetType(), "HideLabel", "<script type=\"text/javascript\">setTimeout(\"document.getElementById('" + lblMessageFront.ClientID + "').style.display='none'\",5000)</script>");
             lblMessageFront.Visible = true;
@@ -195,10 +195,10 @@ namespace CommWebApp.Forms
                 lblMessage.CssClass = "text-success";
             }
 
-            if(fileName.Length <= 15)
-                lblFileName.Text = fileName;
-            else
-                lblFileName.Text = fileName.Substring(0, 10) + "[...]" + fileExtension;
+            //if(fileName.Length <= 15)
+            //    lblFileName.Text = fileName;
+            //else
+            //    lblFileName.Text = fileName.Substring(0, 10) + "[...]" + fileExtension;
 
             ClientScript.RegisterStartupScript(this.GetType(), "HideLabel", "<script type=\"text/javascript\">setTimeout(\"document.getElementById('" + lblMessage.ClientID + "').style.display='none'\",5000)</script>");
             lblMessage.Visible = true;
