@@ -6,19 +6,20 @@
 <head runat="server">
     <title></title>
     <!--#include file="/includes/bootstrap.html"-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-        <style type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style type="text/css">
         .right {
             float: right;
             margin-right: 190px;
             margin-top: 40px;
         }
-            .auto-style1 {
-                height: 26px;
-            }
+
+        .auto-style1 {
+            height: 26px;
+        }
     </style>
 
 
@@ -43,28 +44,28 @@
         </nav>
 
         <%--END OF NAV BAR--%>
+        <div class="container">
 
-        <div class="col-lg-3 right">
-        <div class="cardright border border-secondary rounded p-1">
-            <article class="card-group-item">
-                <header class="card-header">
-                    <h6 class="title">Usefull Information </h6>
-                </header>
-                <div class="filter-content">
-                    <div class="list-group list-group-flush">
-                        <a href="#" class="list-group-item">Articles to Review <span class="float-right badge badge-light round">142</span> </a>
-                        <a href="#" class="list-group-item">New Articles<span class="float-right badge badge-light round">3</span>  </a>
-                        <a href="#" class="list-group-item">Some Info <span class="float-right badge badge-light round">32</span>  </a>
-                        <a href="#" class="list-group-item">Ready to Submit <span class="float-right badge badge-light round">12</span>  </a>
-                    </div>
-                    <!-- list-group .// -->
+            <div class="col-lg-4 float-right">
+                <div class="cardright border border-secondary rounded p-1">
+                    <article class="card-group-item">
+                        <header class="card-header">
+                            <h6 class="title">Useful Information </h6>
+                        </header>
+                        <div class="filter-content">
+                            <div class="list-group list-group-flush">
+                                <a href="#" class="list-group-item">Articles to Review <span class="float-right badge badge-light round">142</span> </a>
+                                <a href="#" class="list-group-item">New Articles<span class="float-right badge badge-light round">3</span>  </a>
+                                <a href="#" class="list-group-item">Some Info <span class="float-right badge badge-light round">32</span>  </a>
+                                <a href="#" class="list-group-item">Ready to Submit <span class="float-right badge badge-light round">12</span>  </a>
+                            </div>
+                            <!-- list-group .// -->
+                        </div>
+                    </article>
+                    <!-- card-group-item.// -->
                 </div>
-            </article>
-            <!-- card-group-item.// -->
-        </div>
             </div>
 
-        <div class="container">
             <div class=" col-lg-5">
                 <h2 class="mt-3">Search Criterias:</h2>
                 <br />
@@ -105,7 +106,7 @@
 
             <div>
                 <br />
-                <asp:GridView CssClass="table table-bordered table-sm" ID="DashBoardGV" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="postDS" OnSelectedIndexChanged="DashBoardGV_SelectedIndexChanged">
+                <asp:GridView CssClass="table table-bordered table-sm text-center" ID="DashBoardGV" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="postDS" OnSelectedIndexChanged="DashBoardGV_SelectedIndexChanged">
                     <Columns>
                         <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title" />
                         <asp:BoundField DataField="Current Status" HeaderText="Current Status" SortExpression="Current Status" />
@@ -113,53 +114,86 @@
                         <asp:BoundField DataField="UserId" HeaderText="UserId" SortExpression="UserId" Visible="False" />
                         <asp:BoundField DataField="RoleId" HeaderText="RoleId" SortExpression="RoleId" />
                         <asp:BoundField DataField="PostId" HeaderText="PostId" SortExpression="PostId" />
-                        <asp:ButtonField ButtonType="Button" CommandName="Select" Text="Associate" />
+                        <asp:TemplateField ShowHeader="False">
+                            <ItemTemplate>
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" value="Associate" onclick="DashBoardGV_SelectedIndexChanged">
+  Assign Ass</button>
+                            </ItemTemplate>
+                            <ControlStyle CssClass="btn" />
+                        </asp:TemplateField>
                     </Columns>
                     <HeaderStyle CssClass=" thead-light" />
                 </asp:GridView>
                 <br />
-                <asp:Panel ID="panelAssociate" runat="server" Visible="False">
-                    <table style="width:100%;">
-                        <tr>
-                            <td class="auto-style1">Associate Editor 1</td>
-                            <td class="auto-style1">Associate Editor 2</td>
-                            <td class="auto-style1"></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <asp:DropDownList ID="ddlAssEdit1" runat="server" AppendDataBoundItems="True" DataSourceID="allUsersDS" DataTextField="Users" DataValueField="Id">
-                                    <asp:ListItem Value="-1">Select one..</asp:ListItem>
-                                </asp:DropDownList>
-                            </td>
-                            <td>
-                                <asp:DropDownList ID="ddlAssEdit2" runat="server" AppendDataBoundItems="True" DataSourceID="allUsersDS" DataTextField="Users" DataValueField="Id">
-                                    <asp:ListItem Value="-1">Select one..</asp:ListItem>
-                                </asp:DropDownList>
-                            </td>
-                            <td>&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <asp:Button ID="btnSave" runat="server" OnClick="btnSave_Click" Text="Save" />
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <asp:Button ID="btnBackDash" runat="server" OnClick="btnBackDash_Click" Text="Back" />
-                            </td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                        </tr>
-                    </table>
-                </asp:Panel>
+
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+  Open modal</button>
+
+                <div class="modal" id="myModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                                <h4 class="modal-title">Modal Heading</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                                <asp:Panel ID="panelAssociate" runat="server" Width="464px">
+                                    <table class="w-100">
+                                        <tr>
+                                            <td class="auto-style1">Associate Editor 1</td>
+                                            <td class="auto-style1">Associate Editor 2</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <asp:DropDownList ID="ddlAssEdit1" runat="server" AppendDataBoundItems="True" DataSourceID="allUsersDS" DataTextField="Users" DataValueField="Id">
+                                                    <asp:ListItem Value="-1">Select one..</asp:ListItem>
+                                                </asp:DropDownList>
+                                            </td>
+                                            <td>
+                                                <asp:DropDownList ID="ddlAssEdit2" runat="server" AppendDataBoundItems="True" DataSourceID="allUsersDS" DataTextField="Users" DataValueField="Id">
+                                                    <asp:ListItem Value="-1">Select one..</asp:ListItem>
+                                                </asp:DropDownList>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <asp:Button ID="btnSave" runat="server" OnClick="btnSave_Click" Text="Save" />
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            </td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                    </table>
+                                </asp:Panel>
+                            </div>
+
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
                 <asp:Label ID="lblMessage" runat="server" ForeColor="Red"></asp:Label>
                 <br />
                 <br />
             </div>
-            <asp:SqlDataSource ID="postDS" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT Post.Id, Post.Title, Post.CurrentStatusId, Post.CreatedOn, Post.CreatedBy, Post.LastModifiedOn, Post.LastModifiedBy, AspNetUserRoles.UserId, AspNetUserRoles.RoleId, AspNetUserRoles.PostId, Post.PublishedOn, Status.Name AS [Current Status] FROM Post INNER JOIN AspNetUserRoles ON Post.Id = AspNetUserRoles.PostId INNER JOIN Status ON Post.CurrentStatusId = Status.Id WHERE (Post.CurrentStatusId = 2)">
-            </asp:SqlDataSource>
+            <asp:SqlDataSource ID="postDS" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT Post.Id, Post.Title, Post.CurrentStatusId, Post.CreatedOn, Post.CreatedBy, Post.LastModifiedOn, Post.LastModifiedBy, AspNetUserRoles.UserId, AspNetUserRoles.RoleId, AspNetUserRoles.PostId, Post.PublishedOn, Status.Name AS [Current Status] FROM Post INNER JOIN AspNetUserRoles ON Post.Id = AspNetUserRoles.PostId INNER JOIN Status ON Post.CurrentStatusId = Status.Id WHERE (Post.CurrentStatusId = 2)"></asp:SqlDataSource>
             <asp:SqlDataSource ID="allUsersDS" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT DISTINCT { fn CONCAT(AspNetUsers.FirstName + ' ', AspNetUsers.LastName) } AS Users, AspNetUsers.Id, AspNetRoles.Id AS RolesID FROM AspNetUsers INNER JOIN AspNetUserRoles ON AspNetUsers.Id = AspNetUserRoles.UserId INNER JOIN AspNetRoles ON AspNetUserRoles.RoleId = AspNetRoles.Id WHERE (AspNetRoles.Id = N'2')"></asp:SqlDataSource>
             <asp:SqlDataSource ID="addAssociateDS" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" InsertCommand="INSERT INTO AspNetUserRoles(UserId, RoleId, PostId) VALUES (@selectUser, N'2', @post)" SelectCommand="SELECT AspNetUserRoles.* FROM AspNetUserRoles">
                 <InsertParameters>
