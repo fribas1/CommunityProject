@@ -180,10 +180,11 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item"><a class="nav-link" href="/Forms/DashBoard.aspx">Dashboard</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/Forms/InstructionPage.aspx">Incstructions</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/Forms/SubmitPage.aspx">Submistion</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/Forms/InstructionPage.aspx">Instructions</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/Forms/SubmitPage.aspx">Submission</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
+                <label class="mr-4">Hello <%: Context.User.Identity.GetUserName()  %></label>
                 <asp:Button runat="server" ID="btnLogout" OnClick="btnLogout_Click" CssClass="btn btn-outline-danger my-2 my-sm-0" Text="Log Out"></asp:Button>
             </div>
         </nav>
@@ -223,6 +224,18 @@
                             <asp:Label ID="lblMessage" runat="server" CssClass="text-danger" Visible="False"></asp:Label>
                             <br />
                         </div>
+                        <h3 class="mt-3 mb-3">Author Details</h3>
+                        <div class="col-lg-8">
+                            <asp:Label Text="First Name" runat="server" />
+                        <asp:TextBox  CssClass="form-control" runat="server" />
+                            <br />
+                            <asp:Label Text="Last Name" runat="server" />
+                        <asp:TextBox  CssClass="form-control" runat="server" />
+                            <br />
+                            <asp:Label Text="Co-Authors:" runat="server" />
+                            <p>Please provide First name and Last name of any Co-Authors followed by comma sign (,)</p>
+                            <asp:TextBox ID="TextBox1" CssClass="form-control" runat="server"  TextMode="MultiLine"></asp:TextBox><br />
+                            </div>
                         <h3 class="mt-3">Article Details</h3>
                         <div class=" mt-3  col-lg-8">
                             <asp:Label ID="lblTitle" runat="server" Text="Title:" AssociatedControlID="txtTitle"></asp:Label>
