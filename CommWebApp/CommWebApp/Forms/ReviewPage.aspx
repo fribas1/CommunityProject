@@ -59,12 +59,22 @@
         <div class=" container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2 class="mt-4">Review [File_Name]</h2>
+                    <h2 class="mt-4">Review [Encrupted_Name]</h2>
                     <br />
                     <br />
-                    <h3>Recommendation</h3>
-                    <br />
-                    <div class="form-check jumbotron col-lg-10">
+                                        <h4>Would you be willing to review a revision of this manuscript?</h4>
+                    <div class="form-check col-lg-10 ml-2 mt-2">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="recommendation">Yes
+                        </label>
+                        <br />
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="recommendation">No
+                        </label>
+                    </div>
+                    <hr />
+                    <h4>Recommendation</h4>
+                    <div class="form-check col-lg-10 ml-2 mt-2">
                         <label class="form-check-label">
                             <input type="radio" class="form-check-input" name="recommendation">Accept
                         </label>
@@ -82,25 +92,16 @@
                         </label>
                     </div>
                     <hr />
-                    <h4>Confidential comments to the Author</h4>
+                    <h4>Confidential comments to the Editor</h4>
                     <br />
                     <textarea id="TextArea1" class="auto-style1" name="S1"></textarea><br />
                     <br />
                     <hr />
                     <h4>Comments to the Author</h4>
                     <br />
-                    <textarea id="TextArea2" class="auto-style2" name="S2"></textarea>
+                    <textarea id="TextArea2" class="auto-style2 mb-4" name="S2"></textarea>
                 </div>
-                <div class=" input-group m-3">
-                    <div class="input-group-prepend">
-                        <asp:Button CssClass=" input-group-text" ID="btnUploadFile" Font-Bold="true" runat="server" Text="Upload" OnClick="btnUploadFile_Click" /><br />
-                    </div>
-                    <div class="custom-file">
-                        <asp:FileUpload CssClass="custom-file-input" ID="FileUpload1" AllowMultiple="true" runat="server" />
-                        <asp:Label CssClass="custom-file-label" ID="lblMessage" Font-Bold="True" runat="server" Text="..." Visible="True"></asp:Label>
-                    </div>
                 </div>
-            </div>
         </div>
     </form>
 </body>
