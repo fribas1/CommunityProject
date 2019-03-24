@@ -58,7 +58,7 @@
                     <h2 class="mt-4">Review [Encrupted_Name]</h2>
                     <br />
                     <br />
-                    <h4>Would you be willing to review a revision of this manuscript?</h4>
+                    <h5>Would you be willing to review a revision of this manuscript?</h5>
                     <div class="form-check col-lg-10 ml-2 mt-2">
                         <label class="form-check-label">
                             <input type="radio" class="form-check-input" name="recommendation">Yes
@@ -68,8 +68,183 @@
                             <input type="radio" class="form-check-input" name="recommendation">No
                         </label>
                     </div>
+
+
                     <hr />
-                    <h4>Recommendation</h4>
+                    <h6>Organization, structure and presentation (style, clarity and readability)</h6>
+                    <div class="form-check col-lg-10 ml-2 mt-3">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="Organization">Great
+                        </label>
+                        <br />
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="Organization">Minor Revision
+                        </label>
+                        <br />
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="Organization">Major Revision
+                        </label>
+                        <br />
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="Organization">Missing
+                        </label>
+                    </div>
+                    <hr />
+                    <h6>A rationale for the study which includes a clear purpose statement and/or research questions addressed in the paper and a brief review of related literature including key citations.</h6>
+                    <div class="form-check col-lg-10 ml-2 mt-3">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="rationale">Great
+                        </label>
+                        <br />
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="rationale">Minor Revision
+                        </label>
+                        <br />
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="rationale">Major Revision
+                        </label>
+                        <br />
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="rationale">Missing
+                        </label>
+                    </div>
+                    <hr />
+                    <h6>A methodology section which includes sample size, a description of the how the sample was selected and recruited, a description of the how the sample was selected and recruited, a description of the methodology, data collection strategies used and a description of the data analysis procedures.</h6>
+                    <div class="form-check col-lg-10 ml-2 mt-3">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="methodology">Great
+                        </label>
+                        <br />
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="methodology">Minor Revision
+                        </label>
+                        <br />
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="methodology">Major Revision
+                        </label>
+                        <br />
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="methodology">Missing
+                        </label>
+                    </div>
+                    <hr />
+                    <h6>Findings which highlight the key findings of the study making sure to address the study purpose and all research questions and including any tables, graphs and figures that help summarize the findings.</h6>
+                    <div class="form-check col-lg-10 ml-2 mt-3">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="Findings">Great
+                        </label>
+                        <br />
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="Findings">Minor Revision
+                        </label>
+                        <br />
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="Findings">Major Revision
+                        </label>
+                        <br />
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="Findings">Missing
+                        </label>
+                    </div>
+                    <hr />
+                    <h6>A Discussion of implications for TR proactive which describes the contribution the study makes to therapeutic recreation proactive and provides specific recommendations for practice.</h6>
+                    <div class="form-check col-lg-10 ml-2 mt-3">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="Discussion">Great
+                        </label>
+                        <br />
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="Discussion">Minor Revision
+                        </label>
+                        <br />
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="Discussion">Major Revision
+                        </label>
+                        <br />
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="Discussion">Missing
+                        </label>
+                    </div>
+                    <hr />
+                    <h6>Does it have an abstract that is approx. 250 words and also includes 5-6 keywords that best describe content of the article?</h6>
+                    <div class="form-check col-lg-10 ml-2 mt-3">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="abstract">Great
+                        </label>
+                        <br />
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="abstract">Minor Revision
+                        </label>
+                        <br />
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="abstract">Major Revision
+                        </label>
+                        <br />
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="abstract">Missing
+                        </label>
+                    </div>
+                    <hr />
+                    <h6>Is the length of manuscript a maximum number of 15 pages includeing references?</h6>
+                    <div class="form-check col-lg-10 ml-2 mt-3">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="manuscript">Great
+                        </label>
+                        <br />
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="manuscript">Minor Revision
+                        </label>
+                        <br />
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="manuscript">Major Revision
+                        </label>
+                        <br />
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="manuscript">Missing
+                        </label>
+                    </div>
+                    <hr />
+                    <h6>Is it formatted properly? Type manuscripts in <i>Microsoft Word</i>, Times New Roman (font size of 12), double-spaced, with 10-inch margins on all four sides. Tables must be original (created in your WORD document, or able to be edited in WORKD), figures must be of high quality (i.e. jpg file with high dpi).</h6>
+                    <div class="form-check col-lg-10 ml-2 mt-3">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="formatted">Great
+                        </label>
+                        <br />
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="formatted">Minor Revision
+                        </label>
+                        <br />
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="formatted">Major Revision
+                        </label>
+                        <br />
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="formatted">Missing
+                        </label>
+                    </div>
+                    <hr />
+                    <h6>Do the citations and referencing follow the guidelines laid out in the Publication Manual of the American Psychological Association, 6th edition guidelines for the text, labelling tables and figures, citations and references?</h6>
+                    <div class="form-check col-lg-10 ml-2 mt-3">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="citations">Great
+                        </label>
+                        <br />
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="citations">Minor Revision
+                        </label>
+                        <br />
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="citations">Major Revision
+                        </label>
+                        <br />
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="citations">Missing
+                        </label>
+                    </div>
+
+
+                    <hr />
+                    <h6>Recommendation</h6>
                     <div class="form-check col-lg-10 ml-2 mt-2">
                         <label class="form-check-label">
                             <input type="radio" class="form-check-input" name="recommendation">Accept
@@ -88,12 +263,12 @@
                         </label>
                     </div>
                     <hr />
-                    <h4>Confidential comments to the Editor</h4>
+                    <h3>Confidential comments to the Editor</h3>
                     <br />
                     <textarea id="TextArea1" class="auto-style1 form-control" name="S1"></textarea><br />
                     <br />
                     <hr />
-                    <h4>Comments to the Author</h4>
+                    <h3>Comments to the Author</h3>
                     <br />
                     <textarea id="TextArea2" class="auto-style2 form-control" name="S2"></textarea>
                     <br />
