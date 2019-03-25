@@ -261,6 +261,7 @@
     <Content Include="images\article.jpg" />
     <Content Include="includes\bootstrap.html" />
     <Content Include="includes\footer.html" />
+    <Content Include="includes\gridview.css" />
     <Content Include="includes\navBar.html" />
     <None Include="Properties\PublishProfiles\trpr - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\TRPRApp - Web Deploy.pubxml" />
