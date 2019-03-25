@@ -176,7 +176,7 @@
                     <asp:Label CssClass="mt-2" runat="server" AssociatedControlID="RememberMe">Remember me?</asp:Label>
                     <br />
                     <asp:Button runat="server" Width="80" Text="Log in" CssClass="btn btn-outline-primary float-sm-left" OnClick="btnLogin_Click" ID="btnLogIn" />
-                    <asp:HyperLink CssClass="btn btn-outline-info float-sm-right" Width="80" runat="server" ID="RegisterHyperLink" ViewStateMode="Disabled">Sign Up</asp:HyperLink>
+                    <asp:HyperLink CssClass="btn btn-outline-info float-sm-right" Width="80" runat="server" ID="RegisterHyperLink" ViewStateMode="Disabled">Register</asp:HyperLink>
 
                 </section>
             </div>

@@ -11,6 +11,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Auth;
 using Microsoft.WindowsAzure.Storage.Blob;
+using System.Net.Mail;
 
 namespace CommWebApp.Forms
 {
@@ -65,6 +66,7 @@ namespace CommWebApp.Forms
                 //InsertFile(hdFileName.Value, hdFilePath.Value, hdFileSize.Value, hdFileExtension.Value, postId); //Will not use this for now
                 InsertPostTag(postId);
                 InsertUserRole(User.Identity.GetUserId(), postId);
+                SendConfirmationMessage(User.Identity.GetUserName(), txtTitle.Text);
 
                 pnlContent.Visible = false;
                 tabs.Visible = false;
@@ -347,6 +349,39 @@ namespace CommWebApp.Forms
             finally
             {
                 conn.Close();
+            }
+        }
+
+        public void SendConfirmationMessage(string email, string title)
+        {
+            SmtpClient smtpClient = new SmtpClient(email, 587);
+
+            smtpClient.Credentials = new System.Net.NetworkCredential("contact.trpr@gmail.com", "emailtrpr");
+            smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+
+            //MailMessage mailMessage = new MailMessage("contact.trpr@gmail.com", email);
+            //mailMessage.Subject = "Journal Submission Confirmation";
+            //mailMessage.Body = "This is a confirmation message that your journal named " + title + " was successfully submitted.";
+
+            try
+            {
+                MailMessage mail = new MailMessage();
+                mail.To.Add("email");
+                mail.From = new MailAddress("contact.trpr@gmail.com");
+                mailMessage.Subject = "Journal Submission Confirmation";
+                string Body = "This is a confirmation message that your journal named " + title + " was successfully submitted.";
+                mail.Body = Body;
+                mail.IsBodyHtml = true;
+                SmtpClient smtp = new SmtpClient();
+                smtp.Host = "smtp.gmail.com";
+                smtp.EnableSsl = true;
+                smtpClient.Credentials = new System.Net.NetworkCredential("contact.trpr@gmail.com", "emailtrpr");
+                smtp.Send(mail);
+                smtpClient.Send(mailMessage);
+            }
+            catch (Exception ex)
+            {
+                Console.Write(ex.ToString());
             }
         }
     }
