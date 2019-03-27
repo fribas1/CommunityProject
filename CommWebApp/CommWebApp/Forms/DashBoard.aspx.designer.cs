@@ -130,6 +130,24 @@ namespace CommWebApp.Forms {
         protected global::System.Web.UI.WebControls.Button btnSave;
         
         /// <summary>
+        /// gvReview control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvReview;
+        
+        /// <summary>
+        /// gvArticles control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvArticles;
+        
+        /// <summary>
         /// postDS control.
         /// </summary>
         /// <remarks>
@@ -164,5 +182,23 @@ namespace CommWebApp.Forms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource dsStatusDDL;
+        
+        /// <summary>
+        /// dsReviews control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource dsReviews;
+        
+        /// <summary>
+        /// dsArticlesAuthor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource dsArticlesAuthor;
     }
 }

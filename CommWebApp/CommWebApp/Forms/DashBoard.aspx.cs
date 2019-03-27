@@ -145,5 +145,11 @@ namespace CommWebApp.Forms
             }
         }
 
+        protected void gvReview_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index = gvReview.SelectedRow.RowIndex;
+            int postId = Convert.ToInt32(gvReview.DataKeys[index][0]);
+            Response.Redirect("~/Forms/ReviewPage.aspx?Post=" + postId);                        
+        }
     }
 }
