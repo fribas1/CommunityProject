@@ -272,7 +272,7 @@
                     <br />
                     <textarea id="TextArea2" class="auto-style2 form-control" name="S2"></textarea>
                     <br />
-                    <asp:Button CssClass="btn btn-outline-success mt-4 mb-4" Width="80" Text="Submit" runat="server" />
+                    <asp:Button CssClass="btn btn-outline-success mt-4 mb-4" Width="80" Text="Submit" runat="server" ID="btnSubmit" OnClick="btnSubmit_Click" />
                     <asp:Button CssClass="btn btn-outline-info m-4" Width="80" Text="Save" runat="server" />
                 </div>
                 <div class=" col-lg-6 float-right rounded p-1">

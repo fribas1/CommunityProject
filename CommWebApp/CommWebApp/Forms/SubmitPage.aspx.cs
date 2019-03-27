@@ -354,34 +354,32 @@ namespace CommWebApp.Forms
 
         public void SendConfirmationMessage(string email, string title)
         {
-            SmtpClient smtpClient = new SmtpClient(email, 587);
+            SmtpClient client = new SmtpClient();
+            client.DeliveryMethod = SmtpDeliveryMethod.Network;
+            client.EnableSsl = true;
+            client.Host = "smtp.gmail.com";
+            client.Port = 587;
 
-            smtpClient.Credentials = new System.Net.NetworkCredential("contact.trpr@gmail.com", "emailtrpr");
-            smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+            // setup Smtp authentication
+            System.Net.NetworkCredential credentials =
+                new System.Net.NetworkCredential("contact.trpr@gmail.com", "emailtrpr");
+            client.UseDefaultCredentials = false;
+            client.Credentials = credentials;
 
-            //MailMessage mailMessage = new MailMessage("contact.trpr@gmail.com", email);
-            //mailMessage.Subject = "Journal Submission Confirmation";
-            //mailMessage.Body = "This is a confirmation message that your journal named " + title + " was successfully submitted.";
+            MailMessage msg = new MailMessage();
+            msg.From = new MailAddress("contact.trpr@gmail.com");
+            msg.To.Add(new MailAddress("luckascouto@icloud.com"));
+
+            msg.Subject = "Teste Assunto";
+            msg.IsBodyHtml = true;
+            msg.Body = string.Format("Fabio um verdadeiro maxao.");
 
             try
             {
-                MailMessage mail = new MailMessage();
-                mail.To.Add("email");
-                mail.From = new MailAddress("contact.trpr@gmail.com");
-                mailMessage.Subject = "Journal Submission Confirmation";
-                string Body = "This is a confirmation message that your journal named " + title + " was successfully submitted.";
-                mail.Body = Body;
-                mail.IsBodyHtml = true;
-                SmtpClient smtp = new SmtpClient();
-                smtp.Host = "smtp.gmail.com";
-                smtp.EnableSsl = true;
-                smtpClient.Credentials = new System.Net.NetworkCredential("contact.trpr@gmail.com", "emailtrpr");
-                smtp.Send(mail);
-                smtpClient.Send(mailMessage);
+                client.Send(msg);
             }
             catch (Exception ex)
             {
-                Console.Write(ex.ToString());
             }
         }
     }
