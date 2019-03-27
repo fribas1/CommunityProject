@@ -227,10 +227,10 @@
                         <h3 class="mt-3 mb-3">Author Details</h3>
                         <div class="col-lg-8">
                             <asp:Label Text="First Name" runat="server" />
-                        <asp:TextBox  CssClass="form-control" runat="server" />
+                        <asp:TextBox  CssClass="form-control" runat="server" ReadOnly />
                             <br />
                             <asp:Label Text="Last Name" runat="server" />
-                        <asp:TextBox  CssClass="form-control" runat="server" />
+                        <asp:TextBox  CssClass="form-control" runat="server" ReadOnly />
                             <br />
                             <asp:Label Text="Co-Authors:" runat="server" />
                             <p>Please provide First name and Last name of any Co-Authors followed by comma sign (,)</p>
@@ -244,6 +244,11 @@
 
                             <asp:Label ID="lblContent" runat="server" Text="Abstract:" AssociatedControlID="txtContent"></asp:Label>
                             <asp:TextBox ID="txtContent" CssClass="form-control" runat="server"  TextMode="MultiLine"></asp:TextBox><br />
+
+                            <asp:Label Text="Keywords:" runat="server" />
+                            <p>Please provide 6 to 8 keywords separated by comma sign (,)</p>
+                            <asp:TextBox ID="TextBox2" CssClass="form-control" runat="server"  TextMode="MultiLine"></asp:TextBox><br />
+                            </div>
 
                             <asp:Label ID="lblTags" runat="server" Text="Tags:" AssociatedControlID="cblTags"></asp:Label>
                             <asp:CheckBoxList CssClass="checkbox mt-2" ID="cblTags" runat="server" DataSourceID="dsTags" DataTextField="Name" DataValueField="Id" RepeatColumns="2"></asp:CheckBoxList>
