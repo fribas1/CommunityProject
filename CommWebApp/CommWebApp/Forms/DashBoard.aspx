@@ -119,8 +119,8 @@
                 <asp:GridView CssClass="table table-bordered table-sm" ID="DashBoardGV" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="postDS" OnSelectedIndexChanged="DashBoardGV_SelectedIndexChanged">
                     <Columns>
                         <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title" />
-                        <asp:BoundField DataField="Current Status" HeaderText="Current Status" SortExpression="Current Status" />
-                        <asp:BoundField DataField="CreatedOn" HeaderText="CreatedOn" SortExpression="CreatedOn" />
+                        <asp:BoundField DataField="Current Status" HeaderText="Status" SortExpression="Current Status" />
+                        <asp:BoundField DataField="CreatedOn" HeaderText="CreatedOn" SortExpression="CreatedOn" DataFormatString="{0:d}" />
                         <asp:BoundField DataField="UserId" HeaderText="UserId" SortExpression="UserId" Visible="False" />
                         <asp:BoundField DataField="RoleId" HeaderText="RoleId" SortExpression="RoleId" Visible="False" />
                         <asp:BoundField DataField="PostId" HeaderText="PostId" SortExpression="PostId" Visible="False" />
@@ -175,6 +175,39 @@
                 <br />
                 <br />
             </div>
+            <div>
+                <h2 class="mt-3">Articles to be reviewed</h2>
+                <asp:GridView CssClass="table table-bordered table-sm" ID="gvReview" runat="server" AutoGenerateColumns="False" DataKeyNames="Id,Id1,Id2" DataSourceID="dsReviews" OnSelectedIndexChanged="gvReview_SelectedIndexChanged">
+                    <Columns>                        
+                        <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title" />
+                        <asp:BoundField DataField="Name" HeaderText="Status" SortExpression="Name" />
+                        <asp:BoundField DataField="CreatedOn" HeaderText="Created On" SortExpression="CreatedOn" DataFormatString="{0:d}" />
+                        <asp:ButtonField ButtonType="Button" CommandName="Select" Text="Review" />
+                    </Columns>
+                    <EmptyDataTemplate>
+                        You do not have any Revision assigned to you yet.
+                    </EmptyDataTemplate>
+                </asp:GridView>
+                <br />
+                <br />
+            </div>
+            <div>
+                <h2 class="mt-3">My Journal Posts</h2>
+                <asp:GridView CssClass="table table-bordered table-sm" ID="gvArticles" runat="server" AutoGenerateColumns="False" DataKeyNames="Id,Id1" DataSourceID="dsArticlesAuthor">
+                    <Columns>
+                        <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title" />
+                        <asp:BoundField DataField="Name" HeaderText="Status" SortExpression="Name" />
+                        <asp:BoundField DataField="CreatedOn" HeaderText="Created On" SortExpression="CreatedOn" DataFormatString="{0:d}" />
+                        <asp:BoundField DataField="CreatedBy" HeaderText="CreatedBy" SortExpression="CreatedBy" Visible="False" />
+                        <asp:HyperLinkField DataNavigateUrlFields="Id"
+                    DataNavigateUrlFormatString="Comments.aspx?post={0}"
+                      Text="View Comments" />
+                    </Columns>
+                    <EmptyDataTemplate>
+                        You do not have any submitted articles yet.
+                    </EmptyDataTemplate>
+                </asp:GridView>
+            </div>
             <asp:SqlDataSource ID="postDS" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT Post.Id, Post.Title, Post.CurrentStatusId, Post.CreatedOn, Post.CreatedBy, Post.LastModifiedOn, Post.LastModifiedBy, AspNetUserRoles.UserId, AspNetUserRoles.RoleId, AspNetUserRoles.PostId, Post.PublishedOn, Status.Name AS [Current Status] FROM Post INNER JOIN AspNetUserRoles ON Post.Id = AspNetUserRoles.PostId INNER JOIN Status ON Post.CurrentStatusId = Status.Id WHERE (Post.CurrentStatusId = @status) AND (Post.Title LIKE '%' + @title + '%') AND (Post.CreatedOn BETWEEN @start AND @end )">
                 <SelectParameters>
                     <asp:ControlParameter ControlID="ddlFilterStatus" DefaultValue="2" Name="status" PropertyName="SelectedValue" />
@@ -191,6 +224,21 @@
                 </InsertParameters>
             </asp:SqlDataSource>
             <asp:SqlDataSource ID="dsStatusDDL" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT Id, Name FROM Status"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="dsReviews" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT * FROM Post
+JOIN AspNetUserRoles ON Post.Id = AspNetUserRoles.PostId
+JOIN Status ON Status.Id = Post.CurrentStatusId
+WHERE RoleId = 2 AND CurrentStatusId = 3 AND UserId = @User">
+                <SelectParameters>
+                    <asp:QueryStringParameter DefaultValue="0" Name="User" QueryStringField="currentUserId" />
+                </SelectParameters>
+            </asp:SqlDataSource>
+            <asp:SqlDataSource ID="dsArticlesAuthor" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT * FROM [Post]
+JOIN Status ON Status.Id = Post.CurrentStatusId
+WHERE ([CreatedBy] = @CreatedBy)">
+                <SelectParameters>
+                    <asp:QueryStringParameter DefaultValue="0" Name="CreatedBy" QueryStringField="currentUserId" Type="String" />
+                </SelectParameters>
+            </asp:SqlDataSource>
         </div>
     </form>
 </body>
