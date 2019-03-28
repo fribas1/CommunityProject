@@ -112,13 +112,13 @@ namespace CommWebApp.Forms {
         protected global::System.Web.UI.WebControls.Label lblMessage;
         
         /// <summary>
-        /// TextBox1 control.
+        /// txtCoauthors control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox txtCoauthors;
         
         /// <summary>
         /// lblTitle control.
@@ -166,13 +166,13 @@ namespace CommWebApp.Forms {
         protected global::System.Web.UI.WebControls.TextBox txtContent;
         
         /// <summary>
-        /// TextBox2 control.
+        /// txtKeywords control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        protected global::System.Web.UI.WebControls.TextBox txtKeywords;
         
         /// <summary>
         /// lblTags control.
