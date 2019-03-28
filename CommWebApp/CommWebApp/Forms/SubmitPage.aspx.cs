@@ -118,8 +118,8 @@ namespace CommWebApp.Forms
         protected void UploadFront(object sender, EventArgs e)
         {
             lblMessage.Text = "";
-            const string CONTAINER = "frontpage";
-            filePath = Request.PhysicalApplicationPath + "Uploads/";
+            const string CONTAINER = "manuscript";
+            filePath = Request.PhysicalApplicationPath + "Uploads\\";
             frontName = FileUploadFront.PostedFile.FileName;
             fileSize = FileUploadFront.PostedFile.ContentLength;
             fileExtension = Path.GetExtension(FileUploadFront.FileName);
@@ -165,8 +165,8 @@ namespace CommWebApp.Forms
         public void UploadFile(object sender, EventArgs e)
         {
             lblMessageFront.Text = "";
-            const string CONTAINER = "articles";
-            filePath = Request.PhysicalApplicationPath+"Uploads//";
+            const string CONTAINER = "abstract";
+            filePath = Request.PhysicalApplicationPath+"Uploads\\";
             fileName = FileUploadArticle.PostedFile.FileName;
             fileSize = FileUploadArticle.PostedFile.ContentLength;
             fileExtension = Path.GetExtension(FileUploadArticle.FileName);
@@ -219,11 +219,12 @@ namespace CommWebApp.Forms
                 cmd.CommandText = "INSERT INTO [Post] (Title, Content, CreatedBy, LastModifiedBy, "
                                   + "CurrentStatusId, CreatedOn, LastModifiedOn) "
                                   + "VALUES (@Title, @Content, @CreatedBy, @LastModifiedBy, "
-                                  + "@CurrentStatusId, @CreatedOn, @LastModifiedOn) "
+                                  + "@CurrentStatusId, @CreatedOn, @LastModifiedOn, @Keywords) "
                                   + "SELECT SCOPE_IDENTITY()";
 
 
                 string content = (txtContent.Text.Length > 0) ? txtContent.Text : "";
+                string keywords = (txtKeywords.Text.Length > 0 ? txtKeywords.Text : "");
 
                 cmd.Parameters.AddWithValue("@Title", txtTitle.Text);
                 cmd.Parameters.AddWithValue("@Content", content);
@@ -232,6 +233,7 @@ namespace CommWebApp.Forms
                 cmd.Parameters.AddWithValue("@CurrentStatusId", 2); //status 2: Awaiting Editors' Choice
                 cmd.Parameters.AddWithValue("@CreatedOn", DateTime.Now);
                 cmd.Parameters.AddWithValue("@LastModifiedOn", DateTime.Now.ToBinary());
+                cmd.Parameters.AddWithValue("@Keywords", keywords);
 
                 conn.Open();
 
@@ -352,6 +354,54 @@ namespace CommWebApp.Forms
             }
         }
 
+        //public void InsertCoAuthor()
+        //{
+        //    string coauthors = txtCoauthors.Text;
+        //    List<string> namesArray = coauthors.Split(',').ToList();            
+
+        //    var connection = System.Configuration.ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+        //    SqlConnection conn = new SqlConnection(connection);
+
+        //    try
+        //    {
+        //        SqlCommand cmd = conn.CreateCommand();
+
+        //        if (namesArray.Count > 1)
+        //        {
+        //        cmd.CommandText = "";
+        //        for (int i = 0; i < namesArray.Count; i++)
+        //        {
+        //            cmd.CommandText += "SELECT Id from AspNetUsers WHERE CONCAT(FirstName, '', LastName)"
+        //                            + " LIKE '%" + namesArray[i] + "%'"
+        //                            + "INSERT INTO [Coauthor] (PostId, UserId) "
+        //                            + "VALUES (@PostId, " + Convert.ToInt32(selectedTags[i].Value)
+        //                            + ") ";
+        //        }
+        //        }
+        //        else
+        //        {
+        //            cmd.CommandText = "INSERT INTO [PostTag] (PostId, UserId) "
+        //                             + "VALUES (@PostId, @UserId)";
+
+        //            string tagId = selectedTags[0].Value;
+
+        //            cmd.Parameters.AddWithValue("@TagId", Convert.ToInt32(tagId));
+        //        }
+        //        cmd.Parameters.AddWithValue("@PostId", Convert.ToInt32(id));
+
+        //        conn.Open();
+        //        cmd.ExecuteNonQuery();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        lblError.Text = ex.ToString();
+        //    }
+        //    finally
+        //    {
+        //        conn.Close();
+        //    }
+        //}
+
         public void SendConfirmationMessage(string email, string title)
         {
             SmtpClient client = new SmtpClient();
@@ -368,11 +418,11 @@ namespace CommWebApp.Forms
 
             MailMessage msg = new MailMessage();
             msg.From = new MailAddress("contact.trpr@gmail.com");
-            msg.To.Add(new MailAddress("luckascouto@icloud.com"));
+            msg.To.Add(new MailAddress(email));
 
-            msg.Subject = "Teste Assunto";
+            msg.Subject = "TRPR - Journal Submission Confirmation";
             msg.IsBodyHtml = true;
-            msg.Body = string.Format("Fabio um verdadeiro maxao.");
+            msg.Body = string.Format("This is a message to confirm that your journal named " + title + " has been successfully submitted.");
 
             try
             {
@@ -380,6 +430,7 @@ namespace CommWebApp.Forms
             }
             catch (Exception ex)
             {
+
             }
         }
     }

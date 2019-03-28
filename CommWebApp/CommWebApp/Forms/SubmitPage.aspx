@@ -197,7 +197,7 @@
                     <h2>Journal Submission</h2>
                     <asp:Panel ID="pnlContent" runat="server">
                         <div class="col-lg-6 mt-3">
-                            <h4>Front Page</h4>
+                            <h4>Manuscript</h4>
                             <div class="input-group mt-2 mb-2">
                                 <div class="input-group-prepend">
                                     <asp:Button CssClass=" input-group-text" ID="btnUploadFront" Font-Bold="true" runat="server" Text="Upload" OnClick="UploadFront" Style="display: none" /><br />
@@ -211,7 +211,7 @@
                             <br />
                         </div>
                         <div class="col-lg-6 mt-3">
-                            <h4>Article Content</h4>
+                            <h4>Abstract</h4>
                             <div class="input-group mt-2 mb-2">
                                 <div class="input-group-prepend">
                                     <asp:Button CssClass=" input-group-text" ID="btnUploadFile" Font-Bold="true" runat="server" Text="Upload" OnClick="UploadFile" Style="display: none" /><br />
@@ -224,17 +224,10 @@
                             <asp:Label ID="lblMessage" runat="server" CssClass="text-danger" Visible="False"></asp:Label>
                             <br />
                         </div>
-                        <h3 class="mt-3 mb-3">Author Details</h3>
-                        <div class="col-lg-8">
-                            <asp:Label Text="First Name" runat="server" />
-                        <asp:TextBox  CssClass="form-control" runat="server" ReadOnly />
-                            <br />
-                            <asp:Label Text="Last Name" runat="server" />
-                        <asp:TextBox  CssClass="form-control" runat="server" ReadOnly />
-                            <br />
-                            <asp:Label Text="Co-Authors:" runat="server" />
+                        <h3 class="mt-3 mb-3">Co-Authors</h3>
+                        <div class="col-lg-8">                            
                             <p>Please provide First name and Last name of any Co-Authors followed by comma sign (,)</p>
-                            <asp:TextBox ID="TextBox1" CssClass="form-control" runat="server"  TextMode="MultiLine"></asp:TextBox><br />
+                            <asp:TextBox ID="txtCoauthors" CssClass="form-control" runat="server"  TextMode="MultiLine"></asp:TextBox><br />
                             </div>
                         <h3 class="mt-3">Article Details</h3>
                         <div class=" mt-3  col-lg-8">
@@ -247,7 +240,7 @@
 
                             <asp:Label Text="Keywords:" runat="server" />
                             <p>Please provide 6 to 8 keywords separated by comma sign (,)</p>
-                            <asp:TextBox ID="TextBox2" CssClass="form-control" runat="server"  TextMode="MultiLine"></asp:TextBox><br />
+                            <asp:TextBox ID="txtKeywords" CssClass="form-control" runat="server"  TextMode="MultiLine"></asp:TextBox><br />
                             </div>
 
                             <asp:Label ID="lblTags" runat="server" Text="Tags:" AssociatedControlID="cblTags"></asp:Label>
@@ -268,8 +261,8 @@
                 </div>
                 <div id="tabs" class="mt-5 col-lg-6 border-0 float-right" runat="server" visible="false">
                     <ul>
-                        <li><a href="#tabs-1">Front Page</a></li>
-                        <li><a href="#tabs-2">Article Content</a></li>
+                        <li><a href="#tabs-1">Manuscript</a></li>
+                        <li><a href="#tabs-2">Abstract</a></li>
                     </ul>
                     <div id="tabs-1">
                         <iframe src="/ViewerJS/#../Uploads/<%=hdFrontName.Value %>" width='525' height='680' allowfullscreen webkitallowfullscreen></iframe>
