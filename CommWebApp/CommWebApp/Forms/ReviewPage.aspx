@@ -13,19 +13,14 @@
     <link href="bootstrap/css/mdb.min.css" rel="stylesheet" />
 
     <style type="text/css">
-        .auto-style1 {
-            width: 400px;
-            height: 100px;
-        }
-
-        .auto-style2 {
-            width: 400px;
-            height: 100px;
-        }
-
+        
         .right {
             float: right;
             margin: 300px;
+        }
+
+        .rad1 label {
+            margin-left: 5px;
         }
     </style>
 </head>
@@ -55,232 +50,190 @@
         <div class=" container">
             <div class="row">
                 <div class="col-lg-6">
-                    <h2 class="mt-4">Review [Encrupted_Name]</h2>
+                    <br />
+                    <asp:Label ID="encName" runat="server" CssClass="h2" Text="Review "></asp:Label>
                     <br />
                     <br />
                     <h5>Would you be willing to review a revision of this manuscript?</h5>
                     <div class="form-check col-lg-10 ml-2 mt-2">
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="recommendation">Yes
-                        </label>
+
+                        <asp:RadioButton ID="revisionR1" CssClass="rad1" GroupName="revisionR" runat="server" Text="Yes" />
                         <br />
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="recommendation">No
-                        </label>
+                        <asp:RadioButton ID="revisionR2" CssClass="rad1" GroupName="revisionR" runat="server" Text="No" />
+
+                        <br />
+                        <asp:Label ID="notValid1" runat="server" ForeColor="Red" Visible="False" Text="You can not leave this section with no comment"></asp:Label>
+
                     </div>
 
 
                     <hr />
                     <h6>Organization, structure and presentation (style, clarity and readability)</h6>
                     <div class="form-check col-lg-10 ml-2 mt-3">
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="Organization">Great
-                        </label>
+
+                        <asp:RadioButton ID="org1" runat="server" GroupName="Organization" Text="Great" CssClass="rad1" />
                         <br />
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="Organization">Minor Revision
-                        </label>
+                        <asp:RadioButton ID="org2" CssClas="rad1" runat="server" GroupName="Organization" Text="Minor Revision" CssClass="rad1" />
                         <br />
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="Organization">Major Revision
-                        </label>
+                        <asp:RadioButton ID="org3" CssClas="rad1" runat="server" GroupName="Organization" Text="Major Revision" CssClass="rad1" />
                         <br />
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="Organization">Missing
-                        </label>
+                        <asp:RadioButton ID="org4" CssClas="rad1" runat="server" GroupName="Organization" Text="Missing" CssClass="rad1" />
+                        <br />
+                        <asp:Label ID="notValid2" runat="server" ForeColor="Red" Visible="False">You can not leave this section with no comment</asp:Label>
+
+
                     </div>
                     <hr />
                     <h6>A rationale for the study which includes a clear purpose statement and/or research questions addressed in the paper and a brief review of related literature including key citations.</h6>
                     <div class="form-check col-lg-10 ml-2 mt-3">
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="rationale">Great
-                        </label>
+                        <asp:RadioButton ID="rationale1" CssClas="rad1" runat="server" GroupName="rationale" Text="Great" CssClass="rad1" />
                         <br />
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="rationale">Minor Revision
-                        </label>
+                        <asp:RadioButton ID="rationale2" CssClas="rad1" runat="server" GroupName="rationale" Text="Minor Revision" CssClass="rad1" />
                         <br />
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="rationale">Major Revision
-                        </label>
+                        <asp:RadioButton ID="rationale3" CssClas="rad1" runat="server" GroupName="rationale" Text="Major Revision" CssClass="rad1" />
                         <br />
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="rationale">Missing
-                        </label>
+                        <asp:RadioButton ID="rationale4" CssClas="rad1" runat="server" GroupName="rationale" Text="Missing" CssClass="rad1" />
+                        <br />
+                        <asp:Label ID="notValid3" runat="server" ForeColor="Red" Visible="False">You can not leave this section with no comment</asp:Label>
+
                     </div>
                     <hr />
                     <h6>A methodology section which includes sample size, a description of the how the sample was selected and recruited, a description of the how the sample was selected and recruited, a description of the methodology, data collection strategies used and a description of the data analysis procedures.</h6>
                     <div class="form-check col-lg-10 ml-2 mt-3">
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="methodology">Great
-                        </label>
+                        <asp:RadioButton ID="methodology1" CssClas="rad1" runat="server" GroupName="methodology" Text="Great" CssClass="rad1" />
                         <br />
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="methodology">Minor Revision
-                        </label>
+                        <asp:RadioButton ID="methodology2" CssClas="rad1" runat="server" GroupName="methodology" Text="Minor Revision" CssClass="rad1" />
                         <br />
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="methodology">Major Revision
-                        </label>
+                        <asp:RadioButton ID="methodology3" CssClas="rad1" runat="server" GroupName="methodology" Text="Major Revision" CssClass="rad1" />
                         <br />
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="methodology">Missing
-                        </label>
+                        <asp:RadioButton ID="methodology4" CssClas="rad1" runat="server" GroupName="methodology" Text="Missing" CssClass="rad1" />
+                        <br />
+                        <asp:Label ID="notValid4" runat="server" ForeColor="Red" Visible="False">You can not leave this section with no comment</asp:Label>
+
                     </div>
                     <hr />
                     <h6>Findings which highlight the key findings of the study making sure to address the study purpose and all research questions and including any tables, graphs and figures that help summarize the findings.</h6>
                     <div class="form-check col-lg-10 ml-2 mt-3">
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="Findings">Great
-                        </label>
+                        <asp:RadioButton ID="Findings1" CssClas="rad1" runat="server" GroupName="Findings" Text="Great" CssClass="rad1" />
                         <br />
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="Findings">Minor Revision
-                        </label>
+                        <asp:RadioButton ID="Findings2" CssClas="rad1" runat="server" GroupName="Findings" Text="Minor Revision" CssClass="rad1" />
                         <br />
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="Findings">Major Revision
-                        </label>
+                        <asp:RadioButton ID="Findings3" CssClas="rad1" runat="server" GroupName="Findings" Text="Major Revision" CssClass="rad1" />
                         <br />
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="Findings">Missing
-                        </label>
+                        <asp:RadioButton ID="Findings4" CssClas="rad1" runat="server" GroupName="Findings" Text="Missing" CssClass="rad1" />
+                        <br />
+                        <asp:Label ID="notValid5" runat="server" ForeColor="Red" Visible="False">You can not leave this section with no comment</asp:Label>
+
                     </div>
                     <hr />
                     <h6>A Discussion of implications for TR proactive which describes the contribution the study makes to therapeutic recreation proactive and provides specific recommendations for practice.</h6>
                     <div class="form-check col-lg-10 ml-2 mt-3">
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="Discussion">Great
-                        </label>
+                        <asp:RadioButton ID="Discussion1" CssClas="rad1" runat="server" GroupName="Discussion" Text="Great" CssClass="rad1" />
                         <br />
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="Discussion">Minor Revision
-                        </label>
+                        <asp:RadioButton ID="Discussion2" CssClas="rad1" runat="server" GroupName="Discussion" Text="Minor Revision" CssClass="rad1" />
                         <br />
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="Discussion">Major Revision
-                        </label>
+                        <asp:RadioButton ID="Discussion3" CssClas="rad1" runat="server" GroupName="Discussion" Text="Major Revision" CssClass="rad1" />
                         <br />
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="Discussion">Missing
-                        </label>
+                        <asp:RadioButton ID="Discussion4" CssClas="rad1" runat="server" GroupName="Discussion" Text="Missing" CssClass="rad1" />
+                        <br />
+                        <asp:Label ID="notValid6" runat="server" ForeColor="Red" Visible="False">You can not leave this section with no comment</asp:Label>
+
                     </div>
                     <hr />
                     <h6>Does it have an abstract that is approx. 250 words and also includes 5-6 keywords that best describe content of the article?</h6>
                     <div class="form-check col-lg-10 ml-2 mt-3">
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="abstract">Great
-                        </label>
+                        <asp:RadioButton ID="abstract1" CssClas="rad1" runat="server" GroupName="abstract" Text="Great" CssClass="rad1" />
                         <br />
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="abstract">Minor Revision
-                        </label>
+                        <asp:RadioButton ID="abstract2" CssClas="rad1" runat="server" GroupName="abstract" Text="Minor Revision" CssClass="rad1" />
                         <br />
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="abstract">Major Revision
-                        </label>
+                        <asp:RadioButton ID="abstract3" CssClas="rad1" runat="server" GroupName="abstract" Text="Major Revision" CssClass="rad1" />
                         <br />
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="abstract">Missing
-                        </label>
+                        <asp:RadioButton ID="abstract4" CssClas="rad1" runat="server" GroupName="abstract" Text="Missing" CssClass="rad1" />
+                        <br />
+                        <asp:Label ID="notValid7" runat="server" ForeColor="Red" Visible="False">You can not leave this section with no comment</asp:Label>
+
                     </div>
                     <hr />
                     <h6>Is the length of manuscript a maximum number of 15 pages includeing references?</h6>
                     <div class="form-check col-lg-10 ml-2 mt-3">
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="manuscript">Great
-                        </label>
+                        <asp:RadioButton ID="manuscript1" CssClas="rad1" runat="server" GroupName="manuscript" Text="Great" CssClass="rad1" />
                         <br />
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="manuscript">Minor Revision
-                        </label>
+                        <asp:RadioButton ID="manuscript2" CssClas="rad1" runat="server" GroupName="manuscript" Text="Minor Revision" CssClass="rad1" />
                         <br />
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="manuscript">Major Revision
-                        </label>
+                        <asp:RadioButton ID="manuscript3" CssClas="rad1" runat="server" GroupName="manuscript" Text="Major Revision" CssClass="rad1" />
                         <br />
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="manuscript">Missing
-                        </label>
+                        <asp:RadioButton ID="manuscript4" CssClas="rad1" runat="server" GroupName="manuscript" Text="Missing" CssClass="rad1" />
+                        <br />
+                        <asp:Label ID="notValid8" runat="server" ForeColor="Red" Visible="False">You can not leave this section with no comment</asp:Label>
+
                     </div>
                     <hr />
                     <h6>Is it formatted properly? Type manuscripts in <i>Microsoft Word</i>, Times New Roman (font size of 12), double-spaced, with 10-inch margins on all four sides. Tables must be original (created in your WORD document, or able to be edited in WORKD), figures must be of high quality (i.e. jpg file with high dpi).</h6>
                     <div class="form-check col-lg-10 ml-2 mt-3">
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="formatted">Great
-                        </label>
+                        <asp:RadioButton ID="formatted1" CssClas="rad1" runat="server" GroupName="formatted" Text="Great" CssClass="rad1" />
                         <br />
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="formatted">Minor Revision
-                        </label>
+                        <asp:RadioButton ID="formatted2" CssClas="rad1" runat="server" GroupName="formatted" Text="Minor Revision" CssClass="rad1" />
                         <br />
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="formatted">Major Revision
-                        </label>
+                        <asp:RadioButton ID="formatted3" CssClas="rad1" runat="server" GroupName="formatted" Text="Major Revision" CssClass="rad1" />
                         <br />
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="formatted">Missing
-                        </label>
+                        <asp:RadioButton ID="formatted4" CssClas="rad1" runat="server" GroupName="formatted" Text="Missing" CssClass="rad1" />
+                        <br />
+                        <asp:Label ID="notValid9" runat="server" ForeColor="Red" Visible="False">You can not leave this section with no comment</asp:Label>
+
                     </div>
                     <hr />
                     <h6>Do the citations and referencing follow the guidelines laid out in the Publication Manual of the American Psychological Association, 6th edition guidelines for the text, labelling tables and figures, citations and references?</h6>
                     <div class="form-check col-lg-10 ml-2 mt-3">
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="citations">Great
-                        </label>
+                        <asp:RadioButton ID="citations1" CssClas="rad1" runat="server" GroupName="citations" Text="Great" CssClass="rad1" />
                         <br />
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="citations">Minor Revision
-                        </label>
+                        <asp:RadioButton ID="citations2" CssClas="rad1" runat="server" GroupName="citations" Text="Minor Revision" CssClass="rad1" />
                         <br />
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="citations">Major Revision
-                        </label>
+                        <asp:RadioButton ID="citations3" CssClas="rad1" runat="server" GroupName="citations" Text="Major Revision" CssClass="rad1" />
                         <br />
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="citations">Missing
-                        </label>
+                        <asp:RadioButton ID="citations4" CssClas="rad1" runat="server" GroupName="citations" Text="Missing" CssClass="rad1" />
+                        <br />
+                        <asp:Label ID="notValid10" runat="server" ForeColor="Red" Visible="False">You can not leave this section with no comment</asp:Label>
+
                     </div>
 
 
                     <hr />
                     <h6>Recommendation</h6>
                     <div class="form-check col-lg-10 ml-2 mt-2">
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="recommendation">Accept
-                        </label>
+                        <asp:RadioButton ID="Recommendation1" CssClas="rad1" runat="server" GroupName="Recommendation" Text="Accept" CssClass="rad1" />
                         <br />
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="recommendation">Minor Revision
-                        </label>
+                        <asp:RadioButton ID="Recommendation2" CssClas="rad1" runat="server" GroupName="Recommendation" Text="Minor Revision" CssClass="rad1" />
                         <br />
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="recommendation">Major Revision
-                        </label>
+                        <asp:RadioButton ID="Recommendation3" CssClas="rad1" runat="server" GroupName="Recommendation" Text="Major Revision" CssClass="rad1" />
                         <br />
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="recommendation">Reject
-                        </label>
+                        <asp:RadioButton ID="Recommendation4" CssClas="rad1" runat="server" GroupName="Recommendation" Text="Reject" CssClass="rad1" />
+                        <br />
+                        <asp:Label ID="notValid11" runat="server" ForeColor="Red" Visible="False">You can not leave this section with no comment</asp:Label>
+
                     </div>
                     <hr />
                     <h3>Confidential comments to the Editor</h3>
                     <br />
-                    <textarea id="TextArea1" class="auto-style1 form-control" name="S1"></textarea><br />
+                    <asp:TextBox ID="txtConfEditor" CssClass="form-control" runat="server" Height="150px" TextMode="MultiLine" Width="400px"></asp:TextBox>
+                    <br />
                     <br />
                     <hr />
                     <h3>Comments to the Author</h3>
                     <br />
-                    <textarea id="TextArea2" class="auto-style2 form-control" name="S2"></textarea>
-                    <br />
+                    <asp:TextBox ID="txtAuthor" CssClass="form-control" runat="server" Height="150px" TextMode="MultiLine" Width="400px"></asp:TextBox>
+&nbsp;<br />
                     <asp:Button CssClass="btn btn-outline-success mt-4 mb-4" Width="80" Text="Submit" runat="server" ID="btnSubmit" OnClick="btnSubmit_Click" />
                     <asp:Button CssClass="btn btn-outline-info m-4" Width="80" Text="Save" runat="server" />
-                </div>
-                <div class=" col-lg-6 float-right rounded p-1">
-                    <img src="/images/article.jpg" alt="article picture" height="525" width="372" />
-                </div>
+                    <br />
+                    <asp:Label ID="notValidSumm" runat="server" ForeColor="Red" Visible="False">You can not leave sections with no comments. Please provide all the feedback necessary</asp:Label>
 
-
+                </div>
+            <div class=" col-lg-6 float-right rounded p-1">
+                <img src="/images/article.jpg" alt="article picture" height="525" width="372" />
             </div>
+
+
+        </div>
         </div>
     </form>
 </body>
