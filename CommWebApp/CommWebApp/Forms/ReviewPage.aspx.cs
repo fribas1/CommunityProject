@@ -14,10 +14,10 @@ namespace CommWebApp.Forms
 {
     public partial class ReviewPage : System.Web.UI.Page
     {
-        string recomendID, commentToAuthor, commentToEditor, feedbackString;
+        string commentToAuthor, commentToEditor, feedbackString;
         int[] feedback = new int[11];
-        int count;
-        int postID;
+        int count, postID;
+        bool sucess = true;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -101,32 +101,12 @@ Recommendation3.Checked == false && Recommendation4.Checked == false)
             }            
             return valid;
         }
-        protected void InsertRecomendation()
+
+        protected void btnBack_Click(object sender, EventArgs e)
         {
-            var connection = System.Configuration.ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-            SqlConnection conn = new SqlConnection(connection);
-
-            try
-            {
-                SqlCommand cmd = conn.CreateCommand();
-                cmd.CommandText = "INSERT INTO [Recommendation] (Description) values (@descr) select SCOPE_IDENTITY()";
-
-                string descr = feedback.ToString();
-
-                cmd.Parameters.AddWithValue("@descr", descr);
-
-                conn.Open();
-                recomendID = cmd.ExecuteScalar().ToString();
-            }
-            catch (Exception ex)
-            {
-                notValidSumm.Text = ex.ToString();
-            }
-            finally
-            {
-                conn.Close();
-            }
+            Response.Redirect("~/Forms/DashBoard.aspx");
         }
+
         protected void insertComment()
         {
             var connection = System.Configuration.ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
@@ -156,6 +136,8 @@ Recommendation3.Checked == false && Recommendation4.Checked == false)
             catch (Exception ex)
             {
                 notValidSumm.Text = ex.ToString();
+                notValidSumm.Visible = true;
+                sucess = false;
             }
             finally
             {
@@ -180,6 +162,8 @@ Recommendation3.Checked == false && Recommendation4.Checked == false)
             catch (Exception ex)
             {
                 notValidSumm.Text = ex.ToString();
+                notValidSumm.Visible = true;
+                sucess = false;
             }
             finally
             {
@@ -223,9 +207,17 @@ Recommendation3.Checked == false && Recommendation4.Checked == false)
                     }
                 }
                 //inserting
-                //InsertRecomendation();
                 insertComment();
                 updatePostStatus();
+                if (sucess)
+                {
+                    pnlQuestions.Visible = false;
+                    btnBack.Visible = true;
+                    btnSubmit.Visible = false;
+                    btnSave.Visible = false;
+                    lblSucess.Text = "Your Review has been uploaded successfully";
+                    lblSucess.Visible = true;
+                }
 
 
 
