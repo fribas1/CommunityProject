@@ -45,6 +45,8 @@
         <%--END OF NAV BAR--%>
 
 
+
+
         <div class=" container">
             <div class="row">
                 <div class="col-lg-6">
@@ -52,10 +54,8 @@
                     <asp:Label ID="encName" runat="server" CssClass="h2" Text="Review "></asp:Label>
                     <br />
                     <br />
+
                     <asp:Panel ID="pnlQuestions" runat="server">
-
-
-
                         <h5>Would you be willing to review a revision of this manuscript?</h5>
                         <div class="form-check col-lg-10 ml-2 mt-2">
 
@@ -65,15 +65,25 @@
 
                             <br />
                             <asp:Label ID="notValid1" runat="server" ForeColor="Red" Visible="False" Text="You can not leave this section with no comment"></asp:Label>
-
                         </div>
 
-
+                        <h5 class="mt-4">Marking Rubric</h5>
                         <hr />
-                        <h6>Organization, structure and presentation (style, clarity and readability)</h6>
-                        <div class="form-check col-lg-10 ml-2 mt-3">
+                        <%--START ACCORDION--%>
 
-                            <asp:RadioButton ID="org1" runat="server" GroupName="Organization" Text="Great" CssClass="rad1" />
+                        <div class="ml-3 mr-3" id="accordion">
+
+                            <div class="card">
+                                <div class="card-header">
+                                    <a class="card-link" data-toggle="collapse" href="#collapse1">Organization
+                                    </a>
+                                </div>
+                                <div id="collapse1" class="collapse" data-parent="#accordion">
+                                    <div class="card-body">
+                                                               <h6>Organization, structure and presentation (style, clarity and readability)</h6>
+                                        <hr />
+
+                            <asp:RadioButton ID="org1" runat="server" GroupName="Organization" Text="Perfect" CssClass="rad1" />
                             <br />
                             <asp:RadioButton ID="org2" CssClas="rad1" runat="server" GroupName="Organization" Text="Minor Revision" CssClass="rad1" />
                             <br />
@@ -83,12 +93,20 @@
                             <br />
                             <asp:Label ID="notValid2" runat="server" ForeColor="Red" Visible="False">You can not leave this section with no comment</asp:Label>
 
+                                    </div>
+                                </div>
+                            </div>
 
-                        </div>
-                        <hr />
+                            <div class="card">
+                                <div class="card-header">
+                                    <a class="collapsed card-link" data-toggle="collapse" href="#collapse2">Rationale
+                                    </a>
+                                </div>
+                                <div id="collapse2" class="collapse" data-parent="#accordion">
+                                    <div class="card-body">
                         <h6>A rationale for the study which includes a clear purpose statement and/or research questions addressed in the paper and a brief review of related literature including key citations.</h6>
-                        <div class="form-check col-lg-10 ml-2 mt-3">
-                            <asp:RadioButton ID="rationale1" CssClas="rad1" runat="server" GroupName="rationale" Text="Great" CssClass="rad1" />
+                                        <hr />
+                            <asp:RadioButton ID="rationale1" CssClas="rad1" runat="server" GroupName="rationale" Text="Perfect" CssClass="rad1" />
                             <br />
                             <asp:RadioButton ID="rationale2" CssClas="rad1" runat="server" GroupName="rationale" Text="Minor Revision" CssClass="rad1" />
                             <br />
@@ -98,11 +116,20 @@
                             <br />
                             <asp:Label ID="notValid3" runat="server" ForeColor="Red" Visible="False">You can not leave this section with no comment</asp:Label>
 
-                        </div>
-                        <hr />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-header">
+                                    <a class="collapsed card-link" data-toggle="collapse" href="#collapse3">Methodology
+                                    </a>
+                                </div>
+                                <div id="collapse3" class="collapse" data-parent="#accordion">
+                                    <div class="card-body">
                         <h6>A methodology section which includes sample size, a description of the how the sample was selected and recruited, a description of the how the sample was selected and recruited, a description of the methodology, data collection strategies used and a description of the data analysis procedures.</h6>
-                        <div class="form-check col-lg-10 ml-2 mt-3">
-                            <asp:RadioButton ID="methodology1" CssClas="rad1" runat="server" GroupName="methodology" Text="Great" CssClass="rad1" />
+                                        <hr />
+                            <asp:RadioButton ID="methodology1" CssClas="rad1" runat="server" GroupName="methodology" Text="Perfect" CssClass="rad1" />
                             <br />
                             <asp:RadioButton ID="methodology2" CssClas="rad1" runat="server" GroupName="methodology" Text="Minor Revision" CssClass="rad1" />
                             <br />
@@ -112,11 +139,20 @@
                             <br />
                             <asp:Label ID="notValid4" runat="server" ForeColor="Red" Visible="False">You can not leave this section with no comment</asp:Label>
 
-                        </div>
-                        <hr />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-header">
+                                    <a class="card-link" data-toggle="collapse" href="#collapse4">Findings
+                                    </a>
+                                </div>
+                                <div id="collapse4" class="collapse" data-parent="#accordion">
+                                    <div class="card-body">
                         <h6>Findings which highlight the key findings of the study making sure to address the study purpose and all research questions and including any tables, graphs and figures that help summarize the findings.</h6>
-                        <div class="form-check col-lg-10 ml-2 mt-3">
-                            <asp:RadioButton ID="Findings1" CssClas="rad1" runat="server" GroupName="Findings" Text="Great" CssClass="rad1" />
+                                        <hr />
+                            <asp:RadioButton ID="Findings1" CssClas="rad1" runat="server" GroupName="Findings" Text="Perfect" CssClass="rad1" />
                             <br />
                             <asp:RadioButton ID="Findings2" CssClas="rad1" runat="server" GroupName="Findings" Text="Minor Revision" CssClass="rad1" />
                             <br />
@@ -126,11 +162,20 @@
                             <br />
                             <asp:Label ID="notValid5" runat="server" ForeColor="Red" Visible="False">You can not leave this section with no comment</asp:Label>
 
-                        </div>
-                        <hr />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-header">
+                                    <a class="collapsed card-link" data-toggle="collapse" href="#collapse5">Discussion
+                                    </a>
+                                </div>
+                                <div id="collapse5" class="collapse" data-parent="#accordion">
+                                    <div class="card-body">
                         <h6>A Discussion of implications for TR proactive which describes the contribution the study makes to therapeutic recreation proactive and provides specific recommendations for practice.</h6>
-                        <div class="form-check col-lg-10 ml-2 mt-3">
-                            <asp:RadioButton ID="Discussion1" CssClas="rad1" runat="server" GroupName="Discussion" Text="Great" CssClass="rad1" />
+                                        <hr />
+                            <asp:RadioButton ID="Discussion1" CssClas="rad1" runat="server" GroupName="Discussion" Text="Perfect" CssClass="rad1" />
                             <br />
                             <asp:RadioButton ID="Discussion2" CssClas="rad1" runat="server" GroupName="Discussion" Text="Minor Revision" CssClass="rad1" />
                             <br />
@@ -140,11 +185,20 @@
                             <br />
                             <asp:Label ID="notValid6" runat="server" ForeColor="Red" Visible="False">You can not leave this section with no comment</asp:Label>
 
-                        </div>
-                        <hr />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-header">
+                                    <a class="collapsed card-link" data-toggle="collapse" href="#collapse6">Abstract
+                                    </a>
+                                </div>
+                                <div id="collapse6" class="collapse" data-parent="#accordion">
+                                    <div class="card-body">
                         <h6>Does it have an abstract that is approx. 250 words and also includes 5-6 keywords that best describe content of the article?</h6>
-                        <div class="form-check col-lg-10 ml-2 mt-3">
-                            <asp:RadioButton ID="abstract1" CssClas="rad1" runat="server" GroupName="abstract" Text="Great" CssClass="rad1" />
+                                        <hr />
+                            <asp:RadioButton ID="abstract1" CssClas="rad1" runat="server" GroupName="abstract" Text="Perfect" CssClass="rad1" />
                             <br />
                             <asp:RadioButton ID="abstract2" CssClas="rad1" runat="server" GroupName="abstract" Text="Minor Revision" CssClass="rad1" />
                             <br />
@@ -154,11 +208,20 @@
                             <br />
                             <asp:Label ID="notValid7" runat="server" ForeColor="Red" Visible="False">You can not leave this section with no comment</asp:Label>
 
-                        </div>
-                        <hr />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-header">
+                                    <a class="card-link" data-toggle="collapse" href="#collapse7">Manuscript
+                                    </a>
+                                </div>
+                                <div id="collapse7" class="collapse" data-parent="#accordion">
+                                    <div class="card-body">
                         <h6>Is the length of manuscript a maximum number of 15 pages includeing references?</h6>
-                        <div class="form-check col-lg-10 ml-2 mt-3">
-                            <asp:RadioButton ID="manuscript1" CssClas="rad1" runat="server" GroupName="manuscript" Text="Great" CssClass="rad1" />
+                                        <hr />
+                            <asp:RadioButton ID="manuscript1" CssClas="rad1" runat="server" GroupName="manuscript" Text="Perfect" CssClass="rad1" />
                             <br />
                             <asp:RadioButton ID="manuscript2" CssClas="rad1" runat="server" GroupName="manuscript" Text="Minor Revision" CssClass="rad1" />
                             <br />
@@ -168,11 +231,20 @@
                             <br />
                             <asp:Label ID="notValid8" runat="server" ForeColor="Red" Visible="False">You can not leave this section with no comment</asp:Label>
 
-                        </div>
-                        <hr />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-header">
+                                    <a class="collapsed card-link" data-toggle="collapse" href="#collapse8">Proper Formatting
+                                    </a>
+                                </div>
+                                <div id="collapse8" class="collapse" data-parent="#accordion">
+                                    <div class="card-body">
                         <h6>Is it formatted properly? Type manuscripts in <i>Microsoft Word</i>, Times New Roman (font size of 12), double-spaced, with 10-inch margins on all four sides. Tables must be original (created in your WORD document, or able to be edited in WORKD), figures must be of high quality (i.e. jpg file with high dpi).</h6>
-                        <div class="form-check col-lg-10 ml-2 mt-3">
-                            <asp:RadioButton ID="formatted1" CssClas="rad1" runat="server" GroupName="formatted" Text="Great" CssClass="rad1" />
+                                        <hr />
+                            <asp:RadioButton ID="formatted1" CssClas="rad1" runat="server" GroupName="formatted" Text="Perfect" CssClass="rad1" />
                             <br />
                             <asp:RadioButton ID="formatted2" CssClas="rad1" runat="server" GroupName="formatted" Text="Minor Revision" CssClass="rad1" />
                             <br />
@@ -182,11 +254,20 @@
                             <br />
                             <asp:Label ID="notValid9" runat="server" ForeColor="Red" Visible="False">You can not leave this section with no comment</asp:Label>
 
-                        </div>
-                        <hr />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-header">
+                                    <a class="collapsed card-link" data-toggle="collapse" href="#collapse9">Citations
+                                    </a>
+                                </div>
+                                <div id="collapse9" class="collapse" data-parent="#accordion">
+                                    <div class="card-body">
                         <h6>Do the citations and referencing follow the guidelines laid out in the Publication Manual of the American Psychological Association, 6th edition guidelines for the text, labelling tables and figures, citations and references?</h6>
-                        <div class="form-check col-lg-10 ml-2 mt-3">
-                            <asp:RadioButton ID="citations1" CssClas="rad1" runat="server" GroupName="citations" Text="Great" CssClass="rad1" />
+                                        <hr />
+                            <asp:RadioButton ID="citations1" CssClas="rad1" runat="server" GroupName="citations" Text="Perfect" CssClass="rad1" />
                             <br />
                             <asp:RadioButton ID="citations2" CssClas="rad1" runat="server" GroupName="citations" Text="Minor Revision" CssClass="rad1" />
                             <br />
@@ -196,11 +277,16 @@
                             <br />
                             <asp:Label ID="notValid10" runat="server" ForeColor="Red" Visible="False">You can not leave this section with no comment</asp:Label>
 
+                                    </div>
+                                </div>
+                            </div>
+
+
                         </div>
+                        
+                        <%--END ACCORDION--%>
 
-
-                        <hr />
-                        <h6>Recommendation</h6>
+                        <h5 class="mt-3">Recommendation</h5>
                         <div class="form-check col-lg-10 ml-2 mt-2">
                             <asp:RadioButton ID="Recommendation1" CssClas="rad1" runat="server" GroupName="Recommendation" Text="Accept" CssClass="rad1" />
                             <br />

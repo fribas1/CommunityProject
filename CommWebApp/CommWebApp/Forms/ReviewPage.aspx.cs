@@ -182,7 +182,7 @@ Recommendation3.Checked == false && Recommendation4.Checked == false)
                         RadioButton radio = rad as RadioButton;
                         if (radio.Checked == true)
                         {
-                            if (radio.Text == "Yes" || radio.Text == "Great" || radio.Text == "Accept")
+                            if (radio.Text == "Yes" || radio.Text == "Perfect" || radio.Text == "Accept")
                             {
                                 feedback[count] = 1;
                                 count++;
