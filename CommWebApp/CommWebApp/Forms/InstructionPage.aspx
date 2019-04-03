@@ -5,7 +5,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <!--#include file="/includes/bootstrap.html"-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
     <style type="text/css">
         body {
             margin: auto;
@@ -33,7 +38,7 @@
             border-color: deepskyblue;
         }
 
-        
+
         /* navbar */
         .navbar-default {
             background-color: #F8F8F8;
@@ -73,87 +78,49 @@
         <%--END OF NAV BAR--%>
 
         <div class="container mt-3">
-            <h1>Role Instructions</h1>
+            <h1>Instructions</h1>
             <br />
             <br />
+            <asp:Label ID="lblCurrentEdit" Text="" Visible="false" runat="server" />
 
-        </div>
-        <div class="right">
-        </div>
-        <main role="main" class="container">
-            <div class="starter-template">
+            <asp:Panel Visible="true" ID="pnlMain" runat="server">
+                <asp:Label CssClass="h2" ID="associateEditors" runat="server" Text="Associate Editors"></asp:Label>
+                &nbsp;&nbsp;&nbsp;
+            <asp:Button CssClass="btn btn-primary mb-2" ID="editAssEditor" Text="Edit Instructions" runat="server" OnClick="editAssEditor_Click" />
+                <br />
+                <asp:TextBox Height="300px" Width="1000px" ID="txtAssEditorIns" runat="server" BorderStyle="None" ReadOnly="True" TextMode="MultiLine" Text="Associate editors receive two blinded papers (Editor 1 and Editor 2) Editor 1-responsible to give feedback on content and overall organization of paper Editor 2-responsible for overall grammar and spelling "></asp:TextBox>
+                <br />
+                <br />
+                <asp:Label CssClass="h2" ID="authors" Text="Authors" runat="server" />
+                &nbsp;&nbsp;&nbsp;
+            <asp:Button CssClass="btn btn-primary mb-2" ID="editAuthorIns" Text="Edit Instructions" runat="server" OnClick="editAuthorIns_Click" />
+                <br />
+                <asp:TextBox Height="300px" Width="1000px" ID="txtAuthIns" runat="server" BorderStyle="None" ReadOnly="True" TextMode="MultiLine"></asp:TextBox>
+            </asp:Panel>
 
-                <h1>Login Pages</h1>
-                <h3>&#9658Editor</h3>
-                <ul>
-                    <li>
-                        <p class="lead">
-                            Log in privileges to see all submissions and disseminate blinded
-                        submissions to the associate editors.
-                        </p>
-                    </li>
-                    <h3>&#9658Associate Editors</h3>
-                    <li>
-                        <p class="lead">
-                            Online review process of each “blinded” submission from the
-                        editor (after associate editors have
-                            <br />
-                            finished with the review process the reviews
-                        should go back to the editor to look over before<br />
-                            going back to the submitters)
-                        </p>
-                    </li>
-                    <h3>&#9658Submission</h3>
-                    <li>
-                        <p class="lead">
-                            Log in- people can create and use the log in to submit their practice<br />
-                            and research journals to the online review process
-                        </p>
-                    </li>
-                </ul>
-                <!--Review Process -->
-                <h1>Review Process</h1>
-                <h3>&#9658Editor</h3>
-                <ul>
-                    <li>
-                        <p class="lead">
-                            Associate editors receive two blinded papers (Editor 1 and Editor 2)
-                       <br />
-                            ▪ Editor 1- responsible to give feedback on content and overall
-                        organization of paper
-                        <br />
-                            ▪ Editor 2- responsible for overall grammar and spelling
-                        </p>
-                    </li>
 
-                    <li>
-                        <p class="lead">
-                            Feedback templates should be available online for associate editors to leave
-                        comments in a<br />
-                            “fill-in-the-blank” style (to email authors within the platform)
-                        </p>
-                    </li>
-                    <li>
-                        <p class="lead">
-                            “Overview page” for the Editor to track the progress of each paper being
-            reviewed
-                        </p>
-                    </li>
-                </ul>
-
-            </div>
-
-        </main><!-- /.container -->
-        </asp:Panel>
             <br />
+            <asp:Panel Visible="false" ID="pnlEditAss" runat="server">
+                <asp:TextBox ID="txtEditAssEditor"  CssClass="form-control" runat="server" Height="300px" Width="1000px" TextMode="MultiLine" />
+                <br />
+                <asp:Button CssClass="btn btn-primary" Text="Save" ID="btnSaveAss"  runat="server" OnClick="btnSaveAss_Click" />
+
+            </asp:Panel>
+
+            <asp:Panel Visible="false" ID="pnlEditAuthor" runat="server">
+                            <asp:TextBox ID="txtEditAuthor"  CssClass="form-control" runat="server" Height="300px" Width="1000px" TextMode="MultiLine" />
+            <br />
+            <asp:Button CssClass="btn btn-primary" Text="Save" ID="btnSaveAuthor"  runat="server" OnClick="btnSaveAuthor_Click" />
+
+            </asp:Panel>
+
         </div>
-           
-        </div>
-         
-    
-        <p>
-            &nbsp;
-        </p>
+
+
+
+
+
+
 
 
     </form>
