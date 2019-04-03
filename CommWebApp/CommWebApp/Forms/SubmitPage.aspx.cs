@@ -63,7 +63,8 @@ namespace CommWebApp.Forms
             else
             {
                 InsertPost();
-                //InsertFile(hdFileName.Value, hdFilePath.Value, hdFileSize.Value, hdFileExtension.Value, postId); //Will not use this for now
+                InsertFile(hdFrontName.Value, hdFrontPath.Value, hdFrontSize.Value, hdFrontExtension.Value, postId, true);
+                InsertFile(hdFileName.Value, hdFilePath.Value, hdFileSize.Value, hdFileExtension.Value, postId, false);                
                 InsertPostTag(postId);
                 InsertUserRole(User.Identity.GetUserId(), postId);
                 SendConfirmationMessage(User.Identity.GetUserName(), txtTitle.Text);
@@ -119,34 +120,34 @@ namespace CommWebApp.Forms
         {
             lblMessage.Text = "";
             const string CONTAINER = "manuscript";
-            filePath = Request.PhysicalApplicationPath + "Uploads\\";
+            string frontPath = Request.PhysicalApplicationPath + "Uploads\\";
             frontName = FileUploadFront.PostedFile.FileName;
-            fileSize = FileUploadFront.PostedFile.ContentLength;
-            fileExtension = Path.GetExtension(FileUploadFront.FileName);
+            int frontSize = FileUploadFront.PostedFile.ContentLength;
+            string frontExtension = Path.GetExtension(FileUploadFront.FileName);
 
-            if (fileExtension.ToLower() != ".pdf")
+            if (frontExtension.ToLower() != ".pdf")
             {
                 lblMessageFront.Text = "Only files with .pdf extension are allowed.";
                 lblMessageFront.CssClass = "text-danger";
             }
-            else if (fileSize > 26214400)
+            else if (frontSize > 26214400)
             {
                 lblMessageFront.Text = "The maximum size of 25 MB was exceeded.";
                 lblMessageFront.CssClass = "text-danger";
             }
             else
             {
-                FileUploadFront.SaveAs(filePath + FileUploadFront.FileName);
+                FileUploadFront.SaveAs(frontPath + FileUploadFront.FileName);
 
                 BlobStorageHelper.CheckContainer(CONTAINER);
 
-                BlobStorageHelper.UploadBlockBlob(CONTAINER, frontName, filePath + frontName);
+                BlobStorageHelper.UploadBlockBlob(CONTAINER, frontName, frontPath + frontName);
 
                 hdFrontName.Value = frontName;
-                //hdFileName.Value = fileName;
-                //hdFilePath.Value = filePath;
-                //hdFileSize.Value = fileSize.ToString();
-                //hdFileExtension.Value = fileExtension;
+                hdFrontName.Value = frontName;
+                hdFrontPath.Value = frontPath;
+                hdFrontSize.Value = frontSize.ToString();
+                hdFrontExtension.Value = frontExtension;
 
                 lblMessageFront.Text = "File uploaded successfully!";
                 lblMessageFront.CssClass = "text-success";
@@ -155,7 +156,7 @@ namespace CommWebApp.Forms
             if (frontName.Length <= 15)
                 lblFrontName.Text = frontName;
             else
-                lblFrontName.Text = frontName.Substring(0, 10) + "[...]" + fileExtension;
+                lblFrontName.Text = frontName.Substring(0, 10) + "[...]" + frontExtension;
 
             ClientScript.RegisterStartupScript(this.GetType(), "HideLabel", "<script type=\"text/javascript\">setTimeout(\"document.getElementById('" + lblMessageFront.ClientID + "').style.display='none'\",5000)</script>");
             lblMessageFront.Visible = true;
@@ -217,7 +218,7 @@ namespace CommWebApp.Forms
             {
                 SqlCommand cmd = conn.CreateCommand();
                 cmd.CommandText = "INSERT INTO [Post] (Title, Content, CreatedBy, LastModifiedBy, "
-                                  + "CurrentStatusId, CreatedOn, LastModifiedOn) "
+                                  + "CurrentStatusId, CreatedOn, LastModifiedOn, Keywords) "
                                   + "VALUES (@Title, @Content, @CreatedBy, @LastModifiedBy, "
                                   + "@CurrentStatusId, @CreatedOn, @LastModifiedOn, @Keywords) "
                                   + "SELECT SCOPE_IDENTITY()";
@@ -249,25 +250,23 @@ namespace CommWebApp.Forms
             }
         }
 
-        protected void InsertFile(string name, string path, string size, string extension, string id)
+        protected void InsertFile(string name, string path, string size, string extension, string id, bool type)
         {
             var connection = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
             SqlConnection conn = new SqlConnection(connection);            
 
             try
             {
-                //SqlCommand cmd = new SqlCommand("INSERT INTO [File] (Name, Path, Size, Extension) "
-                //                                + "VALUES (@Name, @Path, @Size, @Extension)", conn);
-
                 SqlCommand cmd = conn.CreateCommand();
-                cmd.CommandText = "INSERT INTO [File] (Name, Path, Size, Extension, PostId) "
-                                 + "VALUES (@Name, @Path, @Size, @Extension, @PostId)";
-
+                cmd.CommandText = "INSERT INTO [File] (Name, Path, Size, Extension, PostId, Manuscript) "
+                                 + "VALUES (@Name, @Path, @Size, @Extension, @PostId, @Type)";
+                
                 cmd.Parameters.AddWithValue("@Name", name);
                 cmd.Parameters.AddWithValue("@Path", path);
                 cmd.Parameters.AddWithValue("@Size", Convert.ToInt64(size));
                 cmd.Parameters.AddWithValue("@Extension", extension);
                 cmd.Parameters.AddWithValue("@PostId", Convert.ToInt32(id));
+                cmd.Parameters.AddWithValue("@Type", type);
 
                 conn.Open();
                 cmd.ExecuteNonQuery();                

@@ -39,5 +39,11 @@ namespace CommWebApp
             CloudBlockBlob blob = GetBlockBlobReference(containerName, blobName);
             blob.UploadFromFile(fileName);
         }
+
+        public static void DownloadBlobBlock(string containerName, string blobName, string fileName)
+        {
+            CloudBlockBlob blob = GetBlockBlobReference(containerName, blobName);
+            blob.DownloadToFile(fileName, FileMode.CreateNew);
+        }
     }
 }

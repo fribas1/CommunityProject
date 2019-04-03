@@ -14,15 +14,16 @@ namespace CommWebApp.Forms
 {
     public partial class ReviewPage : System.Web.UI.Page
     {
-        string commentToAuthor, commentToEditor, feedbackString;
+        string commentToAuthor, commentToEditor, feedbackString, postID, fileName;
         int[] feedback = new int[11];
-        int count, postID;
+        int count;
         bool sucess = true;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            postID = Convert.ToInt32(Request.QueryString["Post"]);
-            encName.Text = "Review " + postID;
+            postID = Request.QueryString["Post"];
+            encName.Text = "Review #" + postID;
+            hdFileName.Value = GetFile();
         }
         protected void btnLogout_Click(object sender, EventArgs e)
         {
@@ -115,12 +116,33 @@ Recommendation3.Checked == false && Recommendation4.Checked == false)
 
         protected void btnDownload_Click(object sender, EventArgs e)
         {
-            //code to download it from the server will be HERE ----
+            Response.Redirect("https://trprcloud.blob.core.windows.net/manuscript/" + GetFile());
+        }
 
-            //Response.ContentType = "Application/pdf";
-            //Response.AppendHeader("Content-Disposition", "attachment; filename=help.pdf");
-            //Response.TransmitFile(Server.MapPath("~/doc/help.pdf"));
-            //Response.End();
+        protected string GetFile()
+        {
+            var connection = System.Configuration.ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            SqlConnection conn = new SqlConnection(connection);            
+
+            try
+            {
+                SqlCommand cmd = conn.CreateCommand();
+                cmd.CommandText = "SELECT [Name] FROM [File] " +
+                    "WHERE [PostId] = " + postID + " AND [Manuscript] = 1";
+
+                conn.Open();
+                fileName = cmd.ExecuteScalar().ToString();
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                conn.Close();                
+            }
+
+            return fileName;
         }
 
         protected void insertComment()
@@ -269,6 +291,8 @@ Recommendation3.Checked == false && Recommendation4.Checked == false)
             }
 
         }
+
+
 
     }
 }
