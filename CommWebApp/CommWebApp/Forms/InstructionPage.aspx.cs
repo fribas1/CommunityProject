@@ -18,5 +18,33 @@ namespace CommWebApp.Forms
         {
 
         }
+
+        protected void editAssEditor_Click(object sender, EventArgs e)
+        {
+            pnlEditAss.Visible = true;
+            pnlMain.Visible = false;
+            lblCurrentEdit.Text = "Editing Associate Editors Instructions";
+        }
+
+        protected void editAuthorIns_Click(object sender, EventArgs e)
+        {
+            pnlEditAuthor.Visible = true;
+            pnlMain.Visible = false;
+            lblCurrentEdit.Text = "Editing Authors Instructions";
+        }
+
+        protected void btnSaveAss_Click(object sender, EventArgs e)
+        {
+            txtAssEditorIns.Text = txtEditAssEditor.Text;
+            pnlEditAss.Visible = false;
+            pnlMain.Visible = true;
+        }
+
+        protected void btnSaveAuthor_Click(object sender, EventArgs e)
+        {
+            txtAuthIns.Text = txtEditAuthor.Text;
+            pnlEditAuthor.Visible = false;
+            pnlMain.Visible = true;
+        }
     }
 }

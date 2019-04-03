@@ -164,7 +164,7 @@ namespace CommWebApp.Forms
 
         protected void btnBack_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Forms/Login");
+            Response.Redirect("/Forms/Login");
         }
     }
 }

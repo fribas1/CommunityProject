@@ -20,6 +20,7 @@
         .rad1 label {
             margin-left: 5px;
         }
+
     </style>
 </head>
 <body>
@@ -37,7 +38,7 @@
                     <li class="nav-item"><a class="nav-link" href="/Forms/SubmitPage.aspx">Submission</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
-                <label class="mr-4">Hello <%: Context.User.Identity.GetUserName()  %></label>
+                <label class="mr-4"> <%: Context.User.Identity.GetUserName()  %></label>
                 <asp:Button runat="server" ID="btnLogout" OnClick="btnLogout_Click" CssClass="btn btn-outline-danger my-2 my-sm-0" Text="Log Out"></asp:Button>
             </div>
         </nav>
@@ -83,7 +84,7 @@
                                                                <h6>Organization, structure and presentation (style, clarity and readability)</h6>
                                         <hr />
 
-                            <asp:RadioButton ID="org1" runat="server" GroupName="Organization" Text="Perfect" CssClass="rad1" />
+                            <asp:RadioButton ID="org1" runat="server" GroupName="Organization" Text="Perfect" CssClass="input" />
                             <br />
                             <asp:RadioButton ID="org2" CssClas="rad1" runat="server" GroupName="Organization" Text="Minor Revision" CssClass="rad1" />
                             <br />
@@ -288,7 +289,7 @@
 
                         <h5 class="mt-3">Recommendation</h5>
                         <div class="form-check col-lg-10 ml-2 mt-2">
-                            <asp:RadioButton ID="Recommendation1" CssClas="rad1" runat="server" GroupName="Recommendation" Text="Accept" CssClass="rad1" />
+                            <asp:RadioButton ID="Recommendation1" CssClass="awesome-bootstrap-checkbox" CssClas="rad1" runat="server" GroupName="Recommendation" Text="Accept" />
                             <br />
                             <asp:RadioButton ID="Recommendation2" CssClas="rad1" runat="server" GroupName="Recommendation" Text="Minor Revision" CssClass="rad1" />
                             <br />
