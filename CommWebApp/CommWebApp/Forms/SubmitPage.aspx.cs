@@ -135,6 +135,11 @@ namespace CommWebApp.Forms
                 lblMessageFront.Text = "The maximum size of 25 MB was exceeded.";
                 lblMessageFront.CssClass = "text-danger";
             }
+            else if (frontName.Contains(" "))
+            {
+                lblMessageFront.Text = "The name of the file must have no spaces.";
+                lblMessageFront.CssClass = "text-danger";
+            }
             else
             {
                 FileUploadFront.SaveAs(frontPath + FileUploadFront.FileName);
@@ -181,6 +186,11 @@ namespace CommWebApp.Forms
             {
                 lblMessage.Text = "The maximum size of 25 MB was exceeded.";
                 lblMessage.CssClass = "text-danger";
+            }
+            else if (fileName.Contains(" "))
+            {
+                lblMessageFront.Text = "The name of the file must have no spaces.";
+                lblMessageFront.CssClass = "text-danger";
             }
             else
             {
