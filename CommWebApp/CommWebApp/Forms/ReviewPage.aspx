@@ -324,12 +324,14 @@
                 </div>
                 <div id="divPic" class=" col-lg-6 float-right rounded p-1">
                     <img src="/images/article.jpg" alt="article picture" height="525" width="372" />
-                    <asp:Button ID="btnDownload" CssClass="btn btn-outline-danger my-2 my-sm-0" runat="server" OnClick="btnDownload_Click" Text="Download" />
+                    <iframe src="/ViewerJS/#../Uploads/<%=hdFileName.Value %>" width='525' height='680' allowfullscreen webkitallowfullscreen></iframe>
+                    <asp:Button ID="btnDownload" runat="server" OnClick="btnDownload_Click" Text="Download" />
                 </div>
 
 
             </div>
         </div>
+        <asp:HiddenField runat="server" ID="hdFileName" />
     </form>
 </body>
 </html>
