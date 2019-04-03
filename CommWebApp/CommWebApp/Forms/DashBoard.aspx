@@ -47,7 +47,7 @@
                     <li class="nav-item"><a class="nav-link" href="/Forms/SubmitPage.aspx">Submission</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
-                <label class="mr-4">Hello <%: Context.User.Identity.GetUserName()  %></label>
+                <label class="mr-4"><%: Context.User.Identity.GetUserName()  %></label>
                 <asp:Button runat="server" ID="btnLogout" OnClick="btnLogout_Click" CssClass="btn btn-outline-danger my-2 my-sm-0" Text="Log Out"></asp:Button>
             </div>
         </nav>

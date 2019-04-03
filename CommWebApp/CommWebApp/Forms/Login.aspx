@@ -35,94 +35,11 @@
         .chkbox {
             border-color: deepskyblue;
         }
-
-        .footer #button {
-            width: 35px;
-            height: 35px;
-            border: #727172 12px solid;
-            border-radius: 35px;
-            margin: 0 auto;
-            position: relative;
-            -webkit-transition: all 1s ease;
-            -moz-transition: all 1s ease;
-            -o-transition: all 1s ease;
-            -ms-transition: all 1s ease;
-            transition: all 1s ease;
-        }
-
-            .footer #button:hover {
-                width: 35px;
-                height: 35px;
-                border: #3A3A3A 12px solid;
-                -webkit-transition: all 1s ease;
-                -moz-transition: all 1s ease;
-                -o-transition: all 1s ease;
-                -ms-transition: all 1s ease;
-                transition: all 1s ease;
-                position: relative;
-            }
-
-        .footer {
-            bottom: 0;
-            left: 0;
-            position: fixed;
-            width: 100%;
-            height: 2em;
-            overflow: hidden;
-            margin: 0 auto;
-            -webkit-transition: all 1s ease;
-            -moz-transition: all 1s ease;
-            -o-transition: all 1s ease;
-            -ms-transition: all 1s ease;
-            transition: all 1s ease;
-            z-index: 999;
-        }
-
-            .footer:hover {
-                -webkit-transition: all 1s ease;
-                -moz-transition: all 1s ease;
-                -o-transition: all 1s ease;
-                -ms-transition: all 1s ease;
-                transition: all 1s ease;
-                height: 10em;
-            }
-
-            .footer #container {
-                margin-top: 5px;
-                width: 100%;
-                height: 100%;
-                position: relative;
-                top: 0;
-                left: 0;
-                background: #f2f2f2;
-            }
-
-            .footer #cont {
-                position: relative;
-                top: -45px;
-                right: 190px;
-                width: 150px;
-                height: auto;
-                margin: 0 auto;
-            }
-
-        .footer_center {
-            width: 500px;
-            float: left;
-            text-align: center;
-        }
-
-        .footer h3 {
-            font-family: 'Helvetica';
-            font-size: 30px;
-            font-weight: 100;
-            margin-top: 70px;
-            margin-left: 40px;
-        }
+   
 
         #RegisterHyperLink {
-            border-color: mediumpurple;
-            color: mediumpurple;
+            border-color: purple;
+            color: purple;
         }
 
             #RegisterHyperLink:hover {
@@ -140,7 +57,7 @@
         }
 
             #btnLogIn:hover {
-                background-color: purple;
+                background-color: mediumpurple;
                 color: white;
             }
     </style>
@@ -176,7 +93,7 @@
                     <asp:Label CssClass="mt-2" runat="server" AssociatedControlID="RememberMe">Remember me?</asp:Label>
                     <br />
                     <asp:Button runat="server" Width="80" Text="Log in" CssClass="btn btn-outline-primary float-sm-left" OnClick="btnLogin_Click" ID="btnLogIn" />
-                    <asp:HyperLink CssClass="btn btn-outline-info float-sm-right" Width="80" runat="server" ID="RegisterHyperLink" ViewStateMode="Disabled">Register</asp:HyperLink>
+                    <asp:HyperLink CssClass="btn btn-outline-primary float-sm-right" Width="80" runat="server" ID="RegisterHyperLink" ViewStateMode="Disabled">Register</asp:HyperLink>
 
                 </section>
             </div>
@@ -203,16 +120,7 @@
     </form>
 
             </div>--%>
-    <div class="footer">
-        <div id="button"></div>
-        <div id="container">
-            <div id="cont">
-                <div class="footer_center">
-                    <h3>Footer Text Will Go Here When Available</h3>
-                </div>
-            </div>
-        </div>
-    </div>
+   
 
 </body>
 </html>
