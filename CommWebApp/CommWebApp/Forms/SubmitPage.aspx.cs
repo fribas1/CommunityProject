@@ -63,8 +63,8 @@ namespace CommWebApp.Forms
             else
             {
                 InsertPost();
-                InsertFile(hdFrontName.Value, hdFrontPath.Value, hdFrontSize.Value, hdFrontExtension.Value, postId);
-                InsertFile(hdFileName.Value, hdFilePath.Value, hdFileSize.Value, hdFileExtension.Value, postId);                
+                InsertFile(hdFrontName.Value, hdFrontPath.Value, hdFrontSize.Value, hdFrontExtension.Value, postId, true);
+                InsertFile(hdFileName.Value, hdFilePath.Value, hdFileSize.Value, hdFileExtension.Value, postId, false);                
                 InsertPostTag(postId);
                 InsertUserRole(User.Identity.GetUserId(), postId);
                 SendConfirmationMessage(User.Identity.GetUserName(), txtTitle.Text);
@@ -250,25 +250,23 @@ namespace CommWebApp.Forms
             }
         }
 
-        protected void InsertFile(string name, string path, string size, string extension, string id)
+        protected void InsertFile(string name, string path, string size, string extension, string id, bool type)
         {
             var connection = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
             SqlConnection conn = new SqlConnection(connection);            
 
             try
             {
-                //SqlCommand cmd = new SqlCommand("INSERT INTO [File] (Name, Path, Size, Extension) "
-                //                                + "VALUES (@Name, @Path, @Size, @Extension)", conn);
-
                 SqlCommand cmd = conn.CreateCommand();
-                cmd.CommandText = "INSERT INTO [File] (Name, Path, Size, Extension, PostId) "
-                                 + "VALUES (@Name, @Path, @Size, @Extension, @PostId)";
-
+                cmd.CommandText = "INSERT INTO [File] (Name, Path, Size, Extension, PostId, Manuscript) "
+                                 + "VALUES (@Name, @Path, @Size, @Extension, @PostId, @Type)";
+                
                 cmd.Parameters.AddWithValue("@Name", name);
                 cmd.Parameters.AddWithValue("@Path", path);
                 cmd.Parameters.AddWithValue("@Size", Convert.ToInt64(size));
                 cmd.Parameters.AddWithValue("@Extension", extension);
                 cmd.Parameters.AddWithValue("@PostId", Convert.ToInt32(id));
+                cmd.Parameters.AddWithValue("@Type", type);
 
                 conn.Open();
                 cmd.ExecuteNonQuery();                
