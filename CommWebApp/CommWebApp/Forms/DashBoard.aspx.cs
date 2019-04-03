@@ -1,5 +1,6 @@
 ﻿using CommWebApp.Models;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -16,10 +17,46 @@ namespace CommWebApp.Forms
         {
             if (!User.Identity.IsAuthenticated) Response.Redirect("~/Forms/Login");
             // Passing current user id to a QueryString to filter DashBoard
+            string currentUserId = User.Identity.GetUserId();
+            var userManager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
+
             if (Request.QueryString.Count == 0)
             {
-                string currentUserId = User.Identity.GetUserId();
                 Response.Redirect("/Forms/DashBoard.aspx?currentUserId=" + currentUserId);
+            }
+
+            List<string> roles = userManager.GetRoles(currentUserId).ToList();
+            var authorAssociate = new List<string> { "Author", "Associate Editor" };
+            var author = new List<string> { "Author" };
+            var associate = new List<string> { "Associate Editor" };
+            var editor = new List<string> { "Editor" };
+
+            if (roles.All(authorAssociate.Contains) == true)
+            {
+                DashBoardGV.Visible = false;
+                panelReview.Visible = true;
+                panelArticles.Visible = true;
+            }
+
+            if (roles.All(author.Contains) == true)
+            {
+                DashBoardGV.Visible = false;
+                panelReview.Visible = false;
+                panelArticles.Visible = true;
+            }
+
+            if (roles.All(associate.Contains) == true)
+            {
+                DashBoardGV.Visible = false;
+                panelReview.Visible = true;
+                panelArticles.Visible = false;
+            }
+
+            if (roles.All(editor.Contains) == true)
+            {
+                DashBoardGV.Visible = true;
+                panelReview.Visible = false;
+                panelArticles.Visible = false;
             }
 
         }
