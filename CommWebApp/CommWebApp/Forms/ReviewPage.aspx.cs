@@ -26,7 +26,8 @@ namespace CommWebApp.Forms
         }
         protected void btnLogout_Click(object sender, EventArgs e)
         {
-
+            Context.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            Response.Redirect("~/Forms/Login");
         }
         
         protected bool Validation()
@@ -105,6 +106,16 @@ Recommendation3.Checked == false && Recommendation4.Checked == false)
         protected void btnBack_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Forms/DashBoard.aspx");
+        }
+
+        protected void btnDownload_Click(object sender, EventArgs e)
+        {
+            //code to download it from the server will be HERE ----
+
+            //Response.ContentType = "Application/pdf";
+            //Response.AppendHeader("Content-Disposition", "attachment; filename=help.pdf");
+            //Response.TransmitFile(Server.MapPath("~/doc/help.pdf"));
+            //Response.End();
         }
 
         protected void insertComment()

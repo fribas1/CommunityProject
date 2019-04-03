@@ -323,6 +323,7 @@
                 </div>
                 <div id="divPic" class=" col-lg-6 float-right rounded p-1">
                     <img src="/images/article.jpg" alt="article picture" height="525" width="372" />
+                    <asp:Button ID="btnDownload" runat="server" OnClick="btnDownload_Click" Text="Download" />
                 </div>
 
 
