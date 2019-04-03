@@ -86,7 +86,7 @@
                         <asp:TextBox placeholder="Password" runat="server" ID="Password" TextMode="Password" CssClass=" form-control" />
                         <asp:RequiredFieldValidator runat="server" ControlToValidate="Password" CssClass="text-danger" ErrorMessage="The password is required." />
                     <br />
-                    <asp:HyperLink runat="server" ID="forgotpasswordhyperlink">forgot your password?</asp:HyperLink>
+                    <asp:HyperLink runat="server" ID="forgotpasswordhyperlink">Forgot Your Password?</asp:HyperLink>
                     <br />
 
                     <asp:CheckBox runat="server" ID="RememberMe" />

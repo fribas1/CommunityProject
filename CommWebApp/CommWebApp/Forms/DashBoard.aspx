@@ -117,19 +117,20 @@
                                 <asp:Label ID="lblMessage" runat="server" ForeColor="Green" ></asp:Label>
                 <br />
                 <asp:GridView CssClass="table table-bordered table-sm" ID="DashBoardGV" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="postDS" OnSelectedIndexChanged="DashBoardGV_SelectedIndexChanged">
-                    <Columns>
-                        <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title" />
+                    <Columns >
+                        <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title"/>
                         <asp:BoundField DataField="Current Status" HeaderText="Status" SortExpression="Current Status" />
                         <asp:BoundField DataField="CreatedOn" HeaderText="CreatedOn" SortExpression="CreatedOn" DataFormatString="{0:d}" />
                         <asp:BoundField DataField="UserId" HeaderText="UserId" SortExpression="UserId" Visible="False" />
                         <asp:BoundField DataField="RoleId" HeaderText="RoleId" SortExpression="RoleId" Visible="False" />
                         <asp:BoundField DataField="PostId" HeaderText="PostId" SortExpression="PostId" Visible="False" />
-                        <asp:ButtonField ButtonType="Button" CommandName="Select" Text="Assign" />
+                        <asp:ButtonField ButtonType="Button" CommandName="Select" Text="Assign" ControlStyle-CssClass="btn btn-outline-info" />
                     </Columns>
                     <EmptyDataTemplate>
                         There are no records that fit your search query, try changing Search Criterias
                     </EmptyDataTemplate>
                     <HeaderStyle CssClass=" thead-light" />
+                    
                 </asp:GridView>
                 <br />
 
