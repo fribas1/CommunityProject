@@ -274,6 +274,15 @@ namespace CommWebApp.Forms {
         protected global::System.Web.UI.WebControls.HiddenField hdFilePath;
         
         /// <summary>
+        /// hdFrontPath control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdFrontPath;
+        
+        /// <summary>
         /// hdFileExtension control.
         /// </summary>
         /// <remarks>
@@ -283,6 +292,15 @@ namespace CommWebApp.Forms {
         protected global::System.Web.UI.WebControls.HiddenField hdFileExtension;
         
         /// <summary>
+        /// hdFrontExtension control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdFrontExtension;
+        
+        /// <summary>
         /// hdFileSize control.
         /// </summary>
         /// <remarks>
@@ -290,5 +308,14 @@ namespace CommWebApp.Forms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hdFileSize;
+        
+        /// <summary>
+        /// hdFrontSize control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdFrontSize;
     }
 }

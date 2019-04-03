@@ -292,8 +292,11 @@
         <asp:HiddenField ID="hdFileName" runat="server"></asp:HiddenField>
         <asp:HiddenField ID="hdFrontName" runat="server" />
         <asp:HiddenField ID="hdFilePath" runat="server"></asp:HiddenField>
+        <asp:HiddenField ID="hdFrontPath" runat="server"></asp:HiddenField>
         <asp:HiddenField ID="hdFileExtension" runat="server"></asp:HiddenField>
+        <asp:HiddenField ID="hdFrontExtension" runat="server"></asp:HiddenField>
         <asp:HiddenField ID="hdFileSize" runat="server"></asp:HiddenField>
+        <asp:HiddenField ID="hdFrontSize" runat="server"></asp:HiddenField>
     </form>
 </body>
 </html>
