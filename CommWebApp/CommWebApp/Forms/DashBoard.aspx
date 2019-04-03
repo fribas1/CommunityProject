@@ -101,7 +101,7 @@
                             and</td>
                         <td>
                             <asp:TextBox CssClass="form-control" ID="txtDateStart" runat="server" TextMode="Date"></asp:TextBox>
-                        &nbsp;<asp:TextBox CssClass="form-control" ID="txtDateEnd" runat="server" TextMode="Date"></asp:TextBox>
+                            &nbsp;<asp:TextBox CssClass="form-control" ID="txtDateEnd" runat="server" TextMode="Date"></asp:TextBox>
                         </td>
                         <td>&nbsp;</td>
                     </tr>
@@ -114,64 +114,73 @@
 
             <div>
                 <br />
-                                <asp:Label ID="lblMessage" runat="server" ForeColor="Green" ></asp:Label>
+                <asp:Label ID="lblMessage" runat="server" ForeColor="Green"></asp:Label>
                 <br />
                 <asp:GridView CssClass="table table-bordered table-sm" ID="DashBoardGV" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="postDS" OnSelectedIndexChanged="DashBoardGV_SelectedIndexChanged">
-                    <Columns >
-                        <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title"/>
+                    <Columns>
+                        <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title" />
                         <asp:BoundField DataField="Current Status" HeaderText="Status" SortExpression="Current Status" />
                         <asp:BoundField DataField="CreatedOn" HeaderText="CreatedOn" SortExpression="CreatedOn" DataFormatString="{0:d}" />
                         <asp:BoundField DataField="UserId" HeaderText="UserId" SortExpression="UserId" Visible="False" />
                         <asp:BoundField DataField="RoleId" HeaderText="RoleId" SortExpression="RoleId" Visible="False" />
                         <asp:BoundField DataField="PostId" HeaderText="PostId" SortExpression="PostId" Visible="False" />
-                        <asp:ButtonField ButtonType="Button" CommandName="Select" Text="Assign" ControlStyle-CssClass="btn btn-outline-info" />
+                        <asp:ButtonField ButtonType="Button" CommandName="Select" Text="Details" ControlStyle-CssClass="btn btn-outline-info" />
                     </Columns>
                     <EmptyDataTemplate>
                         There are no records that fit your search query, try changing Search Criterias
                     </EmptyDataTemplate>
                     <HeaderStyle CssClass=" thead-light" />
-                    
+
                 </asp:GridView>
                 <br />
 
-
-                                <asp:Panel ID="panelAssociate" Visible="false" runat="server" Width="464px">
-                                    <table class="w-100">
-                                        <tr>
-                                            <td class="auto-style1">Associate Editor 1</td>
-                                            <td class="auto-style2">&nbsp;</td>
-                                            <td class="auto-style1">Associate Editor 2</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <asp:DropDownList CssClass="form-control" ID="ddlAssEdit1" runat="server" AppendDataBoundItems="True" DataSourceID="allUsersDS" DataTextField="Users" DataValueField="Id">
-                                                    <asp:ListItem Value="-1">Select one..</asp:ListItem>
-                                                </asp:DropDownList>
-                                            </td>
-                                            <td class="auto-style3">
-                                                &nbsp;</td>
-                                            <td>
-                                                <asp:DropDownList ID="ddlAssEdit2" runat="server" AppendDataBoundItems="True" CssClass="form-control" DataSourceID="allUsersDS" DataTextField="Users" DataValueField="Id">
-                                                    <asp:ListItem Value="-1">Select one..</asp:ListItem>
-                                                </asp:DropDownList>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>&nbsp;</td>
-                                            <td class="auto-style3">&nbsp;</td>
-                                            <td>&nbsp;</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <asp:Button CssClass="btn btn-outline-success" ID="btnSave" runat="server" OnClick="btnSave_Click" Text="Save" />
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                            </td>
-                                            <td class="auto-style3">&nbsp;</td>
-                                            <td>&nbsp;</td>
-                                        </tr>
-                                    </table>
-                                </asp:Panel>
-
+                <%--PANEL ASSIGNING--%>
+                <asp:Panel ID="panelAssociate" Visible="false" runat="server" Width="464px">
+                    <table class="w-100">
+                        <tr>
+                            <td class="auto-style1">Associate Editor 1</td>
+                            <td class="auto-style2">&nbsp;</td>
+                            <td class="auto-style1">Associate Editor 2</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <asp:DropDownList CssClass="form-control" ID="ddlAssEdit1" runat="server" AppendDataBoundItems="True" DataSourceID="allUsersDS" DataTextField="Users" DataValueField="Id">
+                                    <asp:ListItem Value="-1">Select one..</asp:ListItem>
+                                </asp:DropDownList>
+                            </td>
+                            <td class="auto-style3">&nbsp;</td>
+                            <td>
+                                <asp:DropDownList ID="ddlAssEdit2" runat="server" AppendDataBoundItems="True" CssClass="form-control" DataSourceID="allUsersDS" DataTextField="Users" DataValueField="Id">
+                                    <asp:ListItem Value="-1">Select one..</asp:ListItem>
+                                </asp:DropDownList>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <asp:Label CssClass="mt-2" ID="lblAss1Comments" runat="server" Text="" Visible="false"></asp:Label>
+                            </td>
+                            <td class="auto-style3">&nbsp;</td>
+                            <td>
+                                <asp:Label CssClass="mt-2" ID="lblAss2Comments" runat="server" Text="" Visible="false"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td class="auto-style3">&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <asp:Button CssClass="btn btn-outline-success" ID="btnSave" runat="server" OnClick="btnSave_Click" Text="Save" />
+                                &nbsp;&nbsp;&nbsp;
+                                <asp:Button ID="btnGoBack" runat="server" CssClass="btn btn-outline-primary" Text="Go Back" />
+                            </td>
+                            <td class="auto-style3">&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                    </table>
+                </asp:Panel>
+                <%--END PANEL ASSIGNING--%>
 
                 <br />
                 <asp:Panel ID="panelReview" runat="server">

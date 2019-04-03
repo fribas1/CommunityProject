@@ -67,19 +67,23 @@ namespace CommWebApp.Forms
         }
 
 
-        protected void btnR_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("/Forms/ReviewPage.aspx");
-        }
 
         protected void DashBoardGV_SelectedIndexChanged(object sender, EventArgs e)
         {
+            GridViewRow selectedRow = DashBoardGV.SelectedRow;
+
             int index = DashBoardGV.SelectedRow.RowIndex;
             int postID = Convert.ToInt32(DashBoardGV.DataKeys[index][0]);
             ViewState["_postID"] = postID;
             DashBoardGV.Visible = false;
             lblMessage.Visible = false;
             panelAssociate.Visible = true;
+
+            if (selectedRow.Cells[1].Text == "Awaiting Editors' Choice")
+            {
+
+            }
+
         }
 
         protected void btnSave_Click(object sender, EventArgs e)
