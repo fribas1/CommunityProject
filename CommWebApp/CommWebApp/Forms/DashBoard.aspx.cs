@@ -37,6 +37,9 @@ namespace CommWebApp.Forms
                 DashBoardGV.Visible = false;
                 panelReview.Visible = true;
                 panelArticles.Visible = true;
+                panelSearchAssociate.Visible = true;
+                panelSearchAuthor.Visible = true;
+                panelSearchEditor.Visible = false;
             }
 
             if (roles.All(author.Contains) == true)
@@ -44,6 +47,9 @@ namespace CommWebApp.Forms
                 DashBoardGV.Visible = false;
                 panelReview.Visible = false;
                 panelArticles.Visible = true;
+                panelSearchAssociate.Visible = false;
+                panelSearchAuthor.Visible = true;
+                panelSearchEditor.Visible = false;
             }
 
             if (roles.All(associate.Contains) == true)
@@ -51,6 +57,9 @@ namespace CommWebApp.Forms
                 DashBoardGV.Visible = false;
                 panelReview.Visible = true;
                 panelArticles.Visible = false;
+                panelSearchAssociate.Visible = true;
+                panelSearchAuthor.Visible = false;
+                panelSearchEditor.Visible = false;
             }
 
             if (roles.All(editor.Contains) == true)
@@ -58,6 +67,9 @@ namespace CommWebApp.Forms
                 DashBoardGV.Visible = true;
                 panelReview.Visible = false;
                 panelArticles.Visible = false;
+                panelSearchAssociate.Visible = false;
+                panelSearchAuthor.Visible = false;
+                panelSearchEditor.Visible = true;
             }
 
         }
