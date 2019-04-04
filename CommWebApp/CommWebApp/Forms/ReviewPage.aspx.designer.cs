@@ -40,6 +40,15 @@ namespace CommWebApp.Forms {
         protected global::System.Web.UI.WebControls.Label encName;
         
         /// <summary>
+        /// notValidSumm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label notValidSumm;
+        
+        /// <summary>
         /// pnlQuestions control.
         /// </summary>
         /// <remarks>
@@ -578,15 +587,6 @@ namespace CommWebApp.Forms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblSucess;
-        
-        /// <summary>
-        /// notValidSumm control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label notValidSumm;
         
         /// <summary>
         /// btnDownload control.

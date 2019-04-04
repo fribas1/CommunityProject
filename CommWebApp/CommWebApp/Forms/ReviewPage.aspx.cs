@@ -100,7 +100,12 @@ Recommendation3.Checked == false && Recommendation4.Checked == false)
             {
                 notValid11.Visible = true;
                 valid = false;
-            }            
+            }
+            if (!valid)
+            {
+                notValidSumm.Text = "Some sections are missing your comment. Please review your Rubric.";
+                notValidSumm.Visible = true;
+            }
             return valid;
         }
 
@@ -207,6 +212,7 @@ Recommendation3.Checked == false && Recommendation4.Checked == false)
         {
             if (Validation())
             {
+                notValidSumm.Visible = false;
                 count = 0;
                 foreach (Control rad in Form.Controls)
                 {

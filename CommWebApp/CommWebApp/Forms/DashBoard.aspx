@@ -28,6 +28,23 @@
         .auto-style3 {
             width: 20px;
         }
+        .auto-style4 {
+            height: 27px;
+        }
+        .auto-style5 {
+            height: 76px;
+        }
+        .auto-style6 {
+            left: 0px;
+            top: 0px;
+        }
+        .auto-style7 {
+            height: 27px;
+            width: 1159px;
+        }
+        .auto-style8 {
+            width: 1159px;
+        }
     </style>
 
 
@@ -75,37 +92,92 @@
                 </div>
             </div>
 
-            <div class=" col-lg-5">
+            <div class="auto-style6">
                 <h2 class="mt-3">Search Criterias:</h2>
                 <br />
-                <table class="w-100 text-left">
-                    <tr>
-                        <td>Title:</td>
-                        <td>
-                            <asp:TextBox CssClass="form-control" ID="txtTitleFilter" runat="server"></asp:TextBox>
-                        </td>
-                        <td>&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td>Current Status:</td>
-                        <td>
-                            <asp:DropDownList CssClass="form-control" ID="ddlFilterStatus" runat="server" AppendDataBoundItems="True" AutoPostBack="True" DataSourceID="dsStatusDDL" DataTextField="Name" DataValueField="Id">
-                                <asp:ListItem Value="2">Select..</asp:ListItem>
-                            </asp:DropDownList>
-                        </td>
-                        <td>&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td>Date between:<br />
-                            <br />
-                            and</td>
-                        <td>
-                            <asp:TextBox CssClass="form-control" ID="txtDateStart" runat="server" TextMode="Date"></asp:TextBox>
-                        &nbsp;<asp:TextBox CssClass="form-control" ID="txtDateEnd" runat="server" TextMode="Date"></asp:TextBox>
-                        </td>
-                        <td>&nbsp;</td>
-                    </tr>
-                </table>
+                <asp:Panel ID="panelSearchEditor" runat="server">
+                    <table class="w-100 text-left">
+                        <tr>
+                            <td class="auto-style4">Title:</td>
+                            <td class="auto-style4">
+                                <asp:TextBox CssClass="form-control" ID="txtTitleFilter" runat="server"></asp:TextBox>
+                            </td>
+                            <td class="auto-style4"></td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style4">Current Status:</td>
+                            <td class="auto-style4">
+                                <asp:DropDownList CssClass="form-control" ID="ddlFilterStatus" runat="server" AppendDataBoundItems="True" AutoPostBack="True" DataSourceID="dsStatusDDL" DataTextField="Name" DataValueField="Id">
+                                    <asp:ListItem Value="2">Select..</asp:ListItem>
+                                </asp:DropDownList>
+                            </td>
+                            <td class="auto-style4"></td>
+                        </tr>
+                        <tr>
+                            <td>Date between:<br />
+                                <br />
+                                and</td>
+                            <td>
+                                <asp:TextBox CssClass="form-control" ID="txtDateStart" runat="server" TextMode="Date"></asp:TextBox>
+                                &nbsp;<asp:TextBox CssClass="form-control" ID="txtDateEnd" runat="server" TextMode="Date"></asp:TextBox>
+                            </td>
+                            <td>&nbsp;</td>
+                        </tr>
+                    </table>
+                </asp:Panel>
+                <asp:Panel ID="panelSearchAuthor" runat="server">
+                    My Journal Posts - Search<br />
+                    <table class="w-100 text-left">
+                        <tr>
+                            <td class="auto-style4">Title:</td>
+                            <td class="auto-style4">
+                                <asp:TextBox ID="txtTitleAuthor" runat="server" CssClass="form-control"></asp:TextBox>
+                            </td>
+                            <td class="auto-style4"></td>
+                        </tr>
+                        <tr>
+                            <td>Current Status:</td>
+                            <td>
+                                <asp:DropDownList ID="ddlStatusAuthor" runat="server" AppendDataBoundItems="True" AutoPostBack="True" CssClass="form-control" DataSourceID="dsStatusDDL" DataTextField="Name" DataValueField="Id">
+                                    <asp:ListItem Value="0">Select..</asp:ListItem>
+                                </asp:DropDownList>
+                            </td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style5">Date between:<br />
+                                <br />
+                                and</td>
+                            <td class="auto-style5">
+                                <asp:TextBox ID="txtDateStartAuthor" runat="server" CssClass="form-control" TextMode="Date"></asp:TextBox>
+                                &nbsp;<asp:TextBox ID="txtDateEndAuthor" runat="server" CssClass="form-control" TextMode="Date"></asp:TextBox>
+                            </td>
+                            <td class="auto-style5"></td>
+                        </tr>
+                    </table>
+                </asp:Panel>
+                <asp:Panel ID="panelSearchAssociate" runat="server">
+                    Articles to be reviewed - Search<br />
+                    <table class="w-100 text-left">
+                        <tr>
+                            <td class="auto-style7">Title:</td>
+                            <td class="auto-style4">
+                                <asp:TextBox ID="txtTitleAssociate" runat="server" CssClass="form-control"></asp:TextBox>
+                            </td>
+                            <td class="auto-style4"></td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style8">Date between:<br />
+                                <br />
+                                and</td>
+                            <td>
+                                <asp:TextBox ID="txtDateStartAssociate" runat="server" CssClass="form-control" TextMode="Date"></asp:TextBox>
+                                &nbsp;<asp:TextBox ID="txtDateEndAssociate" runat="server" CssClass="form-control" TextMode="Date"></asp:TextBox>
+                            </td>
+                            <td>&nbsp;</td>
+                        </tr>
+                    </table>
+                </asp:Panel>
                 <br />
                 <asp:Button CssClass="btn btn-outline-info" ID="btnFilter" runat="server" Text="Apply" />
                 <br />
@@ -114,69 +186,85 @@
 
             <div>
                 <br />
-                                <asp:Label ID="lblMessage" runat="server" ForeColor="Green" ></asp:Label>
+                <asp:Label ID="lblMessage" runat="server" ForeColor="Green"></asp:Label>
                 <br />
                 <asp:GridView CssClass="table table-bordered table-sm" ID="DashBoardGV" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="postDS" OnSelectedIndexChanged="DashBoardGV_SelectedIndexChanged">
-                    <Columns >
-                        <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title"/>
+                    <Columns>
+                        <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title" />
                         <asp:BoundField DataField="Current Status" HeaderText="Status" SortExpression="Current Status" />
                         <asp:BoundField DataField="CreatedOn" HeaderText="CreatedOn" SortExpression="CreatedOn" DataFormatString="{0:d}" />
                         <asp:BoundField DataField="UserId" HeaderText="UserId" SortExpression="UserId" Visible="False" />
                         <asp:BoundField DataField="RoleId" HeaderText="RoleId" SortExpression="RoleId" Visible="False" />
                         <asp:BoundField DataField="PostId" HeaderText="PostId" SortExpression="PostId" Visible="False" />
-                        <asp:ButtonField ButtonType="Button" CommandName="Select" Text="Assign" ControlStyle-CssClass="btn btn-outline-info" />
+                        <asp:ButtonField ButtonType="Button" CommandName="Select" Text="Details" ControlStyle-CssClass="btn btn-outline-info">
+                            <ControlStyle CssClass="btn btn-outline-info"></ControlStyle>
+                        </asp:ButtonField>
+                        <asp:BoundField DataField="Id" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="Id" Visible="False" />
                     </Columns>
                     <EmptyDataTemplate>
                         There are no records that fit your search query, try changing Search Criterias
                     </EmptyDataTemplate>
                     <HeaderStyle CssClass=" thead-light" />
-                    
+
                 </asp:GridView>
                 <br />
 
-
-                                <asp:Panel ID="panelAssociate" Visible="false" runat="server" Width="464px">
-                                    <table class="w-100">
-                                        <tr>
-                                            <td class="auto-style1">Associate Editor 1</td>
-                                            <td class="auto-style2">&nbsp;</td>
-                                            <td class="auto-style1">Associate Editor 2</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <asp:DropDownList CssClass="form-control" ID="ddlAssEdit1" runat="server" AppendDataBoundItems="True" DataSourceID="allUsersDS" DataTextField="Users" DataValueField="Id">
-                                                    <asp:ListItem Value="-1">Select one..</asp:ListItem>
-                                                </asp:DropDownList>
-                                            </td>
-                                            <td class="auto-style3">
-                                                &nbsp;</td>
-                                            <td>
-                                                <asp:DropDownList ID="ddlAssEdit2" runat="server" AppendDataBoundItems="True" CssClass="form-control" DataSourceID="allUsersDS" DataTextField="Users" DataValueField="Id">
-                                                    <asp:ListItem Value="-1">Select one..</asp:ListItem>
-                                                </asp:DropDownList>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>&nbsp;</td>
-                                            <td class="auto-style3">&nbsp;</td>
-                                            <td>&nbsp;</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <asp:Button CssClass="btn btn-outline-success" ID="btnSave" runat="server" OnClick="btnSave_Click" Text="Save" />
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                            </td>
-                                            <td class="auto-style3">&nbsp;</td>
-                                            <td>&nbsp;</td>
-                                        </tr>
-                                    </table>
-                                </asp:Panel>
-
+                <%--PANEL ASSIGNING--%>
+                <asp:Panel ID="panelAssociate" Visible="false" runat="server" Width="464px">
+                    <table class="w-100">
+                        <tr>
+                            <td class="auto-style1">Associate Editor 1</td>
+                            <td class="auto-style2">&nbsp;</td>
+                            <td class="auto-style1">Associate Editor 2</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <asp:DropDownList CssClass="form-control" ID="ddlAssEdit1" runat="server" AppendDataBoundItems="True" DataSourceID="allUsersDS" DataTextField="Users" DataValueField="Id">
+                                    <asp:ListItem Value="-1">Select one..</asp:ListItem>
+                                </asp:DropDownList>
+                            </td>
+                            <td class="auto-style3">&nbsp;</td>
+                            <td>
+                                <asp:DropDownList ID="ddlAssEdit2" runat="server" AppendDataBoundItems="True" CssClass="form-control" DataSourceID="allUsersDS" DataTextField="Users" DataValueField="Id">
+                                    <asp:ListItem Value="-1">Select one..</asp:ListItem>
+                                </asp:DropDownList>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <asp:Label CssClass="m-3" ID="lblAss1toEditor" runat="server" Visible="False"></asp:Label>
+                            </td>
+                            <td class="auto-style3">&nbsp;</td>
+                            <td>
+                                <asp:Label CssClass="m-3" ID="lblAss2toEditor" runat="server" Visible="False"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <asp:Label ID="lblass1toAuthor" runat="server" CssClass="m-3" Visible="False"></asp:Label>
+                            </td>
+                            <td class="auto-style3">&nbsp;</td>
+                            <td>
+                                <asp:Label ID="lblass2toAuthor" runat="server" CssClass="m-3" Visible="False"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <asp:Button CssClass="btn btn-outline-success" ID="btnSave" runat="server" OnClick="btnSave_Click" Text="Save" />
+                                &nbsp;&nbsp;&nbsp;
+                                <asp:Button ID="btnGoBack" runat="server" CssClass="btn btn-outline-primary" Text="Go Back" />
+                            </td>
+                            <td class="auto-style3">&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                    </table>
+                </asp:Panel>
+                <%--END PANEL ASSIGNING--%>
 
                 <br />
                 <asp:Panel ID="panelReview" runat="server">
                     <h2 class="mt-3">Articles to be reviewed</h2>
-                    <asp:GridView ID="gvReview" runat="server" AutoGenerateColumns="False" CssClass="table table-bordered table-sm" DataKeyNames="Id,Id1,Id2" DataSourceID="dsReviews" OnSelectedIndexChanged="gvReview_SelectedIndexChanged">
+                    <asp:GridView ID="gvReview" runat="server" AutoGenerateColumns="False" CssClass="table table-bordered table-sm" DataKeyNames="Id" DataSourceID="dsReviews" OnSelectedIndexChanged="gvReview_SelectedIndexChanged">
                         <Columns>
                             <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title" />
                             <asp:BoundField DataField="Name" HeaderText="Status" SortExpression="Name" />
@@ -195,7 +283,7 @@
                 <br />
                 <asp:Panel ID="panelArticles" runat="server">
                     <h2 class="mt-3">My Journal Posts</h2>
-                    <asp:GridView ID="gvArticles" runat="server" AutoGenerateColumns="False" CssClass="table table-bordered table-sm" DataKeyNames="Id,Id1" DataSourceID="dsArticlesAuthor">
+                    <asp:GridView ID="gvArticles" runat="server" AutoGenerateColumns="False" CssClass="table table-bordered table-sm" DataKeyNames="Id" DataSourceID="dsArticlesAuthor">
                         <Columns>
                             <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title" />
                             <asp:BoundField DataField="Name" HeaderText="Status" SortExpression="Name" />
@@ -211,7 +299,7 @@
             </div>
             <div>
             </div>
-            <asp:SqlDataSource ID="postDS" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT Post.Id, Post.Title, Post.CurrentStatusId, Post.CreatedOn, Post.CreatedBy, Post.LastModifiedOn, Post.LastModifiedBy, AspNetUserRoles.UserId, AspNetUserRoles.RoleId, AspNetUserRoles.PostId, Post.PublishedOn, Status.Name AS [Current Status] FROM Post INNER JOIN AspNetUserRoles ON Post.Id = AspNetUserRoles.PostId INNER JOIN Status ON Post.CurrentStatusId = Status.Id WHERE (Post.CurrentStatusId = @status) AND (Post.Title LIKE '%' + @title + '%') AND (Post.CreatedOn BETWEEN @start AND @end )">
+            <asp:SqlDataSource ID="postDS" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT DISTINCT Post.Id, Post.Title, Post.CurrentStatusId, Post.CreatedOn, Post.CreatedBy, Post.LastModifiedOn, Post.LastModifiedBy, AspNetUserRoles.UserId, AspNetUserRoles.RoleId, AspNetUserRoles.PostId, Post.PublishedOn, Status.Name AS [Current Status] FROM Post INNER JOIN AspNetUserRoles ON Post.Id = AspNetUserRoles.PostId INNER JOIN Status ON Post.CurrentStatusId = Status.Id WHERE (Post.CurrentStatusId = @status) AND (Post.Title LIKE '%' + @title + '%') AND (Post.CreatedOn BETWEEN @start AND @end )">
                 <SelectParameters>
                     <asp:ControlParameter ControlID="ddlFilterStatus" DefaultValue="2" Name="status" PropertyName="SelectedValue" />
                     <asp:ControlParameter ControlID="txtTitleFilter" ConvertEmptyStringToNull="False" DefaultValue="" Name="title" PropertyName="Text" />
@@ -227,19 +315,34 @@
                 </InsertParameters>
             </asp:SqlDataSource>
             <asp:SqlDataSource ID="dsStatusDDL" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT Id, Name FROM Status"></asp:SqlDataSource>
-            <asp:SqlDataSource ID="dsReviews" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT * FROM Post
-JOIN AspNetUserRoles ON Post.Id = AspNetUserRoles.PostId
-JOIN Status ON Status.Id = Post.CurrentStatusId
-WHERE RoleId = 2 AND CurrentStatusId = 3 AND UserId = @User">
+            <asp:SqlDataSource ID="dsReviews" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT Post.Id, Post.Title, Post.CurrentStatusId, Post.CreatedOn, Post.CreatedBy, Post.LastModifiedOn, Post.LastModifiedBy, Post.PublishedOn, Post.[Content], Post.Keywords, AspNetUserRoles.Id AS Expr1, AspNetUserRoles.UserId, AspNetUserRoles.RoleId, AspNetUserRoles.PostId, Status.Id AS Expr2, Status.Name, Status.Description FROM Post INNER JOIN AspNetUserRoles ON Post.Id = AspNetUserRoles.PostId INNER JOIN Status ON Status.Id = Post.CurrentStatusId WHERE (AspNetUserRoles.RoleId = 2) AND (Post.CurrentStatusId = 3) AND (AspNetUserRoles.UserId = @User ) AND (Post.Title LIKE '%' + @title + '%') AND (Post.CreatedOn BETWEEN @start AND @end )">
                 <SelectParameters>
                     <asp:QueryStringParameter DefaultValue="0" Name="User" QueryStringField="currentUserId" />
+                    <asp:ControlParameter ControlID="txtTitleAssociate" ConvertEmptyStringToNull="False" Name="title" PropertyName="Text" />
+                    <asp:ControlParameter ControlID="txtDateStartAssociate" DefaultValue="01/01/0001" Name="start" PropertyName="Text" />
+                    <asp:ControlParameter ControlID="txtDateEndAssociate" DefaultValue="12/30/3000" Name="end" PropertyName="Text" />
                 </SelectParameters>
             </asp:SqlDataSource>
-            <asp:SqlDataSource ID="dsArticlesAuthor" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT * FROM [Post]
-JOIN Status ON Status.Id = Post.CurrentStatusId
-WHERE ([CreatedBy] = @CreatedBy)">
+            <asp:SqlDataSource ID="dsArticlesAuthor" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT Post.Id, Post.Title, Post.CurrentStatusId, Post.CreatedOn, Post.CreatedBy, Post.LastModifiedOn, Post.LastModifiedBy, Post.PublishedOn, Post.[Content], Post.Keywords, Status.Id AS Expr1, Status.Name, Status.Description FROM Post INNER JOIN Status ON Status.Id = Post.CurrentStatusId WHERE (Post.CreatedBy = @CreatedBy) AND (Post.CurrentStatusId = @status OR @status = 0) AND (Post.Title LIKE '%' + @title + '%') AND (Post.CreatedOn BETWEEN @start AND @end )">
                 <SelectParameters>
                     <asp:QueryStringParameter DefaultValue="0" Name="CreatedBy" QueryStringField="currentUserId" Type="String" />
+                    <asp:ControlParameter ControlID="ddlStatusAuthor" Name="status" PropertyName="SelectedValue" />
+                    <asp:ControlParameter ControlID="txtTitleAuthor" ConvertEmptyStringToNull="False" Name="title" PropertyName="Text" />
+                    <asp:ControlParameter ControlID="txtDateStartAuthor" DefaultValue="01/01/0001" Name="start" PropertyName="Text" />
+                    <asp:ControlParameter ControlID="txtDateEndAuthor" DefaultValue="12/30/3000" Name="end" PropertyName="Text" />
+                </SelectParameters>
+            </asp:SqlDataSource>
+            <asp:Label ID="lblhiddenPostID" runat="server"></asp:Label>
+            <br />
+            <asp:SqlDataSource ID="DSComment" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT Id, [Content], RecommendationId, PostId, CommentedBy, ConfidentialToEditor, FileId FROM Comment WHERE (PostId = @PostId)">
+                <SelectParameters>
+                    <asp:ControlParameter ControlID="lblhiddenPostID" DefaultValue="0" Name="PostId" PropertyName="Text" />
+                </SelectParameters>
+            </asp:SqlDataSource>
+            <br />
+            <asp:SqlDataSource ID="DSasses12" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT DISTINCT AspNetUserRoles.Id AS Expr1, AspNetUserRoles.UserId AS Expr2, AspNetUserRoles.RoleId AS Expr3, AspNetUserRoles.PostId AS Expr4, { fn CONCAT(AspNetUsers.FirstName + ' ', AspNetUsers.LastName) } AS Users FROM AspNetUserRoles INNER JOIN AspNetUsers ON AspNetUserRoles.UserId = AspNetUsers.Id WHERE (AspNetUserRoles.PostId = @Param1) AND (AspNetUserRoles.RoleId = '2')">
+                <SelectParameters>
+                    <asp:ControlParameter ControlID="lblhiddenPostID" DefaultValue="0" Name="Param1" PropertyName="Text" />
                 </SelectParameters>
             </asp:SqlDataSource>
         </div>

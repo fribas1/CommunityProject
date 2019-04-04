@@ -3,6 +3,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -36,6 +37,9 @@ namespace CommWebApp.Forms
                 DashBoardGV.Visible = false;
                 panelReview.Visible = true;
                 panelArticles.Visible = true;
+                panelSearchAssociate.Visible = true;
+                panelSearchAuthor.Visible = true;
+                panelSearchEditor.Visible = false;
             }
 
             if (roles.All(author.Contains) == true)
@@ -43,6 +47,9 @@ namespace CommWebApp.Forms
                 DashBoardGV.Visible = false;
                 panelReview.Visible = false;
                 panelArticles.Visible = true;
+                panelSearchAssociate.Visible = false;
+                panelSearchAuthor.Visible = true;
+                panelSearchEditor.Visible = false;
             }
 
             if (roles.All(associate.Contains) == true)
@@ -50,6 +57,9 @@ namespace CommWebApp.Forms
                 DashBoardGV.Visible = false;
                 panelReview.Visible = true;
                 panelArticles.Visible = false;
+                panelSearchAssociate.Visible = true;
+                panelSearchAuthor.Visible = false;
+                panelSearchEditor.Visible = false;
             }
 
             if (roles.All(editor.Contains) == true)
@@ -57,6 +67,9 @@ namespace CommWebApp.Forms
                 DashBoardGV.Visible = true;
                 panelReview.Visible = false;
                 panelArticles.Visible = false;
+                panelSearchAssociate.Visible = false;
+                panelSearchAuthor.Visible = false;
+                panelSearchEditor.Visible = true;
             }
 
         }
@@ -67,19 +80,39 @@ namespace CommWebApp.Forms
         }
 
 
-        protected void btnR_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("/Forms/ReviewPage.aspx");
-        }
 
         protected void DashBoardGV_SelectedIndexChanged(object sender, EventArgs e)
         {
+
             int index = DashBoardGV.SelectedRow.RowIndex;
             int postID = Convert.ToInt32(DashBoardGV.DataKeys[index][0]);
             ViewState["_postID"] = postID;
+
+            GridViewRow row1 = DashBoardGV.SelectedRow;
+
+            if (row1.Cells[1].Text== "Final Review")
+            {
+                lblhiddenPostID.Text = postID.ToString();
+                DataView dv = (DataView)DSComment.Select(DataSourceSelectArguments.Empty);
+                string commentsToEditor = (string)dv.Table.Rows[0][5];
+                string commetstoAuthor = (string)dv.Table.Rows[0][1];
+                string[] feedbackCommentsEditor = commentsToEditor.Split('|');
+                lblass1toAuthor.Text = "Comments to the Author: " + commetstoAuthor;
+                lblass1toAuthor.Visible = true;
+                lblAss1toEditor.Text = "Comments to the Editor: " + feedbackCommentsEditor[1];
+                lblAss1toEditor.Visible = true;
+
+                DataView dvAss = (DataView)DSasses12.Select(DataSourceSelectArguments.Empty);
+                
+                ddlAssEdit1.SelectedValue = (string)dvAss.Table.Rows[0][1];
+
+            }
+
             DashBoardGV.Visible = false;
             lblMessage.Visible = false;
             panelAssociate.Visible = true;
+
+
         }
 
         protected void btnSave_Click(object sender, EventArgs e)
