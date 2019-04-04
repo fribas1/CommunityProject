@@ -196,9 +196,10 @@
                         <asp:BoundField DataField="UserId" HeaderText="UserId" SortExpression="UserId" Visible="False" />
                         <asp:BoundField DataField="RoleId" HeaderText="RoleId" SortExpression="RoleId" Visible="False" />
                         <asp:BoundField DataField="PostId" HeaderText="PostId" SortExpression="PostId" Visible="False" />
-                        <asp:ButtonField ButtonType="Button" CommandName="Select" Text="Details" ControlStyle-CssClass="btn btn-outline-info" >
-<ControlStyle CssClass="btn btn-outline-info"></ControlStyle>
+                        <asp:ButtonField ButtonType="Button" CommandName="Select" Text="Details" ControlStyle-CssClass="btn btn-outline-info">
+                            <ControlStyle CssClass="btn btn-outline-info"></ControlStyle>
                         </asp:ButtonField>
+                        <asp:BoundField DataField="Id" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="Id" Visible="False" />
                     </Columns>
                     <EmptyDataTemplate>
                         There are no records that fit your search query, try changing Search Criterias
@@ -231,17 +232,21 @@
                         </tr>
                         <tr>
                             <td>
-                                <asp:Label CssClass="mt-2" ID="lblAss1Comments" runat="server" Text="" Visible="false"></asp:Label>
+                                <asp:Label CssClass="m-3" ID="lblAss1toEditor" runat="server" Visible="False"></asp:Label>
                             </td>
                             <td class="auto-style3">&nbsp;</td>
                             <td>
-                                <asp:Label CssClass="mt-2" ID="lblAss2Comments" runat="server" Text="" Visible="false"></asp:Label>
+                                <asp:Label CssClass="m-3" ID="lblAss2toEditor" runat="server" Visible="False"></asp:Label>
                             </td>
                         </tr>
                         <tr>
-                            <td>&nbsp;</td>
+                            <td>
+                                <asp:Label ID="lblass1toAuthor" runat="server" CssClass="m-3" Visible="False"></asp:Label>
+                            </td>
                             <td class="auto-style3">&nbsp;</td>
-                            <td>&nbsp;</td>
+                            <td>
+                                <asp:Label ID="lblass2toAuthor" runat="server" CssClass="m-3" Visible="False"></asp:Label>
+                            </td>
                         </tr>
                         <tr>
                             <td>
@@ -332,6 +337,12 @@
             <asp:SqlDataSource ID="DSComment" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT Id, [Content], RecommendationId, PostId, CommentedBy, ConfidentialToEditor, FileId FROM Comment WHERE (PostId = @PostId)">
                 <SelectParameters>
                     <asp:ControlParameter ControlID="lblhiddenPostID" DefaultValue="0" Name="PostId" PropertyName="Text" />
+                </SelectParameters>
+            </asp:SqlDataSource>
+            <br />
+            <asp:SqlDataSource ID="DSasses12" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT DISTINCT AspNetUserRoles.Id AS Expr1, AspNetUserRoles.UserId AS Expr2, AspNetUserRoles.RoleId AS Expr3, AspNetUserRoles.PostId AS Expr4, { fn CONCAT(AspNetUsers.FirstName + ' ', AspNetUsers.LastName) } AS Users FROM AspNetUserRoles INNER JOIN AspNetUsers ON AspNetUserRoles.UserId = AspNetUsers.Id WHERE (AspNetUserRoles.PostId = @Param1) AND (AspNetUserRoles.RoleId = '2')">
+                <SelectParameters>
+                    <asp:ControlParameter ControlID="lblhiddenPostID" DefaultValue="0" Name="Param1" PropertyName="Text" />
                 </SelectParameters>
             </asp:SqlDataSource>
         </div>

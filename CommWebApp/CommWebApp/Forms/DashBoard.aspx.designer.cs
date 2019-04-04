@@ -211,22 +211,40 @@ namespace CommWebApp.Forms {
         protected global::System.Web.UI.WebControls.DropDownList ddlAssEdit2;
         
         /// <summary>
-        /// lblAss1Comments control.
+        /// lblAss1toEditor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAss1Comments;
+        protected global::System.Web.UI.WebControls.Label lblAss1toEditor;
         
         /// <summary>
-        /// lblAss2Comments control.
+        /// lblAss2toEditor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAss2Comments;
+        protected global::System.Web.UI.WebControls.Label lblAss2toEditor;
+        
+        /// <summary>
+        /// lblass1toAuthor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblass1toAuthor;
+        
+        /// <summary>
+        /// lblass2toAuthor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblass2toAuthor;
         
         /// <summary>
         /// btnSave control.
@@ -353,5 +371,14 @@ namespace CommWebApp.Forms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource DSComment;
+        
+        /// <summary>
+        /// DSasses12 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource DSasses12;
     }
 }

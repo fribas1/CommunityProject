@@ -83,20 +83,35 @@ namespace CommWebApp.Forms
 
         protected void DashBoardGV_SelectedIndexChanged(object sender, EventArgs e)
         {
-            GridViewRow selectedRow = DashBoardGV.SelectedRow;
-            lblhiddenPostID.Text = selectedRow.RowIndex.ToString();
 
             int index = DashBoardGV.SelectedRow.RowIndex;
             int postID = Convert.ToInt32(DashBoardGV.DataKeys[index][0]);
             ViewState["_postID"] = postID;
+
+            GridViewRow row1 = DashBoardGV.SelectedRow;
+
+            if (row1.Cells[1].Text== "Final Review")
+            {
+                lblhiddenPostID.Text = postID.ToString();
+                DataView dv = (DataView)DSComment.Select(DataSourceSelectArguments.Empty);
+                string commentsToEditor = (string)dv.Table.Rows[0][5];
+                string commetstoAuthor = (string)dv.Table.Rows[0][1];
+                string[] feedbackCommentsEditor = commentsToEditor.Split('|');
+                lblass1toAuthor.Text = "Comments to the Author: " + commetstoAuthor;
+                lblass1toAuthor.Visible = true;
+                lblAss1toEditor.Text = "Comments to the Editor: " + feedbackCommentsEditor[1];
+                lblAss1toEditor.Visible = true;
+
+                DataView dvAss = (DataView)DSasses12.Select(DataSourceSelectArguments.Empty);
+                
+                ddlAssEdit1.SelectedValue = (string)dvAss.Table.Rows[0][1];
+
+            }
+
             DashBoardGV.Visible = false;
             lblMessage.Visible = false;
             panelAssociate.Visible = true;
 
-            if (selectedRow.Cells[1].Text == "Final Review")
-            {
-
-            }
 
         }
 
