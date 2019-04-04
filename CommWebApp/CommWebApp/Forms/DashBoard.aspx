@@ -20,13 +20,11 @@
 
         .auto-style1 {
             height: 26px;
+            width: 286px;
         }
         .auto-style2 {
             height: 26px;
-            width: 20px;
-        }
-        .auto-style3 {
-            width: 20px;
+            width: 22px;
         }
         .auto-style4 {
             height: 27px;
@@ -44,6 +42,19 @@
         }
         .auto-style8 {
             width: 1159px;
+        }
+        .auto-style10 {
+            height: 26px;
+            width: 285px;
+        }
+        .auto-style12 {
+            width: 22px;
+        }
+        .auto-style13 {
+            width: 290px;
+        }
+        .auto-style14 {
+            width: 285px;
         }
     </style>
 
@@ -210,52 +221,86 @@
                 <br />
 
                 <%--PANEL ASSIGNING--%>
-                <asp:Panel ID="panelAssociate" Visible="false" runat="server" Width="464px">
+                <asp:Panel ID="panelAssociate" Visible="false" runat="server" Width="602px">
                     <table class="w-100">
                         <tr>
-                            <td class="auto-style1">Associate Editor 1</td>
+                            <td class="auto-style10">
+                                <asp:Label ID="lblddlUP1" runat="server" Text="Associate Editor 1"></asp:Label>
+                            </td>
                             <td class="auto-style2">&nbsp;</td>
-                            <td class="auto-style1">Associate Editor 2</td>
+                            <td class="auto-style10">
+                                <asp:Label ID="lblddlUP2" runat="server" Text="Associate Editor 2"></asp:Label>
+                            </td>
                         </tr>
                         <tr>
-                            <td>
+                            <td class="auto-style14">
                                 <asp:DropDownList CssClass="form-control" ID="ddlAssEdit1" runat="server" AppendDataBoundItems="True" DataSourceID="allUsersDS" DataTextField="Users" DataValueField="Id">
                                     <asp:ListItem Value="-1">Select one..</asp:ListItem>
                                 </asp:DropDownList>
                             </td>
-                            <td class="auto-style3">&nbsp;</td>
-                            <td>
+                            <td class="auto-style12">&nbsp;</td>
+                            <td class="auto-style14">
                                 <asp:DropDownList ID="ddlAssEdit2" runat="server" AppendDataBoundItems="True" CssClass="form-control" DataSourceID="allUsersDS" DataTextField="Users" DataValueField="Id">
                                     <asp:ListItem Value="-1">Select one..</asp:ListItem>
                                 </asp:DropDownList>
                             </td>
                         </tr>
                         <tr>
-                            <td>
+                            <td class="auto-style14">&nbsp;</td>
+                            <td class="auto-style12">&nbsp;</td>
+                            <td class="auto-style14">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style14">
+                                <asp:Label ID="lblAss1Name" runat="server" Visible="False"></asp:Label>
+                            </td>
+                            <td class="auto-style12">&nbsp;</td>
+                            <td class="auto-style14">
+                                <asp:Label ID="lblAss2Name" runat="server" Visible="False"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style14">&nbsp;</td>
+                            <td class="auto-style12">&nbsp;</td>
+                            <td class="auto-style14">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style14">
                                 <asp:Label CssClass="m-3" ID="lblAss1toEditor" runat="server" Visible="False"></asp:Label>
                             </td>
-                            <td class="auto-style3">&nbsp;</td>
-                            <td>
+                            <td class="auto-style12">&nbsp;</td>
+                            <td class="auto-style14">
                                 <asp:Label CssClass="m-3" ID="lblAss2toEditor" runat="server" Visible="False"></asp:Label>
                             </td>
                         </tr>
                         <tr>
-                            <td>
+                            <td class="auto-style14">&nbsp;</td>
+                            <td class="auto-style12">&nbsp;</td>
+                            <td class="auto-style14">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style14">
                                 <asp:Label ID="lblass1toAuthor" runat="server" CssClass="m-3" Visible="False"></asp:Label>
                             </td>
-                            <td class="auto-style3">&nbsp;</td>
-                            <td>
+                            <td class="auto-style12">&nbsp;</td>
+                            <td class="auto-style14">
                                 <asp:Label ID="lblass2toAuthor" runat="server" CssClass="m-3" Visible="False"></asp:Label>
                             </td>
                         </tr>
                         <tr>
-                            <td>
-                                <asp:Button CssClass="btn btn-outline-success" ID="btnSave" runat="server" OnClick="btnSave_Click" Text="Save" />
+                            <td class="auto-style14">
+                                &nbsp;</td>
+                            <td class="auto-style12">&nbsp;</td>
+                            <td class="auto-style14">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style14">
+                                <asp:Button ID="btnSave" runat="server" CssClass="btn btn-outline-success" OnClick="btnSave_Click" Text="Save" />
                                 &nbsp;&nbsp;&nbsp;
                                 <asp:Button ID="btnGoBack" runat="server" CssClass="btn btn-outline-primary" Text="Go Back" />
                             </td>
-                            <td class="auto-style3">&nbsp;</td>
-                            <td>&nbsp;</td>
+                            <td class="auto-style12">&nbsp;</td>
+                            <td class="auto-style14">&nbsp;</td>
                         </tr>
                     </table>
                 </asp:Panel>

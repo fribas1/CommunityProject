@@ -90,6 +90,19 @@ namespace CommWebApp.Forms
 
             GridViewRow row1 = DashBoardGV.SelectedRow;
 
+            DashBoardGV.Visible = false;
+            lblMessage.Visible = false;
+            panelAssociate.Visible = true;
+
+            //string[] ddlarray = new string[ddlAssEdit1.Items.Count];
+            //int counter = 0;
+            //foreach (ListItem l in ddlAssEdit1.Items)
+            //{
+            //    ddlarray[counter] = l.Value;
+
+            //}
+
+
             if (row1.Cells[1].Text== "Final Review")
             {
                 lblhiddenPostID.Text = postID.ToString();
@@ -103,14 +116,16 @@ namespace CommWebApp.Forms
                 lblAss1toEditor.Visible = true;
 
                 DataView dvAss = (DataView)DSasses12.Select(DataSourceSelectArguments.Empty);
-                
-                ddlAssEdit1.SelectedValue = (string)dvAss.Table.Rows[0][1];
+
+                lblAss1Name.Text = (string)dvAss.Table.Rows[0][4];
+                lblAss1Name.Visible = true;
+                ddlAssEdit1.Visible = false;
+                ddlAssEdit2.Visible = false;
+                lblddlUP1.Visible = false;
+                lblddlUP2.Visible = false;
 
             }
 
-            DashBoardGV.Visible = false;
-            lblMessage.Visible = false;
-            panelAssociate.Visible = true;
 
 
         }

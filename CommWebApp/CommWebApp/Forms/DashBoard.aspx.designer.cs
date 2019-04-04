@@ -193,6 +193,24 @@ namespace CommWebApp.Forms {
         protected global::System.Web.UI.WebControls.Panel panelAssociate;
         
         /// <summary>
+        /// lblddlUP1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblddlUP1;
+        
+        /// <summary>
+        /// lblddlUP2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblddlUP2;
+        
+        /// <summary>
         /// ddlAssEdit1 control.
         /// </summary>
         /// <remarks>
@@ -209,6 +227,24 @@ namespace CommWebApp.Forms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlAssEdit2;
+        
+        /// <summary>
+        /// lblAss1Name control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAss1Name;
+        
+        /// <summary>
+        /// lblAss2Name control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAss2Name;
         
         /// <summary>
         /// lblAss1toEditor control.
