@@ -3,6 +3,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -71,6 +72,7 @@ namespace CommWebApp.Forms
         protected void DashBoardGV_SelectedIndexChanged(object sender, EventArgs e)
         {
             GridViewRow selectedRow = DashBoardGV.SelectedRow;
+            lblhiddenPostID.Text = selectedRow.RowIndex.ToString();
 
             int index = DashBoardGV.SelectedRow.RowIndex;
             int postID = Convert.ToInt32(DashBoardGV.DataKeys[index][0]);
@@ -79,7 +81,7 @@ namespace CommWebApp.Forms
             lblMessage.Visible = false;
             panelAssociate.Visible = true;
 
-            if (selectedRow.Cells[1].Text == "Awaiting Editors' Choice")
+            if (selectedRow.Cells[1].Text == "Final Review")
             {
 
             }

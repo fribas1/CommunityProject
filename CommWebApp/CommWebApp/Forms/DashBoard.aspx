@@ -220,7 +220,7 @@
             </div>
             <div>
             </div>
-            <asp:SqlDataSource ID="postDS" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT Post.Id, Post.Title, Post.CurrentStatusId, Post.CreatedOn, Post.CreatedBy, Post.LastModifiedOn, Post.LastModifiedBy, AspNetUserRoles.UserId, AspNetUserRoles.RoleId, AspNetUserRoles.PostId, Post.PublishedOn, Status.Name AS [Current Status] FROM Post INNER JOIN AspNetUserRoles ON Post.Id = AspNetUserRoles.PostId INNER JOIN Status ON Post.CurrentStatusId = Status.Id WHERE (Post.CurrentStatusId = @status) AND (Post.Title LIKE '%' + @title + '%') AND (Post.CreatedOn BETWEEN @start AND @end )">
+            <asp:SqlDataSource ID="postDS" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT DISTINCT Post.Id, Post.Title, Post.CurrentStatusId, Post.CreatedOn, Post.CreatedBy, Post.LastModifiedOn, Post.LastModifiedBy, AspNetUserRoles.UserId, AspNetUserRoles.RoleId, AspNetUserRoles.PostId, Post.PublishedOn, Status.Name AS [Current Status] FROM Post INNER JOIN AspNetUserRoles ON Post.Id = AspNetUserRoles.PostId INNER JOIN Status ON Post.CurrentStatusId = Status.Id WHERE (Post.CurrentStatusId = @status) AND (Post.Title LIKE '%' + @title + '%') AND (Post.CreatedOn BETWEEN @start AND @end )">
                 <SelectParameters>
                     <asp:ControlParameter ControlID="ddlFilterStatus" DefaultValue="2" Name="status" PropertyName="SelectedValue" />
                     <asp:ControlParameter ControlID="txtTitleFilter" ConvertEmptyStringToNull="False" DefaultValue="" Name="title" PropertyName="Text" />
@@ -249,6 +249,13 @@ JOIN Status ON Status.Id = Post.CurrentStatusId
 WHERE ([CreatedBy] = @CreatedBy)">
                 <SelectParameters>
                     <asp:QueryStringParameter DefaultValue="0" Name="CreatedBy" QueryStringField="currentUserId" Type="String" />
+                </SelectParameters>
+            </asp:SqlDataSource>
+            <asp:Label ID="lblhiddenPostID" runat="server"></asp:Label>
+            <br />
+            <asp:SqlDataSource ID="DSComment" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT Id, [Content], RecommendationId, PostId, CommentedBy, ConfidentialToEditor, FileId FROM Comment WHERE (PostId = @PostId)">
+                <SelectParameters>
+                    <asp:ControlParameter ControlID="lblhiddenPostID" DefaultValue="0" Name="PostId" PropertyName="Text" />
                 </SelectParameters>
             </asp:SqlDataSource>
         </div>
