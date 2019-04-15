@@ -118,7 +118,7 @@
                     <!-- card-group-item.// -->
                 </div>
             </div>
-            <div class="col-1">
+            <div class="col-lg-8"> <%--CHANGED HERE FORM COL-1 TO COL-LG-8--%>
             <div class="auto-style6">
                 <h2 class="mt-3">Search Criterias:</h2>
                 <br />
