@@ -38,12 +38,12 @@
    
 
         #RegisterHyperLink {
-            border-color: purple;
+            border-color: mediumslateblue;
             color: purple;
         }
 
             #RegisterHyperLink:hover {
-                background-color: mediumpurple;
+                background-color: mediumturquoise;
                 color: white;
             }
 
@@ -52,7 +52,7 @@
         }
 
         #btnLogIn {
-            border-color: purple;
+            border-color: mediumpurple;
             color: purple;
         }
 

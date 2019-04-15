@@ -11,6 +11,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <link href="/includes/gridview.css" rel="stylesheet" />
+    <link href="/includes/gridviewstyle.css" rel="stylesheet" />
     <style type="text/css">
         .right {
             float: right;
@@ -18,10 +19,6 @@
             margin-top: 40px;
         }
 
-        .auto-style1 {
-            height: 26px;
-            width: 286px;
-        }
         .auto-style2 {
             height: 26px;
             width: 22px;
@@ -50,11 +47,26 @@
         .auto-style12 {
             width: 22px;
         }
-        .auto-style13 {
-            width: 290px;
-        }
         .auto-style14 {
             width: 285px;
+        }
+        #btnFilter {
+            border-color: darkred;
+            color: purple;
+        }
+
+            #btnFilter:hover {
+                background-color: lightcoral;
+                color: white;
+            }
+          .btn-outline-info {
+            border-color:blue;
+            color: crimson;
+        }
+        .btn-outline-info:hover {
+            background-color: #f36666;
+            color:white;
+            border-color:blue;
         }
     </style>
 
@@ -84,25 +96,29 @@
         <div class="container">
 
             <div class="col-lg-4 float-right mt-5">
-                <div class="cardright border border-secondary rounded p-1">
+                <div class="cardright border border-secondary rounded p-2" style="margin-top:55px">
                     <article class="card-group-item">
                         <%--                        <header class="card-header">
                             <h6 class="title">Useful Information </h6>
                         </header>--%>
+                        
                         <div class="filter-content">
+                           
                             <div class="list-group list-group-flush">
                                 <a href="#" class="list-group-item">New submissions<span class="float-right badge badge-light round">142</span> </a>
                                 <a href="#" class="list-group-item">Articles in review<span class="float-right badge badge-light round">3</span>  </a>
                                 <a href="#" class="list-group-item">Proof pages complete<span class="float-right badge badge-light round">32</span>  </a>
                                 <a href="#" class="list-group-item">Ready for final publication <span class="float-right badge badge-light round">12</span>  </a>
                             </div>
+                            
+                           
                             <!-- list-group .// -->
                         </div>
                     </article>
                     <!-- card-group-item.// -->
                 </div>
             </div>
-
+            <div class="col-1">
             <div class="auto-style6">
                 <h2 class="mt-3">Search Criterias:</h2>
                 <br />
@@ -111,7 +127,7 @@
                         <tr>
                             <td class="auto-style4">Title:</td>
                             <td class="auto-style4">
-                                <asp:TextBox CssClass="form-control" ID="txtTitleFilter" runat="server"></asp:TextBox>
+                                <asp:TextBox CssClass="form-control" ID="txtTitleFilter" runat="server" Width="300px"></asp:TextBox>
                             </td>
                             <td class="auto-style4"></td>
                         </tr>
@@ -190,9 +206,9 @@
                     </table>
                 </asp:Panel>
                 <br />
-                <asp:Button CssClass="btn btn-outline-info" ID="btnFilter" runat="server" Text="Apply" />
+                <asp:Button CssClass="btn btn-outline-info" style="margin-left:120px" ID="btnFilter" runat="server" Text="Apply" Width="145px" />
                 <br />
-
+                </div>
             </div>
 
             <div>
@@ -200,15 +216,20 @@
                 <asp:Label ID="lblMessage" runat="server" ForeColor="Green"></asp:Label>
                 <br />
                 <asp:GridView CssClass="table table-bordered table-sm" ID="DashBoardGV" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="postDS" OnSelectedIndexChanged="DashBoardGV_SelectedIndexChanged">
+                <FooterStyle CssClass="GridViewFooterStyle" />
+                <RowStyle CssClass="GridViewRowStyle" />    
+                <PagerStyle CssClass="GridViewPagerStyle" />
+                <AlternatingRowStyle CssClass="GridViewAlternatingRowStyle" />
+                <HeaderStyle CssClass="GridViewHeaderStyle" />    
                     <Columns>
                         <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title" />
                         <asp:BoundField DataField="Current Status" HeaderText="Status" SortExpression="Current Status" />
-                        <asp:BoundField DataField="CreatedOn" HeaderText="CreatedOn" SortExpression="CreatedOn" DataFormatString="{0:d}" />
+                        <asp:BoundField DataField="CreatedOn" HeaderText="Date" SortExpression="CreatedOn" DataFormatString="{0:d}" />
                         <asp:BoundField DataField="UserId" HeaderText="UserId" SortExpression="UserId" Visible="False" />
                         <asp:BoundField DataField="RoleId" HeaderText="RoleId" SortExpression="RoleId" Visible="False" />
                         <asp:BoundField DataField="PostId" HeaderText="PostId" SortExpression="PostId" Visible="False" />
                         <asp:ButtonField ButtonType="Button" CommandName="Select" Text="Details" ControlStyle-CssClass="btn btn-outline-info">
-                            <ControlStyle CssClass="btn btn-outline-info"></ControlStyle>
+                            <ControlStyle CssClass="btn btn-outline-info" ></ControlStyle>
                         </asp:ButtonField>
                         <asp:BoundField DataField="Id" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="Id" Visible="False" />
                     </Columns>
