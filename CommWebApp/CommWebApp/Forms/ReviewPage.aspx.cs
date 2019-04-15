@@ -116,7 +116,7 @@ Recommendation3.Checked == false && Recommendation4.Checked == false)
 
         protected void btnDownload_Click(object sender, EventArgs e)
         {
-            Response.Redirect("https://trprcloud.blob.core.windows.net/manuscript/" + GetFile());
+            Response.Redirect("https://trprstorage.blob.core.windows.net/manuscript/" + GetFile());
         }
 
         protected string GetFile()
