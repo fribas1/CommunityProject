@@ -96,7 +96,7 @@
         <div class="container">
 
             <div class="col-lg-4 float-right mt-5">
-                <div class="cardright border border-secondary rounded p-2" style="margin-top:55px">
+                <div class="cardright border border-secondary rounded p-2" style="margin-top:24px">
                     <article class="card-group-item">
                         <%--                        <header class="card-header">
                             <h6 class="title">Useful Information </h6>
