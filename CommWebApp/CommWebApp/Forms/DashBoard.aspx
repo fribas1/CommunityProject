@@ -316,9 +316,9 @@
                         </tr>
                         <tr>
                             <td class="auto-style14">
-                                <asp:Button ID="btnSave" runat="server" CssClass="btn btn-outline-success" OnClick="btnSave_Click" Text="Save" />
+                                <asp:Button ID="btnSave" runat="server" CssClass="btn btn-outline-success" style="margin-bottom:400px" OnClick="btnSave_Click" Text="Save" />
                                 &nbsp;&nbsp;&nbsp;
-                                <asp:Button ID="btnGoBack" runat="server" CssClass="btn btn-outline-primary" Text="Go Back" />
+                                <asp:Button ID="btnGoBack" runat="server" CssClass="btn btn-outline-primary" style="margin-bottom:400px" Text="Go Back" />
                             </td>
                             <td class="auto-style12">&nbsp;</td>
                             <td class="auto-style14">&nbsp;</td>

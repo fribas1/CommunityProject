@@ -15,17 +15,6 @@
     border-right: 1px solid #EBE9ED;
 }
 
-.GridViewHeaderStyle {
-    background-color: #5D7B9D;
-    font-weight: bold;
-    color: White;
-}
-
-.GridViewFooterStyle {
-    background-color: #5D7B9D;
-    font-weight: bold;
-    color: White;
-}
 
 .GridViewRowStyle {
     background-color: rgba(0, 145, 254, 0.25);
@@ -42,12 +31,3 @@
         border: 1px solid #EBE9ED;
     }
 
-
-.GridViewPagerStyle {
-    background-color: #284775;
-    color: #FFFFFF;
-}
-
-    .GridViewPagerStyle table /* to center the paging links*/ {
-        margin: 0 auto 0 auto;
-    }
