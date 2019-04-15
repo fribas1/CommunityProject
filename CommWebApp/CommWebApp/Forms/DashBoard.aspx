@@ -127,7 +127,7 @@
                         <tr>
                             <td class="auto-style4">Title:</td>
                             <td class="auto-style4">
-                                <asp:TextBox CssClass="form-control" ID="txtTitleFilter" runat="server" Width="300px"></asp:TextBox>
+                                <asp:TextBox CssClass="form-control" ID="txtTitleFilter" runat="server"></asp:TextBox>
                             </td>
                             <td class="auto-style4"></td>
                         </tr>
@@ -206,7 +206,7 @@
                     </table>
                 </asp:Panel>
                 <br />
-                <asp:Button CssClass="btn btn-outline-info" style="margin-left:120px" ID="btnFilter" runat="server" Text="Apply" Width="145px" />
+                <asp:Button CssClass="btn btn-outline-info" style="margin-left:300px" ID="btnFilter" runat="server" Text="Apply" Width="160px" />
                 <br />
                 </div>
             </div>
