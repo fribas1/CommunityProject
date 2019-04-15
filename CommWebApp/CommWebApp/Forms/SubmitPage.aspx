@@ -103,17 +103,12 @@
         </nav>
 
         <%--END OF NAV BAR--%>
-                         <%--START OF SUBMISSION--%>
 
-      
-
-
-        <div class="container">
-           
-               <div class="col-lg-4 float-right mt-5">
-                    <div class="col1">
+        <div class=" container">
+            <div class="row">
+                <div class="col-lg-6 container mt-4 ml-0 mr-0 float-left">
                     <h2>Journal Submission</h2>
-                    <asp:Panel ID="pnlContent" runat="server"> </asp:Panel>
+                    <asp:Panel ID="pnlContent" runat="server">
                         <div class="col-lg-6 mt-3">
                             <h4>Manuscript</h4>
                             <div class="input-group mt-2 mb-2">
@@ -141,28 +136,14 @@
                             </div>
                             <asp:Label ID="lblMessage" runat="server" CssClass="text-danger" Visible="False"></asp:Label>
                             <br />
-                             <div class="btn-group">
-                                <asp:Button ID="btnSubmit" type="button" CssClass="btn btn-outline-success" runat="server" Text="Submit Article" Style="text-align: center" Height="50px" Width="180px" OnClick="btnSubmit_Click" />
-                            </div>
-                            </div>
                         </div>
-                   </div>
-                   
-                    
-                        <%--END SUB--%>
-        
-        
-        
-        
-        
-                       
-                         <h3 class="mt-3 mb-3">Co-Authors</h3>
-                        <div class="col-sm-5">                            
+                        <h3 class="mt-3 mb-3">Co-Authors</h3>
+                        <div class="col-lg-8">                            
                             <p>Please provide First name and Last name of any Co-Authors followed by comma sign (,)</p>
                             <asp:TextBox ID="txtCoauthors" CssClass="form-control" runat="server"  TextMode="MultiLine"></asp:TextBox><br />
                             </div>
                         <h3 class="mt-3">Article Details</h3>
-                        <div class=" mt-3  col-sm-5 ">
+                        <div class=" mt-3  col-lg-8">
                             <asp:Label ID="lblTitle" runat="server" Text="Title:" AssociatedControlID="txtTitle"></asp:Label>
                             <asp:TextBox CssClass="form-control" ID="txtTitle" runat="server" Height="30px"  AssociatedControlID="txtTitle"></asp:TextBox>
                             <asp:Label ID="lblTitleValid" runat="server" CssClass="text-danger" Visible="False"></asp:Label><br />
@@ -180,12 +161,12 @@
                             <asp:Label ID="lblError" runat="server" CssClass="text-danger" Visible="False"></asp:Label>
                             <br />
 
-                           
-                       </div>
+                            <div class="btn-group">
+                                <asp:Button ID="btnSubmit" type="button" CssClass="btn btn-outline-success" runat="server" Text="Submit Article" Style="text-align: center" Height="50px" Width="180px" OnClick="btnSubmit_Click" />
+                            </div>
+                        </div>
                         <br />
-
-        
-                    
+                    </asp:Panel>
                     <asp:Panel ID="pnlSuccess" runat="server" Visible="False">
                         <h3>Your article has been successfully created.</h3>
                         <asp:LinkButton ID="btnBack" runat="server" Text="Click here to return" OnClick="btnBack_Click" />
