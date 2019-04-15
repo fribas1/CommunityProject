@@ -79,6 +79,7 @@
                                 <div class="card-header">
                                     <a class="card-link" data-toggle="collapse" href="#collapse1">Organization
                                     </a>
+                                    <asp:Label ID="lblOrgStar" runat="server" ForeColor="Red" Text="*" Visible="False"></asp:Label>
                                 </div>
                                 <div id="collapse1" class="collapse" data-parent="#accordion">
                                     <div class="card-body">
@@ -103,6 +104,7 @@
                                 <div class="card-header">
                                     <a class="collapsed card-link" data-toggle="collapse" href="#collapse2">Rationale
                                     </a>
+                                    <asp:Label ID="lblRatStar" runat="server" ForeColor="Red" Text="*" Visible="False"></asp:Label>
                                 </div>
                                 <div id="collapse2" class="collapse" data-parent="#accordion">
                                     <div class="card-body">
@@ -126,6 +128,7 @@
                                 <div class="card-header">
                                     <a class="collapsed card-link" data-toggle="collapse" href="#collapse3">Methodology
                                     </a>
+                                    <asp:Label ID="lblMethStar" runat="server" ForeColor="Red" Text="*" Visible="False"></asp:Label>
                                 </div>
                                 <div id="collapse3" class="collapse" data-parent="#accordion">
                                     <div class="card-body">
@@ -149,6 +152,7 @@
                                 <div class="card-header">
                                     <a class="card-link" data-toggle="collapse" href="#collapse4">Findings
                                     </a>
+                                    <asp:Label ID="lblFindStar" runat="server" ForeColor="Red" Text="*" Visible="False"></asp:Label>
                                 </div>
                                 <div id="collapse4" class="collapse" data-parent="#accordion">
                                     <div class="card-body">
@@ -172,6 +176,7 @@
                                 <div class="card-header">
                                     <a class="collapsed card-link" data-toggle="collapse" href="#collapse5">Discussion
                                     </a>
+                                    <asp:Label ID="lblDisStar" runat="server" ForeColor="Red" Text="*" Visible="False"></asp:Label>
                                 </div>
                                 <div id="collapse5" class="collapse" data-parent="#accordion">
                                     <div class="card-body">
@@ -195,6 +200,7 @@
                                 <div class="card-header">
                                     <a class="collapsed card-link" data-toggle="collapse" href="#collapse6">Abstract
                                     </a>
+                                    <asp:Label ID="lblAbstStar" runat="server" ForeColor="Red" Text="*" Visible="False"></asp:Label>
                                 </div>
                                 <div id="collapse6" class="collapse" data-parent="#accordion">
                                     <div class="card-body">
@@ -218,6 +224,7 @@
                                 <div class="card-header">
                                     <a class="card-link" data-toggle="collapse" href="#collapse7">Manuscript
                                     </a>
+                                    <asp:Label ID="lblManuStar" runat="server" ForeColor="Red" Text="*" Visible="False"></asp:Label>
                                 </div>
                                 <div id="collapse7" class="collapse" data-parent="#accordion">
                                     <div class="card-body">
@@ -241,6 +248,7 @@
                                 <div class="card-header">
                                     <a class="collapsed card-link" data-toggle="collapse" href="#collapse8">Proper Formatting
                                     </a>
+                                    <asp:Label ID="lblPFStar" runat="server" ForeColor="Red" Text="*" Visible="False"></asp:Label>
                                 </div>
                                 <div id="collapse8" class="collapse" data-parent="#accordion">
                                     <div class="card-body">
@@ -264,6 +272,7 @@
                                 <div class="card-header">
                                     <a class="collapsed card-link" data-toggle="collapse" href="#collapse9">Citations
                                     </a>
+                                    <asp:Label ID="lblCitStar" runat="server" ForeColor="Red" Text="*" Visible="False"></asp:Label>
                                 </div>
                                 <div id="collapse9" class="collapse" data-parent="#accordion">
                                     <div class="card-body">

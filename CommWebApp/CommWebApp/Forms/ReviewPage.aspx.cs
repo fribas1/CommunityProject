@@ -43,48 +43,56 @@ namespace CommWebApp.Forms
                 org3.Checked == false && org4.Checked == false)
             {
                 notValid2.Visible = true;
+                lblOrgStar.Visible = true;
                 valid = false;
             }
             if (rationale1.Checked == false && rationale2.Checked == false &&
                 rationale3.Checked == false && rationale4.Checked == false)
             {
                 notValid3.Visible = true;
+                lblRatStar.Visible = true;
                 valid = false;
             }
             if (methodology1.Checked == false && methodology2.Checked == false &&
                 methodology3.Checked == false && methodology4.Checked == false)
             {
                 notValid4.Visible = true;
+                lblMethStar.Visible = true;
                 valid = false;
             }
             if (Findings1.Checked == false && Findings2.Checked == false &&
     Findings3.Checked == false && Findings4.Checked == false)
             {
                 notValid5.Visible = true;
+                lblFindStar.Visible = true;
                 valid = false;
             }
             if (Discussion1.Checked == false && Discussion2.Checked == false &&
     Discussion3.Checked == false && Discussion4.Checked == false)
             {
                 notValid6.Visible = true;
+                lblDisStar.Visible = true;
                 valid = false;
             }
             if (abstract1.Checked == false && abstract2.Checked == false &&
 abstract3.Checked == false && abstract4.Checked == false)
             {
                 notValid7.Visible = true;
+                lblAbstStar.Visible = true;
                 valid = false;
             }
             if (manuscript1.Checked == false && manuscript2.Checked == false &&
 manuscript3.Checked == false && manuscript4.Checked == false)
             {
                 notValid8.Visible = true;
+                lblManuStar.Visible = true;
                 valid = false;
             }
             if (formatted1.Checked == false && formatted2.Checked == false &&
 formatted3.Checked == false && formatted4.Checked == false)
             {
                 notValid9.Visible = true;
+                lblPFStar.Visible = true;
                 valid = false;
             }
 
@@ -92,6 +100,7 @@ formatted3.Checked == false && formatted4.Checked == false)
 citations3.Checked == false && citations4.Checked == false)
             {
                 notValid10.Visible = true;
+                lblCitStar.Visible = true;
                 valid = false;
             }
 

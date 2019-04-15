@@ -85,6 +85,15 @@ namespace CommWebApp.Forms {
         protected global::System.Web.UI.WebControls.Label notValid1;
         
         /// <summary>
+        /// lblOrgStar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblOrgStar;
+        
+        /// <summary>
         /// org1 control.
         /// </summary>
         /// <remarks>
@@ -128,6 +137,15 @@ namespace CommWebApp.Forms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label notValid2;
+        
+        /// <summary>
+        /// lblRatStar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblRatStar;
         
         /// <summary>
         /// rationale1 control.
@@ -175,6 +193,15 @@ namespace CommWebApp.Forms {
         protected global::System.Web.UI.WebControls.Label notValid3;
         
         /// <summary>
+        /// lblMethStar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMethStar;
+        
+        /// <summary>
         /// methodology1 control.
         /// </summary>
         /// <remarks>
@@ -218,6 +245,15 @@ namespace CommWebApp.Forms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label notValid4;
+        
+        /// <summary>
+        /// lblFindStar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFindStar;
         
         /// <summary>
         /// Findings1 control.
@@ -265,6 +301,15 @@ namespace CommWebApp.Forms {
         protected global::System.Web.UI.WebControls.Label notValid5;
         
         /// <summary>
+        /// lblDisStar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDisStar;
+        
+        /// <summary>
         /// Discussion1 control.
         /// </summary>
         /// <remarks>
@@ -308,6 +353,15 @@ namespace CommWebApp.Forms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label notValid6;
+        
+        /// <summary>
+        /// lblAbstStar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAbstStar;
         
         /// <summary>
         /// abstract1 control.
@@ -355,6 +409,15 @@ namespace CommWebApp.Forms {
         protected global::System.Web.UI.WebControls.Label notValid7;
         
         /// <summary>
+        /// lblManuStar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblManuStar;
+        
+        /// <summary>
         /// manuscript1 control.
         /// </summary>
         /// <remarks>
@@ -400,6 +463,15 @@ namespace CommWebApp.Forms {
         protected global::System.Web.UI.WebControls.Label notValid8;
         
         /// <summary>
+        /// lblPFStar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPFStar;
+        
+        /// <summary>
         /// formatted1 control.
         /// </summary>
         /// <remarks>
@@ -443,6 +515,15 @@ namespace CommWebApp.Forms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label notValid9;
+        
+        /// <summary>
+        /// lblCitStar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCitStar;
         
         /// <summary>
         /// citations1 control.
