@@ -17,13 +17,12 @@
 
 
 .GridViewRowStyle {
-    background-color: rgba(0, 145, 254, 0.25);
+    background-color: rgba(99, 172, 228, 0.70);
     color: black;
 }
 
 .GridViewAlternatingRowStyle {
-    
-    background-color: #FFFFFF;
+    background-color: black;
     color: black;
 }
 

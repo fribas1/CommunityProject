@@ -153,7 +153,7 @@
                     </table>
                 </asp:Panel>
                 <asp:Panel ID="panelSearchAuthor" runat="server">
-                    My Journal Posts - Search<br />
+                   <strong>My Journal Posts - Search</strong> <br />
                     <table class="w-100 text-left">
                         <tr>
                             <td class="auto-style4">Title:</td>
@@ -183,18 +183,18 @@
                         </tr>
                     </table>
                 </asp:Panel>
-                <asp:Panel ID="panelSearchAssociate" runat="server">
-                    Articles to be reviewed - Search<br />
+                <asp:Panel ID="panelSearchAssociate" runat="server"><br />
+                    <strong>Articles to be reviewed - Search</strong>
                     <table class="w-100 text-left">
                         <tr>
-                            <td class="auto-style7">Title:</td>
+                            <td class="auto-style4">Title:</td>
                             <td class="auto-style4">
                                 <asp:TextBox ID="txtTitleAssociate" runat="server" CssClass="form-control"></asp:TextBox>
                             </td>
-                            <td class="auto-style4"></td>
+                            <td class="auto-style5"></td>
                         </tr>
                         <tr>
-                            <td class="auto-style8">Date between:<br />
+                            <td class="auto-style5">Date between:<br />
                                 <br />
                                 and</td>
                             <td>
@@ -328,14 +328,31 @@
                 <%--END PANEL ASSIGNING--%>
 
                 <br />
+
+
+
+
+                
+                
+
+
+
+                  <%--Review Panel--%>
                 <asp:Panel ID="panelReview" runat="server">
                     <h2 class="mt-3">Articles to be reviewed</h2>
-                    <asp:GridView ID="gvReview" runat="server" AutoGenerateColumns="False" CssClass="table table-bordered table-sm" DataKeyNames="Id" DataSourceID="dsReviews" OnSelectedIndexChanged="gvReview_SelectedIndexChanged">
+                    <asp:GridView CssClass="table table-bordered table-sm" ID="gvReview" runat="server" AutoGenerateColumns="False"  DataKeyNames="Id" DataSourceID="dsReviews" OnSelectedIndexChanged="gvReview_SelectedIndexChanged">
+                       <FooterStyle CssClass="GridViewFooterStyle" />
+                <RowStyle CssClass="GridViewRowStyle" />    
+                <PagerStyle CssClass="GridViewPagerStyle" />
+                <AlternatingRowStyle CssClass="GridViewAlternatingRowStyle" />
+                <HeaderStyle CssClass="GridViewHeaderStyle" /> 
                         <Columns>
                             <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title" />
                             <asp:BoundField DataField="Name" HeaderText="Status" SortExpression="Name" />
                             <asp:BoundField DataField="CreatedOn" DataFormatString="{0:d}" HeaderText="Created On" SortExpression="CreatedOn" />
-                            <asp:ButtonField ButtonType="Button" CommandName="Select" Text="Review" />
+                            <asp:ButtonField ButtonType="Button" CommandName="Select" Text="Review" ControlStyle-CssClass="btn btn-outline-info">
+                             <ControlStyle CssClass="btn btn-outline-info" ></ControlStyle>
+                             </asp:ButtonField>
                         </Columns>
                         <EmptyDataTemplate>
                             You do not have any Revision assigned to you yet.
@@ -344,6 +361,7 @@
                 </asp:Panel>
                 <br />
             </div>
+              <%--Review Panel END--%>
             <div>
                 <br />
                 <br />
@@ -356,6 +374,7 @@
                             <asp:BoundField DataField="CreatedOn" DataFormatString="{0:d}" HeaderText="Created On" SortExpression="CreatedOn" />
                             <asp:BoundField DataField="CreatedBy" HeaderText="CreatedBy" SortExpression="CreatedBy" Visible="False" />
                             <asp:HyperLinkField DataNavigateUrlFields="Id" DataNavigateUrlFormatString="Comments.aspx?post={0}" Text="View Comments" />
+
                         </Columns>
                         <EmptyDataTemplate>
                             You do not have any submitted articles yet.
