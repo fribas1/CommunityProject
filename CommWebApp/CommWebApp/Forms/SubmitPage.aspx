@@ -27,9 +27,9 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script>
-    $( function() {
-        $( "#tabs" ).tabs();
-    } );
+        $(function () {
+            $("#tabs").tabs();
+        });
     </script>
     <style type="text/css">
         body {
@@ -64,7 +64,7 @@
             border-color: deepskyblue;
         }
 
-        
+
         /* navbar */
         .navbar-default {
             background-color: #F8F8F8;
@@ -138,40 +138,39 @@
                             <br />
                         </div>
                         <h3 class="mt-3 mb-3">Co-Authors</h3>
-                        <div class="col-lg-8">                            
+                        <div class="col-lg-8">
                             <p>Please provide First name and Last name of any Co-Authors followed by comma sign (,)</p>
-                            <asp:TextBox ID="txtCoauthors" CssClass="form-control" runat="server"  TextMode="MultiLine"></asp:TextBox><br />
-                            </div>
+                            <asp:TextBox ID="txtCoauthors" CssClass="form-control" runat="server" TextMode="MultiLine"></asp:TextBox><br />
+                        </div>
                         <h3 class="mt-3">Article Details</h3>
                         <div class=" mt-3  col-lg-8">
                             <asp:Label ID="lblTitle" runat="server" Text="Title:" AssociatedControlID="txtTitle"></asp:Label>
-                            <asp:TextBox CssClass="form-control" ID="txtTitle" runat="server" Height="30px"  AssociatedControlID="txtTitle"></asp:TextBox>
+                            <asp:TextBox CssClass="form-control" ID="txtTitle" runat="server" Height="30px" AssociatedControlID="txtTitle"></asp:TextBox>
                             <asp:Label ID="lblTitleValid" runat="server" CssClass="text-danger" Visible="False"></asp:Label><br />
 
                             <asp:Label ID="lblContent" runat="server" Text="Abstract:" AssociatedControlID="txtContent"></asp:Label>
-                            <asp:TextBox ID="txtContent" CssClass="form-control" runat="server"  TextMode="MultiLine"></asp:TextBox><br />
+                            <asp:TextBox ID="txtContent" CssClass="form-control" runat="server" TextMode="MultiLine"></asp:TextBox><br />
 
                             <asp:Label Text="Keywords:" runat="server" />
                             <p>Please provide 6 to 8 keywords separated by comma sign (,)</p>
-                            <asp:TextBox ID="txtKeywords" CssClass="form-control" runat="server"  TextMode="MultiLine"></asp:TextBox><br />
-                            </div>
-
-                            <asp:Label ID="lblTags" runat="server" Text="Tags:" AssociatedControlID="cblTags"></asp:Label>
-                            <asp:CheckBoxList CssClass="checkbox mt-2" ID="cblTags" runat="server" DataSourceID="dsTags" DataTextField="Name" DataValueField="Id" RepeatColumns="2"></asp:CheckBoxList>
-                            <asp:Label ID="lblError" runat="server" CssClass="text-danger" Visible="False"></asp:Label>
-                            <br />
-
-                            <div class="btn-group">
-                                <asp:Button ID="btnSubmit" type="button" CssClass="btn btn-outline-success" runat="server" Text="Submit Article" Style="text-align: center" Height="50px" Width="180px" OnClick="btnSubmit_Click" />
-                            </div>
+                            <asp:TextBox ID="txtKeywords" CssClass="form-control" runat="server" TextMode="MultiLine"></asp:TextBox><br />
                         </div>
+
+                        <asp:Label ID="lblTags" runat="server" Text="Tags:" AssociatedControlID="cblTags"></asp:Label>
+                        <asp:CheckBoxList CssClass="checkbox mt-2" ID="cblTags" runat="server" DataSourceID="dsTags" DataTextField="Name" DataValueField="Id" RepeatColumns="2"></asp:CheckBoxList>
+                        <asp:Label ID="lblError" runat="server" CssClass="text-danger" Visible="False"></asp:Label>
                         <br />
-                    </asp:Panel>
+
+                        <div class="btn-group">
+                            <asp:Button ID="btnSubmit" type="button" CssClass="btn btn-outline-success" runat="server" Text="Submit Article" Style="text-align: center" Height="50px" Width="180px" OnClick="btnSubmit_Click" />
+                        </div>
+                </div>
+                <br />
+                </asp:Panel>
                     <asp:Panel ID="pnlSuccess" runat="server" Visible="False">
                         <h3>Your article has been successfully created.</h3>
                         <asp:LinkButton ID="btnBack" runat="server" Text="Click here to return" OnClick="btnBack_Click" />
                     </asp:Panel>
-                </div>
                 <div id="tabs" class="mt-5 col-lg-6 border-0 float-right" runat="server" visible="false">
                     <ul>
                         <li><a href="#tabs-1">Manuscript</a></li>
@@ -184,7 +183,9 @@
                         <iframe src="/ViewerJS/#../Uploads/<%=hdFileName.Value %>" width='525' height='680' allowfullscreen webkitallowfullscreen></iframe>
                     </div>
                 </div>
+
             </div>
+        </div>
         </div>
 
        
